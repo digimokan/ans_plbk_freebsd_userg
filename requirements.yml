@@ -1,0 +1,28 @@
+roles:
+  - src: https://github.com/digimokan/ans_role_add_group
+  - src: https://github.com/digimokan/ans_role_add_user
+  - src: https://github.com/digimokan/ans_role_config_automount
+  - src: https://github.com/digimokan/ans_role_config_automatic_printing
+  - src: https://github.com/digimokan/ans_role_config_automatic_scanning
+  - src: https://github.com/digimokan/ans_role_config_cheese
+  - src: https://github.com/digimokan/ans_role_config_chromium
+  - src: https://github.com/digimokan/ans_role_config_firefox
+  - src: https://github.com/digimokan/ans_role_config_fish
+  - src: https://github.com/digimokan/ans_role_config_fonts
+  - src: https://github.com/digimokan/ans_role_config_gscan2pdf
+  # - src: https://github.com/digimokan/ans_role_config_i3wm_wm
+  - src: https://github.com/digimokan/ans_role_config_libreoffice
+  - src: https://github.com/digimokan/ans_role_config_loader
+  # - src: https://github.com/digimokan/ans_role_config_ly_dm
+  - src: https://github.com/digimokan/ans_role_config_obs
+  - src: https://github.com/digimokan/ans_role_config_sound
+  - src: https://github.com/digimokan/ans_role_config_sudo
+  - src: https://github.com/digimokan/ans_role_config_time
+  - src: https://github.com/digimokan/ans_role_config_upgrades
+  - src: https://github.com/digimokan/ans_role_config_video_drivers
+  - src: https://github.com/digimokan/ans_role_config_vlc
+  - src: https://github.com/digimokan/ans_role_config_webcam
+  - src: https://github.com/digimokan/ans_role_config_xdg_user_dirs
+  - src: https://github.com/digimokan/ans_role_create_filesystem_dataset
+  - src: https://github.com/digimokan/ans_role_vars_browser_search_providers
+

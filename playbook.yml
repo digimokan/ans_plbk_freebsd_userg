@@ -1,0 +1,161 @@
+- hosts: localhost
+  connection: local
+  vars_files:
+    - host_vars/vault.yml
+  vars:
+    admin_user_and_group_name: "admin"
+    sudo_users_group_name: "wheel"
+    zfs_pool: "zroot"
+  tasks:
+    - name: "Configure system clock, time, and time zone"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_time
+    - name: "Configure system and package upgrades"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_upgrades
+    - name: "Configure the FreeBSD 'loader' bootloader"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_loader
+      vars:
+        menu_timeout_seconds: "2"
+        load_cpu_microcode_updates: true
+    - name: "Add sudo-users group '{{ sudo_users_group_name }}'"
+      ansible.builtin.include_role:
+        name: ext/ans_role_add_group
+      vars:
+        group_name: "{{ sudo_users_group_name }}"
+        is_system_group: true
+    - name: "Create independent zfs filesystem dataset for '/home'"
+      ansible.builtin.include_role:
+        name: ans_role_create_filesystem_dataset
+      vars:
+        pool: "{{ zfs_pool }}"
+        dataset_path: "home"
+        mount_point: "/home"
+    - name: "Add and configure admin user '{{ admin_user_and_group_name }}'"
+      ansible.builtin.include_role:
+        name: ext/ans_role_add_user
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+        user_groups: "{{ sudo_users_group_name }}"
+        comment: "{{ admin_user_and_group_name }}"
+        create_home_dir: true
+        use_zfs_dataset_for_home_dir: true
+    - name: "Configure sudo settings, auth group '{{ sudo_users_group_name }}', and shell user '{{ admin_user_and_group_name }}'"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_sudo
+      vars:
+        ask_password_timeout: 45
+        password_prompt_timeout_minutes: 0
+        use_root_umask: true
+        set_auth_for_group: "{{ sudo_users_group_name }}"
+        user_for_shell_enhancements: "{{ admin_user_and_group_name }}"
+    - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
+      ansible.builtin.include_role:
+        name: ans_role_config_fish
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+        set_as_login_shell: true
+    - name: "Clone this playbook repo to home dir of admin user '{{ admin_user_and_group_name }}'"
+      ansible.builtin.git:
+        repo: "https://github.com/digimokan/ans_plbk_freebsd_mate_userl.git"
+        dest: "/home/{{ admin_user_and_group_name }}/ans_plbk_freebsd_mate_userl"
+        update: no
+      become: true
+      become_user: "{{ admin_user_and_group_name }}"
+    - name: "Create and configure XDG user dirs for '{{ admin_user_and_group_name }}'"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_xdg_user_dirs
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+    - name: "Install and configure video card drivers"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_video_drivers
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+        video_card_make: "Intel"
+        video_card_series: "HD"
+    - name: "Install and configure basic sound packages"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_sound
+      vars:
+        sound_card_type: 'intel'
+        force_set_sound_output_pcm_at_boot: '0'
+        intel_nid_disable_list:
+          - { card: '0', nid: '30', descrip: 'rear speaker/optical combo jack optical-out-channel' }
+          - { card: '0', nid: '33', descrip: 'front headphones jack out-channel' }
+          - { card: '1', nid: '3', descrip: 'rear HDMI jack audio-out-channel' }
+    - name: "Install and configure the automount device-mounting utility"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_automount
+    - name: "Install and configure the LibreOffice office application suite"
+      ansible.builtin.include_role:
+        name: ans_role_config_libreoffice
+    - name: "Install and configure the VLC video player"
+      ansible.builtin.include_role:
+        name: ans_role_config_vlc
+      vars:
+        enable_dvd_support: true
+    - name: "Define list of browser search providers"
+      ansible.builtin.import_role:
+        name: ext/ans_role_vars_browser_search_providers
+    - name: "Install and configure the Firefox browser"
+      ansible.builtin.include_role:
+        name: ans_role_config_firefox
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+        install_google_widevine_drm_addon: true
+        install_vimium_ext: true
+        allow_user_extension_install: true
+        firefox_search_providers: "{{ browser_search_providers }}"
+    - name: "Install and configure the Chromium browser"
+      ansible.builtin.include_role:
+        name: ans_role_config_chromium
+      vars:
+        install_vimium_ext: true
+        allow_user_ext_install: true
+        chromium_search_providers: "{{ browser_search_providers }}"
+    - name: "Configure automatic printer discovery and driverless printing"
+      ansible.builtin.include_role:
+        name: ans_role_config_automatic_printing
+    - name: "Configure automatic scanner discovery and driverless scanning"
+      ansible.builtin.include_role:
+        name: ans_role_config_automatic_scanning
+    - name: "Install and configure the gscan2pdf scanning application"
+      ansible.builtin.include_role:
+        name: ans_role_config_gscan2pdf
+    - name: "Configure webcam support"
+      ansible.builtin.include_role:
+        name: ans_role_config_webcam
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+    - name: "Install and configure the Cheese webcam snapshot application"
+      ansible.builtin.include_role:
+        name: ans_role_config_cheese
+    - name: "Install and configure the OBS video-recording application"
+      ansible.builtin.include_role:
+        name: ans_role_config_obs
+    # - name: "Install and configure the i3wm window manager"
+    #   ansible.builtin.include_role:
+    #     name: ext/ans_role_config_i3wm_wm
+    #   vars:
+    #     user_name: "{{ admin_user_and_group_name }}"
+    #     enable_sound_support: true
+    #     enable_printing_support: true
+    #     terminal_shell: "/usr/local/bin/fish"
+    #     terminal_window_height: "48"
+    #     terminal_window_width: "192"
+    # - name: "Install and configure the Ly display manager"
+    #   ansible.builtin.include_role:
+    #     name: ext/ans_role_config_ly_dm
+    #   vars:
+    #     default_user_name: "{{ admin_user_and_group_name }}"
+    #     hide_users_list: [ "{{ admin_user_and_group_name }}" ]
+    #     session: "i3wm"
+    - name: "Install a standard set of system font packages"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_fonts
+      vars:
+        install_ms_legacy_fonts: true
+        install_ms_vista_fonts: true
+
