@@ -135,16 +135,11 @@
     - name: "Install and configure the OBS video-recording application"
       ansible.builtin.include_role:
         name: ans_role_config_obs
-    # - name: "Install and configure the i3wm window manager"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_i3wm_wm
-    #   vars:
-    #     user_name: "{{ admin_user_and_group_name }}"
-    #     enable_sound_support: true
-    #     enable_printing_support: true
-    #     terminal_shell: "/usr/local/bin/fish"
-    #     terminal_window_height: "48"
-    #     terminal_window_width: "192"
+    - name: "Install and configure the i3wm window manager"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_i3wm_wm
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
     # - name: "Install and configure the Ly display manager"
     #   ansible.builtin.include_role:
     #     name: ext/ans_role_config_ly_dm
