@@ -69,11 +69,11 @@ for normal daily use, for one user:
 
 4. Follow guided installation. Select/enable __only__ these options:
 
-    * Set hostname to _userg.machine_.
+    * Host Name: _userg.machine_.
+    * Optional system components: none.
     * zfs guided installation: _stripe_ (for 1 disk), or _mirror_ (for 2 disks).
-    * For network interface _em0_: enable _IPv4_, and enable _dhcp_.
-    * Install service _ntpd_.
-    * Install service _ntpdate_.
+    * Network interface _em0_: enable _IPv4_, and enable _dhcp_.
+    * Install services: _ntpd_, _ntpdate_.
 
 5. Remove the USB stick, and reboot the PC to the new installation.
 
@@ -88,13 +88,13 @@ for normal daily use, for one user:
 2. Clone project into a local project directory:
 
    ```shell
-   $ git clone https://github.com/digimokan/ans_plbk_freebsd_mate_userg.git
+   $ git clone https://github.com/digimokan/ans_plbk_freebsd_userg.git
    ```
 
 3. Change to the local project directory:
 
    ```shell
-   $ cd ans_plbk_freebsd_mate_userg
+   $ cd ans_plbk_freebsd_userg
    ```
 
 4. Ensure `vault_password.txt` has been created, as desribed in
@@ -116,7 +116,7 @@ was set up during initial configuration.
 2. Change to the pre-provisioned project directory:
 
    ```shell
-   $ cd ans_plbk_freebsd_mate_userg
+   $ cd ans_plbk_freebsd_userg
    ```
 
 3. Run the [`configure.sh`](../configure.sh) script to update the workstation.
@@ -152,7 +152,7 @@ was set up during initial configuration.
 ## Source Code Layout
 
 ```
-├─┬ ans_plbk_freebsd_mate_userg/
+├─┬ ans_plbk_freebsd_userg/
 │ │
 │ ├─┬ host_vars/
 │ │ │
