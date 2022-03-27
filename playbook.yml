@@ -140,13 +140,9 @@
         name: ext/ans_role_config_i3wm_wm
       vars:
         user_name: "{{ admin_user_and_group_name }}"
-    # - name: "Install and configure the Ly display manager"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_ly_dm
-    #   vars:
-    #     default_user_name: "{{ admin_user_and_group_name }}"
-    #     hide_users_list: [ "{{ admin_user_and_group_name }}" ]
-    #     session: "i3wm"
+    - name: "Install and configure the Ly display manager"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_ly_dm
     - name: "Install a standard set of system font packages"
       ansible.builtin.include_role:
         name: ext/ans_role_config_fonts
