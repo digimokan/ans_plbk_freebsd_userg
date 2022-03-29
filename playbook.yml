@@ -55,7 +55,7 @@
         name: ans_role_config_fish
       vars:
         user_name: "{{ admin_user_and_group_name }}"
-        set_as_login_shell: true
+        set_as_login_shell: false
     - name: "Clone this playbook repo to home dir of admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.git:
         repo: "https://github.com/digimokan/ans_plbk_freebsd_mate_userl.git"
