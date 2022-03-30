@@ -146,6 +146,7 @@
         name: ans_role_config_xorg
       vars:
         user_name: "{{ admin_user_and_group_name }}"
+        exec_de_from_user_xinitrc: 'i3'
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
