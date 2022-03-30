@@ -21,6 +21,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_upgrades
   - src: https://github.com/digimokan/ans_role_config_video_drivers
   - src: https://github.com/digimokan/ans_role_config_vlc
+  - src: https://github.com/digimokan/ans_role_config_xorg
   - src: https://github.com/digimokan/ans_role_config_webcam
   - src: https://github.com/digimokan/ans_role_config_xdg_user_dirs
   - src: https://github.com/digimokan/ans_role_create_filesystem_dataset

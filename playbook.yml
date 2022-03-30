@@ -135,6 +135,17 @@
     - name: "Install and configure the OBS video-recording application"
       ansible.builtin.include_role:
         name: ans_role_config_obs
+    - name: "Install a standard set of system font packages"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_fonts
+      vars:
+        install_ms_legacy_fonts: true
+        install_ms_vista_fonts: true
+    - name: "Install and configure Xorg"
+      ansible.builtin.include_role:
+        name: ans_role_config_xorg
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
@@ -143,10 +154,4 @@
     - name: "Install and configure the Ly display manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_ly_dm
-    - name: "Install a standard set of system font packages"
-      ansible.builtin.include_role:
-        name: ext/ans_role_config_fonts
-      vars:
-        install_ms_legacy_fonts: true
-        install_ms_vista_fonts: true
 
