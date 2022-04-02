@@ -58,8 +58,8 @@
         set_as_login_shell: false
     - name: "Clone this playbook repo to home dir of admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.git:
-        repo: "https://github.com/digimokan/ans_plbk_freebsd_mate_userl.git"
-        dest: "/home/{{ admin_user_and_group_name }}/ans_plbk_freebsd_mate_userl"
+        repo: "https://github.com/digimokan/ans_plbk_freebsd_userg.git"
+        dest: "/home/{{ admin_user_and_group_name }}/ans_plbk_freebsd_userg"
         update: no
       become: true
       become_user: "{{ admin_user_and_group_name }}"
