@@ -6,7 +6,6 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_automatic_scanning
   - src: https://github.com/digimokan/ans_role_config_cheese
   - src: https://github.com/digimokan/ans_role_config_chromium
-  - src: https://github.com/digimokan/ans_role_config_compton
   - src: https://github.com/digimokan/ans_role_config_firefox
   - src: https://github.com/digimokan/ans_role_config_fish
   - src: https://github.com/digimokan/ans_role_config_fonts
@@ -16,6 +15,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_loader
   - src: https://github.com/digimokan/ans_role_config_ly_dm
   - src: https://github.com/digimokan/ans_role_config_obs
+  - src: https://github.com/digimokan/ans_role_config_picom
   - src: https://github.com/digimokan/ans_role_config_sound
   - src: https://github.com/digimokan/ans_role_config_sudo
   - src: https://github.com/digimokan/ans_role_config_time
