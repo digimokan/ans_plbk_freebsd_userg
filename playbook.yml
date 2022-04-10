@@ -155,7 +155,7 @@
         name: ext/ans_role_config_i3wm_wm
       vars:
         user_name: "{{ admin_user_and_group_name }}"
-        start_compositor_cmd: "{{ compton_start_cmd }}"
+        # start_compositor_cmd: "{{ compton_start_cmd }}"
         window_titles_font: "Liberation Sans 19"
         status_bar_font: "DejaVu Sans Mono 18"
     - name: "Install and configure the Ly display manager"
