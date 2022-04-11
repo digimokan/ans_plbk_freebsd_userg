@@ -155,6 +155,21 @@
         name: ext/ans_role_config_i3wm_wm
       vars:
         user_name: "{{ admin_user_and_group_name }}"
+        workspace_1_label: "{{ ucode_icon_workspace_1 }}"
+        workspace_2_label: "{{ ucode_icon_workspace_2 }}"
+        workspace_3_label: "{{ ucode_icon_workspace_3 }}"
+        workspace_4_label: "{{ ucode_icon_workspace_4 }}"
+        workspace_5_label: "{{ ucode_icon_workspace_5 }}"
+        workspace_6_label: "{{ ucode_icon_workspace_6 }}"
+        workspace_7_label: "{{ ucode_icon_workspace_7 }}"
+        workspace_8_label: "{{ ucode_icon_workspace_8 }}"
+        workspace_9_label: "{{ ucode_icon_workspace_9 }}"
+        workspace_10_label: "{{ ucode_icon_workspace_10 }}"
+        workspace_11_label: "{{ ucode_icon_workspace_11 }}"
+        workspace_12_label: "{{ ucode_icon_workspace_12 }}"
+        workspace_13_label: "{{ ucode_icon_workspace_13 }}"
+        workspace_14_label: "{{ ucode_icon_workspace_14 }}"
+        workspace_15_label: "{{ ucode_icon_workspace_15 }}"
     - name: "Install and configure the Ly display manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_ly_dm
