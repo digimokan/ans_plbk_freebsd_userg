@@ -139,6 +139,8 @@
       ansible.builtin.include_role:
         name: ext/ans_role_config_fonts
       vars:
+        install_liberation_font: true
+        install_dejavu_font: true
         install_ms_legacy_fonts: true
         install_ms_vista_fonts: true
     - name: "Install and configure Xorg"
@@ -155,6 +157,8 @@
         name: ext/ans_role_config_i3wm_wm
       vars:
         user_name: "{{ admin_user_and_group_name }}"
+        window_titles_font: "Liberation Sans 19"
+        panel_bar_font: "DejaVu Sans Mono 18"
         workspace_1_label: "{{ ucode_icon_workspace_1 }}"
         workspace_2_label: "{{ ucode_icon_workspace_2 }}"
         workspace_3_label: "{{ ucode_icon_workspace_3 }}"
