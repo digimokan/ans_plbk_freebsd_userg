@@ -149,9 +149,9 @@
       vars:
         user_name: "{{ admin_user_and_group_name }}"
         exec_de_from_user_xinitrc: 'i3'
-    - name: "Define the icons and labels for workspaces, tray items, etc"
+    - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
       ansible.builtin.import_role:
-        name: ext/ans_role_vars_ucode_icons
+        name: ext/ans_role_vars_wm_labels_colors
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
