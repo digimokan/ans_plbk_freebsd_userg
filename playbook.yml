@@ -161,9 +161,9 @@
       vars:
         user_name: "{{ admin_user_and_group_name }}"
         window_titles_font: "Liberation Sans 19"
-        panel_bar_font: "DejaVu Sans Mono 18"
         workspace_labels: "{{ wm_panel_bar_workspace_labels }}"
         start_panel_bar_cmd: "i3bar"
+        i3bar_font: "DejaVu Sans Mono 18"
         i3bar_bg_color: "{{ wm_panel_bar_bg_color }}"
         i3bar_workspace_colors: "{{ wm_panel_bar_workspace_colors }}"
         i3bar_status_area_cmd: "{{ i3status_start_cmd }}"
