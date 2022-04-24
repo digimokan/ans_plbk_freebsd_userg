@@ -97,8 +97,9 @@
       vars:
         enable_dvd_support: true
     - name: "Define list of browser search providers"
-      ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: ext/ans_role_vars_browser_search_providers
+        public: yes
     - name: "Install and configure the Firefox browser"
       ansible.builtin.include_role:
         name: ans_role_config_firefox
@@ -150,11 +151,13 @@
         user_name: "{{ admin_user_and_group_name }}"
         exec_de_from_user_xinitrc: 'i3'
     - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
-      ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: ext/ans_role_vars_wm_labels_colors
+        public: yes
     - name: "Install and configure the i3status panel-bar status area utility"
-      ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: ans_role_config_i3status
+        public: yes
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
