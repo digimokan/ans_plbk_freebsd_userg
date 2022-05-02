@@ -165,6 +165,7 @@
         font_style_italic: 'Oblique'
         font_style_bold_italic: 'Bold Oblique'
         alacritty_term_colors: "{{ terminal_colors }}"
+        shell_cmd: 'fish'
     - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
       ansible.builtin.include_role:
         name: ext/ans_role_vars_wm_labels_colors
@@ -183,6 +184,7 @@
         show_audio_volume_status_item: true
         show_sys_load_avg_status_item: true
         show_date_time_status_item: true
+        start_term_emulator_cmd: "{{ alacritty_start_cmd }}"
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
