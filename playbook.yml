@@ -160,6 +160,7 @@
         name: ans_role_config_alacritty
         public: yes
       vars:
+        alacritty_user_name: "{{ admin_user_and_group_name }}"
         font_family: 'DejaVu Sans Mono'
         font_size: 15
         font_style_italic: 'Oblique'
