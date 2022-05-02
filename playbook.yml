@@ -152,7 +152,7 @@
         user_name: "{{ admin_user_and_group_name }}"
         exec_de_from_user_xinitrc: 'i3'
     - name: "Define a set of terminal text, background, and cursor colors"
-      ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: ans_role_vars_terminal_colors
         public: yes
     - name: "Install and configure the alacritty terminal emulator"
