@@ -17,6 +17,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_loader
   - src: https://github.com/digimokan/ans_role_config_ly_dm
   - src: https://github.com/digimokan/ans_role_config_obs
+  - src: https://github.com/digimokan/ans_role_config_picom
   - src: https://github.com/digimokan/ans_role_config_sound
   - src: https://github.com/digimokan/ans_role_config_sudo
   - src: https://github.com/digimokan/ans_role_config_time
