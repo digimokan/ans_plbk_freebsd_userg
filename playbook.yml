@@ -155,17 +155,17 @@
       ansible.builtin.include_role:
         name: ans_role_vars_terminal_colors
         public: yes
-    - name: "Install and configure the alacritty terminal emulator"
+    - name: "Install and configure the kitty terminal emulator"
       ansible.builtin.include_role:
-        name: ans_role_config_alacritty
+        name: ans_role_config_kitty
         public: yes
       vars:
-        alacritty_user_name: "{{ admin_user_and_group_name }}"
+        kitty_user_name: "{{ admin_user_and_group_name }}"
         font_family: 'DejaVu Sans Mono'
         font_size: 15
         font_style_italic: 'Oblique'
         font_style_bold_italic: 'Bold Oblique'
-        alacritty_term_colors: "{{ terminal_colors }}"
+        kitty_term_colors: "{{ terminal_colors }}"
         shell_cmd: 'fish'
     - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
       ansible.builtin.include_role:
@@ -185,7 +185,7 @@
         show_audio_volume_status_item: true
         show_sys_load_avg_status_item: true
         show_date_time_status_item: true
-        start_term_emulator_cmd: "{{ alacritty_start_cmd }}"
+        start_term_emulator_cmd: "{{ kitty_start_cmd }}"
     - name: "Install and configure the picom compositor"
       ansible.builtin.include_role:
         name: ans_role_config_picom

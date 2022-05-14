@@ -1,7 +1,6 @@
 roles:
   - src: https://github.com/digimokan/ans_role_add_group
   - src: https://github.com/digimokan/ans_role_add_user
-  - src: https://github.com/digimokan/ans_role_config_alacritty
   - src: https://github.com/digimokan/ans_role_config_automount
   - src: https://github.com/digimokan/ans_role_config_automatic_printing
   - src: https://github.com/digimokan/ans_role_config_automatic_scanning
@@ -13,6 +12,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_gscan2pdf
   - src: https://github.com/digimokan/ans_role_config_i3status
   - src: https://github.com/digimokan/ans_role_config_i3wm_wm
+  - src: https://github.com/digimokan/ans_role_config_kitty
   - src: https://github.com/digimokan/ans_role_config_libreoffice
   - src: https://github.com/digimokan/ans_role_config_loader
   - src: https://github.com/digimokan/ans_role_config_ly_dm
