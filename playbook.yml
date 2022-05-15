@@ -197,6 +197,7 @@
         user_name: "{{ admin_user_and_group_name }}"
         start_compositor_cmd: "{{ picom_start_cmd }}"
         window_titles_font: "Liberation Sans 19"
+        i3wm_window_colors: "{{ wm_window_colors }}"
         workspace_labels: "{{ wm_panel_bar_workspace_labels }}"
         start_panel_bar_cmd: "i3bar"
         i3bar_font: "Droid Sans Mono 18"
