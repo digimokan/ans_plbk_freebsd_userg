@@ -199,6 +199,10 @@
         public: yes
       vars:
         i3lock_colors: "{{ wm_window_colors }}"
+    - name: "Install and configure the maim screenshot-capture utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_maim
+        public: yes
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
@@ -210,6 +214,8 @@
         screen_lock_cmd: "{{ i3lock_screen_lock_cmd }}"
         start_basic_term_emulator_cmd: "{{ kitty_start_cmd }}"
         start_enhanced_term_emulator_cmd: "{{ kitty_start_cmd }}"
+        cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
+        screenshot_png_save_dir: "/home/{{ admin_user_and_group_name }}/Desktop"
         i3wm_window_colors: "{{ wm_window_colors }}"
         workspace_labels: "{{ wm_panel_bar_workspace_labels }}"
         start_panel_bar_cmd: "i3bar"
