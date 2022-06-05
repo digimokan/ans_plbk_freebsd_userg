@@ -193,6 +193,12 @@
       ansible.builtin.include_role:
         name: ans_role_config_feh
         public: yes
+    - name: "Install and configure the i3lock screen locker"
+      ansible.builtin.include_role:
+        name: ans_role_config_i3lock
+        public: yes
+      vars:
+        i3lock_colors: "{{ wm_window_colors }}"
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
@@ -201,6 +207,7 @@
         start_compositor_cmd: "{{ picom_start_cmd }}"
         window_titles_font: "Liberation Sans 19"
         display_bg_wallpaper_cmd: "{{ feh_display_wallpaper_cmd }}"
+        screen_lock_cmd: "{{ i3lock_screen_lock_cmd }}"
         start_basic_term_emulator_cmd: "{{ kitty_start_cmd }}"
         start_enhanced_term_emulator_cmd: "{{ kitty_start_cmd }}"
         i3wm_window_colors: "{{ wm_window_colors }}"

@@ -11,6 +11,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_fish
   - src: https://github.com/digimokan/ans_role_config_fonts
   - src: https://github.com/digimokan/ans_role_config_gscan2pdf
+  - src: https://github.com/digimokan/ans_role_config_i3lock
   - src: https://github.com/digimokan/ans_role_config_i3status
   - src: https://github.com/digimokan/ans_role_config_i3wm_wm
   - src: https://github.com/digimokan/ans_role_config_kitty
