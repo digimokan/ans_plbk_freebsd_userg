@@ -185,10 +185,13 @@
         show_audio_volume_status_item: true
         show_sys_load_avg_status_item: true
         show_date_time_status_item: true
-        start_term_emulator_cmd: "{{ kitty_start_cmd }}"
     - name: "Install and configure the picom compositor"
       ansible.builtin.include_role:
         name: ans_role_config_picom
+        public: yes
+    - name: "Install and configure the feh image viewer utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_feh
         public: yes
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
@@ -197,6 +200,9 @@
         user_name: "{{ admin_user_and_group_name }}"
         start_compositor_cmd: "{{ picom_start_cmd }}"
         window_titles_font: "Liberation Sans 19"
+        display_bg_wallpaper_cmd: "{{ feh_display_wallpaper_cmd }}"
+        start_basic_term_emulator_cmd: "{{ kitty_start_cmd }}"
+        start_enhanced_term_emulator_cmd: "{{ kitty_start_cmd }}"
         i3wm_window_colors: "{{ wm_window_colors }}"
         workspace_labels: "{{ wm_panel_bar_workspace_labels }}"
         start_panel_bar_cmd: "i3bar"

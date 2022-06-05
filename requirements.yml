@@ -6,6 +6,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_automatic_scanning
   - src: https://github.com/digimokan/ans_role_config_cheese
   - src: https://github.com/digimokan/ans_role_config_chromium
+  - src: https://github.com/digimokan/ans_role_config_feh
   - src: https://github.com/digimokan/ans_role_config_firefox
   - src: https://github.com/digimokan/ans_role_config_fish
   - src: https://github.com/digimokan/ans_role_config_fonts
