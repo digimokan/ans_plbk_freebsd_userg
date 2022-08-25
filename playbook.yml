@@ -193,6 +193,12 @@
       ansible.builtin.include_role:
         name: ans_role_config_picom
         public: yes
+    - name: "Install and configure the rofi application launcher"
+      ansible.builtin.include_role:
+        name: ans_role_config_rofi
+        public: yes
+      vars:
+        rofi_user_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the feh image viewer utility"
       ansible.builtin.include_role:
         name: ans_role_config_feh
@@ -216,6 +222,7 @@
         window_titles_font: "Liberation Sans 19"
         display_bg_wallpaper_cmd: "{{ feh_display_wallpaper_cmd }}"
         screen_lock_cmd: "{{ i3lock_screen_lock_cmd }}"
+        launch_app_menu_cmd: "{{ rofi_start_app_launcher_cmd }}"
         start_basic_term_emulator_cmd: "{{ kitty_start_cmd }}"
         start_enhanced_term_emulator_cmd: "{{ kitty_start_cmd }}"
         cmd_inc_volume: "{{ oss_cmd_inc_volume }}"
