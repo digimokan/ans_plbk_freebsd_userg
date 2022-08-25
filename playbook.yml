@@ -218,6 +218,8 @@
         screen_lock_cmd: "{{ i3lock_screen_lock_cmd }}"
         start_basic_term_emulator_cmd: "{{ kitty_start_cmd }}"
         start_enhanced_term_emulator_cmd: "{{ kitty_start_cmd }}"
+        cmd_inc_volume: "{{ oss_cmd_inc_volume }}"
+        cmd_dec_volume: "{{ oss_cmd_dec_volume }}"
         cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
         screenshot_png_save_dir: "/home/{{ admin_user_and_group_name }}/Desktop"
         i3wm_window_colors: "{{ wm_window_colors }}"
