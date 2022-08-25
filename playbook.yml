@@ -199,6 +199,7 @@
         public: yes
       vars:
         rofi_user_name: "{{ admin_user_and_group_name }}"
+        rofi_font: "Liberation Sans 22"
     - name: "Install and configure the feh image viewer utility"
       ansible.builtin.include_role:
         name: ans_role_config_feh
