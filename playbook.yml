@@ -75,9 +75,10 @@
         user_name: "{{ admin_user_and_group_name }}"
         video_card_make: "Intel"
         video_card_series: "HD"
-    - name: "Install and configure basic sound packages"
+    - name: "Install and configure the OSS sound driver layer"
       ansible.builtin.include_role:
-        name: ext/ans_role_config_sound
+        name: ext/ans_role_config_oss
+        public: yes
       vars:
         sound_card_type: 'intel'
         force_set_sound_output_pcm_at_boot: '0'
@@ -85,6 +86,9 @@
           - { card: '0', nid: '30', descrip: 'rear speaker/optical combo jack optical-out-channel' }
           - { card: '0', nid: '33', descrip: 'front headphones jack out-channel' }
           - { card: '1', nid: '3', descrip: 'rear HDMI jack audio-out-channel' }
+    - name: "Install and configure the sndio sound driver layer"
+      ansible.builtin.include_role:
+        name: ans_role_config_sndio
     - name: "Install and configure the automount device-mounting utility"
       ansible.builtin.include_role:
         name: ext/ans_role_config_automount

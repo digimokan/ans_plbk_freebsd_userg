@@ -20,8 +20,9 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_ly_dm
   - src: https://github.com/digimokan/ans_role_config_maim
   - src: https://github.com/digimokan/ans_role_config_obs
+  - src: https://github.com/digimokan/ans_role_config_oss
   - src: https://github.com/digimokan/ans_role_config_picom
-  - src: https://github.com/digimokan/ans_role_config_sound
+  - src: https://github.com/digimokan/ans_role_config_sndio
   - src: https://github.com/digimokan/ans_role_config_sudo
   - src: https://github.com/digimokan/ans_role_config_time
   - src: https://github.com/digimokan/ans_role_config_upgrades
