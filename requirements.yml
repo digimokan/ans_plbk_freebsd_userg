@@ -17,6 +17,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_kitty
   - src: https://github.com/digimokan/ans_role_config_libreoffice
   - src: https://github.com/digimokan/ans_role_config_loader
+  - src: https://github.com/digimokan/ans_role_config_ly_dm
   - src: https://github.com/digimokan/ans_role_config_maim
   - src: https://github.com/digimokan/ans_role_config_obs
   - src: https://github.com/digimokan/ans_role_config_oss

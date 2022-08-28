@@ -155,8 +155,7 @@
       vars:
         user_name: "{{ admin_user_and_group_name }}"
         create_user_xinitrc: true
-        create_user_xserverrc: true
-        xinitrc_opts_exec_de: 'i3'
+        # xorg_key_repeat_delay_ms_rate_hz: '350 25'
     - name: "Define a set of terminal text, background, and cursor colors"
       ansible.builtin.include_role:
         name: ans_role_vars_terminal_colors
@@ -241,4 +240,7 @@
         i3bar_status_area_cmd: "{{ i3status_start_cmd }}"
         i3bar_status_item_separator: "{{ wm_panel_bar_status_item_separator }}"
         i3bar_status_item_colors: "{{ wm_panel_bar_status_item_colors }}"
+    - name: "Install and configure the Ly display manager"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_ly_dm
 
