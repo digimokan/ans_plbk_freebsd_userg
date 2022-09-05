@@ -156,7 +156,6 @@
         user_name: "{{ admin_user_and_group_name }}"
         create_user_xinitrc: true
         xorg_key_repeat_delay_ms_rate_hz: '350 25'
-        xorg_monitor_off_minutes: '1'
     - name: "Define a set of terminal text, background, and cursor colors"
       ansible.builtin.include_role:
         name: ans_role_vars_terminal_colors
