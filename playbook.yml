@@ -206,12 +206,15 @@
       ansible.builtin.include_role:
         name: ans_role_config_feh
         public: yes
-    - name: "Install and configure the i3lock screen locker"
+    - name: "Install and configure xscreensaver"
       ansible.builtin.include_role:
-        name: ans_role_config_i3lock
+        name: ans_role_config_xscreensaver
         public: yes
       vars:
-        i3lock_colors: "{{ wm_window_colors }}"
+        xscreensaver_user_name: "{{ admin_user_and_group_name }}"
+        screensaver_timeout_minutes: 1
+        screensaver_screen_lock_enable: false
+        monitor_turn_power_off: true
     - name: "Install and configure the maim screenshot-capture utility"
       ansible.builtin.include_role:
         name: ans_role_config_maim
@@ -221,20 +224,21 @@
         name: ext/ans_role_config_i3wm_wm
       vars:
         i3_user_name: "{{ admin_user_and_group_name }}"
-        start_compositor_cmd: "{{ picom_start_cmd }}"
         window_titles_font: "Liberation Sans 19"
-        display_bg_wallpaper_cmd: "{{ feh_display_wallpaper_cmd }}"
-        screen_lock_cmd: "{{ i3lock_screen_lock_cmd }}"
-        launch_app_menu_cmd: "{{ rofi_start_app_launcher_cmd }}"
-        start_basic_term_emulator_cmd: "{{ kitty_start_cmd }}"
-        start_enhanced_term_emulator_cmd: "{{ kitty_start_cmd }}"
-        cmd_inc_volume: "{{ oss_cmd_inc_volume }}"
-        cmd_dec_volume: "{{ oss_cmd_dec_volume }}"
-        cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
-        screenshot_png_save_dir: "/home/{{ admin_user_and_group_name }}/Desktop"
         i3wm_window_colors: "{{ wm_window_colors }}"
         workspace_labels: "{{ wm_panel_bar_workspace_labels }}"
-        start_panel_bar_cmd: "i3bar"
+        cmd_start_compositor: "{{ picom_start_cmd }}"
+        cmd_display_bg_wallpaper: "{{ feh_display_wallpaper_cmd }}"
+        cmd_start_screensaver_utility: "{{ xscreensaver_start_cmd }}"
+        cmd_screen_lock: "{{ xscreensaver_lock_cmd }}"
+        cmd_launch_app_menu: "{{ rofi_start_app_launcher_cmd }}"
+        cmd_start_basic_term_emulator: "{{ kitty_start_cmd }}"
+        cmd_start_enhanced_term_emulator: "{{ kitty_start_cmd }}"
+        cmd_inc_volume: "{{ oss_inc_volume_cmd }}"
+        cmd_dec_volume: "{{ oss_dec_volume_cmd }}"
+        cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
+        screenshot_png_save_dir: "/home/{{ admin_user_and_group_name }}/Desktop"
+        cmd_start_panel_bar: "i3bar"
         i3bar_font: "Droid Sans Mono 18"
         i3bar_bg_color: "{{ wm_panel_bar_bg_color }}"
         i3bar_workspace_colors: "{{ wm_panel_bar_workspace_colors }}"

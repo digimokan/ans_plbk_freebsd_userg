@@ -11,7 +11,6 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_fish
   - src: https://github.com/digimokan/ans_role_config_fonts
   - src: https://github.com/digimokan/ans_role_config_gscan2pdf
-  - src: https://github.com/digimokan/ans_role_config_i3lock
   - src: https://github.com/digimokan/ans_role_config_i3status
   - src: https://github.com/digimokan/ans_role_config_i3wm_wm
   - src: https://github.com/digimokan/ans_role_config_kitty
@@ -32,6 +31,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_xorg
   - src: https://github.com/digimokan/ans_role_config_webcam
   - src: https://github.com/digimokan/ans_role_config_xdg_user_dirs
+  - src: https://github.com/digimokan/ans_role_config_xscreensaver
   - src: https://github.com/digimokan/ans_role_create_filesystem_dataset
   - src: https://github.com/digimokan/ans_role_vars_browser_search_providers
   - src: https://github.com/digimokan/ans_role_vars_terminal_colors
