@@ -211,7 +211,7 @@
         public: yes
       vars:
         xscreensaver_user_name: "{{ admin_user_and_group_name }}"
-        screensaver_timeout_minutes: 1
+        screensaver_timeout_minutes: 10
         screensaver_screen_lock_enable: false
         monitor_turn_power_off: true
     - name: "Install and configure the maim screenshot-capture utility"
