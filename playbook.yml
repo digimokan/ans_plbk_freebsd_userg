@@ -218,6 +218,14 @@
       ansible.builtin.include_role:
         name: ans_role_config_maim
         public: yes
+    - name: "Install and configure the xcape keyboard-modifier utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_xcape
+        public: yes
+      vars:
+        tap_for_effect_mappings:
+          - { tap_key: 'Control_L', tap_effect: 'Control_L|space' }
+          - { tap_key: 'Control_R', tap_effect: 'Control_R|space' }
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
@@ -237,6 +245,8 @@
         cmd_inc_volume: "{{ oss_inc_volume_cmd }}"
         cmd_dec_volume: "{{ oss_dec_volume_cmd }}"
         cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
+        cmds_user_utilities:
+          - { cmd_start: "{{ xcape_start_cmd }}", descrip: 'run xcape keymod utility in the background' }
         screenshot_png_save_dir: "/home/{{ admin_user_and_group_name }}/Desktop"
         cmd_start_panel_bar: "i3bar"
         i3bar_font: "Droid Sans Mono 18"
