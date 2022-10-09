@@ -226,6 +226,10 @@
         tap_for_effect_mappings:
           - { tap_key: 'Control_L', tap_effect: 'Control_L|space' }
           - { tap_key: 'Control_R', tap_effect: 'Control_R|space' }
+    - name: "Install and configure the tmux terminal-multiplexer application"
+      ansible.builtin.include_role:
+        name: ans_role_config_tmux
+        public: yes
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
