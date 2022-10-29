@@ -79,10 +79,10 @@ for normal daily use, for one user:
 
 ### Configure Workstation
 
-1. Install _git_, _python_, and _ansible_ packages at the root prompt:
+1. Install _git_ package at the root prompt:
 
    ```shell
-   $ pkg install git python sysutils/ansible
+   $ pkg install git
    ```
 
 2. Clone project into a local project directory:
@@ -103,8 +103,9 @@ for normal daily use, for one user:
 5. Run the [`configure.sh`](../configure.sh) script to configure the workstation.
 
    ```shell
-   $ ./configure.sh
+   $ ./configure.sh -u
    ```
+   _NOTE: -u option required for initial run, and after system/package updates._
 
 ### Update Workstation
 
