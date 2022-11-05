@@ -140,6 +140,17 @@
     - name: "Install and configure the OBS video-recording application"
       ansible.builtin.include_role:
         name: ans_role_config_obs
+    - name: "Install the restic backup program, and configure backups to a remote repo"
+      ansible.builtin.include_role:
+        name: ans_role_config_restic
+      vars:
+        restic_user_name: "{{ admin_user_and_group_name }}"
+        restic_aws_bucket_url: "{{ userg_restic_aws_bucket_url }}"
+        restic_aws_access_key_id: "{{ userg_restic_aws_access_key_id }}"
+        restic_aws_secret_access_key: "{{ userg_restic_aws_secret_access_key }}"
+        enable_automatic_backups: true
+        automatic_backup_dirs:
+          - "/home/{{ admin_user_and_group_name }}/Documents/"
     - name: "Install a standard set of system font packages"
       ansible.builtin.include_role:
         name: ext/ans_role_config_fonts
