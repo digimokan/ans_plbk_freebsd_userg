@@ -145,9 +145,9 @@
         name: ans_role_config_restic
       vars:
         restic_user_name: "{{ admin_user_and_group_name }}"
-        restic_aws_bucket_url: "{{ userg_restic_aws_bucket_url }}"
-        restic_aws_access_key_id: "{{ userg_restic_aws_access_key_id }}"
-        restic_aws_secret_access_key: "{{ userg_restic_aws_secret_access_key }}"
+        restic_s3_bucket_url: "{{ userg_restic_s3_bucket_url }}"
+        restic_s3_access_key_id: "{{ userg_restic_s3_access_key_id }}"
+        restic_s3_secret_access_key: "{{ userg_restic_s3_secret_access_key }}"
         enable_automatic_backups: true
         automatic_backup_dirs:
           - "/home/{{ admin_user_and_group_name }}/Documents/"
