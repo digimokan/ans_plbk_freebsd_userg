@@ -10,7 +10,6 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_firefox
   - src: https://github.com/digimokan/ans_role_config_fish
   - src: https://github.com/digimokan/ans_role_config_fonts
-  - src: https://github.com/digimokan/ans_role_config_gscan2pdf
   - src: https://github.com/digimokan/ans_role_config_i3status
   - src: https://github.com/digimokan/ans_role_config_i3wm_wm
   - src: https://github.com/digimokan/ans_role_config_kitty
@@ -22,6 +21,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_picom
   - src: https://github.com/digimokan/ans_role_config_restic
   - src: https://github.com/digimokan/ans_role_config_rofi
+  - src: https://github.com/digimokan/ans_role_config_simple_scan
   - src: https://github.com/digimokan/ans_role_config_sndio
   - src: https://github.com/digimokan/ans_role_config_sudo
   - src: https://github.com/digimokan/ans_role_config_time
