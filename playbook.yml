@@ -151,6 +151,7 @@
         enable_automatic_backups: true
         automatic_restic_backup_dirs:
           - "/home/{{ admin_user_and_group_name }}/Documents/"
+          - "/home/{{ admin_user_and_group_name }}/Templates/"
     - name: "Install a standard set of system font packages"
       ansible.builtin.include_role:
         name: ext/ans_role_config_fonts
