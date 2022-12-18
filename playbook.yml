@@ -148,10 +148,10 @@
         restic_s3_bucket_url: "{{ userg_restic_s3_bucket_url }}"
         restic_s3_bucket_key_id: "{{ userg_restic_s3_bucket_key_id }}"
         restic_s3_bucket_secret_keystring: "{{ userg_restic_s3_bucket_secret_keystring }}"
-        enable_automatic_backups: true
         automatic_restic_backup_dirs:
           - "/home/{{ admin_user_and_group_name }}/Documents/"
           - "/home/{{ admin_user_and_group_name }}/Templates/"
+        restic_user_guide_dir: "/home/{{ admin_user_and_group_name }}/"
     - name: "Install a standard set of system font packages"
       ansible.builtin.include_role:
         name: ext/ans_role_config_fonts
