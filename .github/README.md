@@ -8,8 +8,7 @@ Ansible playbook to configure a NUC6I7KYK with FreeBSD and i3wm.
 ## Table Of Contents
 
 * [Purpose](#purpose)
-* [Main Hardware](#main-hardware)
-* [Supplementary Hardware](#supplementary-hardware)
+* [Hardware Parts List](#hardware-parts-list)
 * [Hardware Configuration](#hardware-configuration)
 * [Quick Start](#quick-start)
     * [Install Base System](#install-base-system)
@@ -25,26 +24,33 @@ Ansible playbook to configure a NUC6I7KYK with FreeBSD and i3wm.
 Set up a workstation/desktop-PC on a [NUC6I7KYK](https://www.intel.com/content/www/us/en/products/sku/89187/intel-nuc-kit-nuc6i7kyk/specifications.html)
 for normal daily use, for one user:
 
+* Install FreeBSD on two mirrored hard drives.
 * Configure the [i3wm](https://i3wm.org/) window manager.
 * Configure a basic set of desktop applications.
 * Configure a set of applications for software development.
 
-## Main Hardware
+## Hardware Parts List
 
-* NUC6I7KYK, with RAM installed, and one or two hard drives installed.
-* An empty/formattable USB stick (to write the FreeBSD iso to).
-* A workstation PC with with an empty/formattable hard drive (or two empty hard
-  drives, for a mirrored installation).
-
-## Supplementary Hardware
-
-* [HP Pavilion 22CWA 21.5 in 1080p IPS LED Monitor](https://www.amazon.com/dp/B015WCV70W).
+* [Intel NUC6I7KYK Bare Bones Kit](https://www.amazon.com/gp/product/B01DJ9XS52):
+  for main PC kit.
+* [Monoprice 1 ft 3-Prong AC Power Cord](https://www.amazon.com/Monoprice-18AWG-Grounded-Power-IEC-320-C5/dp/B08BXM5CGB):
+  since NUC6I7KYK Bare Bones Kit DC adapter is missing this part.
+* [Crucial 32GB DDR4 RAM](https://www.amazon.com/gp/product/B015YPB8ME):
+  for two 16GB RAM boards.
+* [Samsung 970 EVO Plus NVMe M.2 2TB SSD, x 2](https://www.amazon.com/gp/product/B07MFZXR1B):
+  for two mirrored hard drives.
+* [HP Pavilion 22CWA 21.5 in 1080p IPS LED Monitor](https://www.amazon.com/dp/B015WCV70W):
+  connected to rear HDMI port.
 * [Logitech Z207 Powered Speakers](https://www.amazon.com/dp/B074KJ6JQW):
   for main desktop sound, connected to rear 3.5 mm input jack.
+* [Cable Matters Ultra Mini 4 Port USB 3.0 Hub, x 2](https://www.amazon.com/dp/B00PHPWLPA):
+  for two hubs, each connected to a rear USB 3.0 port.
 * [eMeet USB Speakerphone](https://www.amazon.com/dp/B07Q3D7F8S):
-  to provide mic + speaker for video-conferencing and recording.
+  to provide mic + speaker for video-conferencing and recording, connected to
+  rear USB Hub.
 * [Logitech C920e Webcam (Mic-Disabled)](https://www.amazon.com/dp/B08CS18WVP):
-  for cam-input only (mic-disabled, to declutter sound panel selections).
+  for camera-input only (mic-disabled, to declutter sound panel selections),
+  connected to rear USB Hub.
 
 ## Hardware Configuration
 
