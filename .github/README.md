@@ -77,7 +77,7 @@ for normal daily use, for one user:
 
     * Host Name: _userg.machine_.
     * Optional system components: none.
-    * zfs guided installation: _stripe_ (for 1 disk), or _mirror_ (for 2 disks).
+    * zfs guided installation: _mirror_ (for 2 disks), and enable _encrypt disks_.
     * Network interface _em0_: enable _IPv4_, and enable _dhcp_.
     * Install services: _ntpd_, _ntpdate_.
 
