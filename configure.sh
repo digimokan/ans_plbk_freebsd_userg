@@ -73,7 +73,7 @@ quit_err_msg_with_help() {
 }
 
 do_ugrade_ansible_packages() {
-  pkg install --yes sysutils/ansible
+  pkg install --yes sysutils/ansible python
   exit_code="${?}"
   if [ "${exit_code}" != 0 ]; then
     quit_err_msg_with_help "error attempting to upgrade ansible" 5
