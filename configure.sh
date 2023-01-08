@@ -8,6 +8,9 @@
 # User Selection Options
 ugrade_ansible_packages='false'
 
+# Hard-Coded Selections
+bootstrap_packages='sysutils/ansible python'
+
 print_usage() {
   echo 'USAGE:'
   echo "  $(basename "${0}")  -h"
@@ -72,37 +75,54 @@ quit_err_msg_with_help() {
   print_usage "${2}"
 }
 
-do_ugrade_ansible_packages() {
-  pkg install --yes sysutils/ansible python
+try_with_exit() {
+  cmd="${1}"
+  err_msg="${2}"
+  err_code="${3}"
+  echo "Executing cmd: '${cmd}'..."
+  eval "${cmd}"
   exit_code="${?}"
   if [ "${exit_code}" != 0 ]; then
-    quit_err_msg_with_help "error attempting to upgrade ansible" 5
+    quit_err_msg_with_help "${err_msg}" "${err_code}"
   fi
+}
+
+get_sudo_root_passwd_from_user() {
+  stty -echo
+  printf "Enter sudo (root) password: " >&2
+  read -r sudo_root_password
+  stty echo
+}
+
+do_ugrade_ansible_packages() {
+  if [ "$(id -un)" = 'root' ]; then
+    cmd_prefix=''
+  else
+    cmd_prefix="echo ${sudo_root_password} | sudo -S "
+  fi
+
+  try_with_exit \
+    "${cmd_prefix}pkg install --yes ${bootstrap_packages}" \
+    "error attempting to upgrade ansible" 5
 }
 
 download_roles_and_collections() {
   # use ansible-galaxy cmd to download roles & collections from github/galaxy/etc
-  ansible-galaxy install \
-    --role-file requirements.yml \
-    --roles-path ./roles/ext \
-    --force-with-deps
-  exit_code="${?}"
-  if [ "${exit_code}" != 0 ]; then
-    quit_err_msg_with_help "error attempting to download roles and collections" 10
-  fi
+  try_with_exit \
+    "ansible-galaxy install --role-file requirements.yml --roles-path ./roles/ext --force-with-deps" \
+    "error attempting to download roles and collections" 10
 }
 
 run_playbook() {
   # run the playbook, passing through args to ansible-playbook cmd
-  ansible-playbook -i hosts --ask-become-pass --become-method=su playbook.yml
-  exit_code="${?}"
-  if [ "${exit_code}" != 0 ]; then
-    quit_err_msg_with_help "error attempting to run playbook" 10
-  fi
+  try_with_exit \
+    "ansible-playbook -i hosts --become-method=su --extra-vars='ansible_become_password=${sudo_root_password}' playbook.yml" \
+    "error attempting to run playbook" 10
 }
 
 main() {
   get_cmd_opts "$@"
+  get_sudo_root_passwd_from_user "$@"
   if [ "${ugrade_ansible_packages}" = 'true' ]; then
     do_ugrade_ansible_packages "$@"
   fi
