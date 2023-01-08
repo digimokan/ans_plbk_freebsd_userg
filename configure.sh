@@ -75,18 +75,6 @@ quit_err_msg_with_help() {
   print_usage "${2}"
 }
 
-try_with_exit() {
-  cmd="${1}"
-  err_msg="${2}"
-  err_code="${3}"
-  echo "Executing cmd: '${cmd}'..."
-  eval "${cmd}"
-  exit_code="${?}"
-  if [ "${exit_code}" != 0 ]; then
-    quit_err_msg_with_help "${err_msg}" "${err_code}"
-  fi
-}
-
 try_silent_with_exit() {
   cmd="${1}"
   err_msg="${2}"
@@ -114,14 +102,14 @@ get_sudo_root_passwd_from_user() {
 }
 
 do_ugrade_ansible_packages() {
-  try_with_exit \
+  try_silent_with_exit \
     "${cmd_prefix}pkg install --yes ${bootstrap_packages}" \
     "error attempting to upgrade ansible" 5
 }
 
 download_roles_and_collections() {
   # use ansible-galaxy cmd to download roles & collections from github/galaxy/etc
-  try_with_exit \
+  try_silent_with_exit \
     "${cmd_prefix}ansible-galaxy install --role-file requirements.yml --roles-path ./roles/ext --force-with-deps" \
     "error attempting to download roles and collections" 10
 }
