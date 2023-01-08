@@ -88,19 +88,21 @@ try_with_exit() {
 }
 
 get_sudo_root_passwd_from_user() {
+  # get the root password at command line
   stty -echo
   printf "Enter sudo (root) password: " >&2
   read -r sudo_root_password
   stty echo
-}
 
-do_ugrade_ansible_packages() {
+  # invoke all cmds *other than ansible-playbook* with sudo
   if [ "$(id -un)" = 'root' ]; then
     cmd_prefix=''
   else
     cmd_prefix="echo ${sudo_root_password} | sudo -S "
   fi
+}
 
+do_ugrade_ansible_packages() {
   try_with_exit \
     "${cmd_prefix}pkg install --yes ${bootstrap_packages}" \
     "error attempting to upgrade ansible" 5
@@ -109,7 +111,7 @@ do_ugrade_ansible_packages() {
 download_roles_and_collections() {
   # use ansible-galaxy cmd to download roles & collections from github/galaxy/etc
   try_with_exit \
-    "ansible-galaxy install --role-file requirements.yml --roles-path ./roles/ext --force-with-deps" \
+    "${cmd_prefix}ansible-galaxy install --role-file requirements.yml --roles-path ./roles/ext --force-with-deps" \
     "error attempting to download roles and collections" 10
 }
 
