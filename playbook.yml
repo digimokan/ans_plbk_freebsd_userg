@@ -259,7 +259,7 @@
         cmd_screen_lock: "{{ xscreensaver_lock_cmd }}"
         cmd_launch_app_menu: "{{ rofi_start_app_launcher_cmd }}"
         cmd_start_basic_term_emulator: "{{ kitty_start_cmd }}"
-        cmd_start_enhanced_term_emulator: "{{ kitty_start_cmd }}"
+        cmd_start_enhanced_term_emulator: "{{ start_tmux_in_term_emulator }}"
         cmd_inc_volume: "{{ oss_inc_volume_cmd }}"
         cmd_dec_volume: "{{ oss_dec_volume_cmd }}"
         cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
