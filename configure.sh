@@ -87,6 +87,17 @@ try_with_exit() {
   fi
 }
 
+try_silent_with_exit() {
+  cmd="${1}"
+  err_msg="${2}"
+  err_code="${3}"
+  eval "${cmd}"
+  exit_code="${?}"
+  if [ "${exit_code}" != 0 ]; then
+    quit_err_msg_with_help "${err_msg}" "${err_code}"
+  fi
+}
+
 get_sudo_root_passwd_from_user() {
   # get the root password at command line
   stty -echo
@@ -117,7 +128,7 @@ download_roles_and_collections() {
 
 run_playbook() {
   # run the playbook, passing through args to ansible-playbook cmd
-  try_with_exit \
+  try_silent_with_exit \
     "ansible-playbook -i hosts --become-method=su --extra-vars='ansible_become_password=${sudo_root_password}' playbook.yml" \
     "error attempting to run playbook" 10
 }
