@@ -244,6 +244,7 @@
         public: yes
       vars:
         start_term_emulator_run_cmd_prefix: "{{ kitty_start_and_run_cmd }}"
+        shell_cmd: 'fish'
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
