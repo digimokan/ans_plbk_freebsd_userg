@@ -1,0 +1,3 @@
+[submodule "third_party/ans_bootstrap_run_playbook"]
+	path = third_party/ans_bootstrap_run_playbook
+	url = https://github.com/digimokan/ans_bootstrap_run_playbook.git
