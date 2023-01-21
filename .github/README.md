@@ -190,6 +190,7 @@ was set up during initial configuration.
 ## Integration Tests
 
 * Play a video in browser(s).
+* Check builtin headphone jack on speakers.
 * Check microphone input in browser(s): https://www.onlinemictest.com/.
 * Check webcam in browser(s): https://www.onlinemictest.com/webcam-test/.
 * Check mic and webcam in a google meeting.
