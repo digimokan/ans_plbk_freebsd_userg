@@ -9,7 +9,7 @@ Ansible playbook to configure a NUC6I7KYK with FreeBSD and i3wm.
 
 * [Purpose](#purpose)
 * [Hardware Parts List](#hardware-parts-list)
-* [Hardware Configuration](#hardware-configuration)
+* [NUC6I7KYK BIOS Configuration](#nuc6i7kyk-bios-configuration)
 * [Quick Start](#quick-start)
     * [Install Base System](#install-base-system)
     * [Configure Workstation](#configure-workstation)
@@ -52,13 +52,16 @@ for normal daily use, for one user:
   for camera-input only (mic-disabled, to declutter sound panel selections),
   connected to rear USB Hub.
 
-## Hardware Configuration
+## NUC6I7KYK BIOS Configuration
 
-* Update NUC6I7KYK BIOS to Version 0074 (29 OCT 2021).
-* BIOS Devices: disable 'Thunderbolt Controller.'
-* BIOS Devices: disable 'WLAN.'
-* BIOS Devices: disable 'Bluetooth.'
-* BIOS Devices: disable 'Enhanced Consumer IR.'
+* Press F7 at BIOS screen to update BIOS firmware:
+    * Update to Version 0074 (29 OCT 2021), with
+      [file KY0074.bio](https://www.intel.com/content/www/us/en/download/18677/bios-update-kyskli70.html).
+* Press F2 at BIOS screen, and go to Devices Tab:
+    * Disable 'Thunderbolt Controller.'
+    * Disable 'WLAN.'
+    * Disable 'Bluetooth.'
+    * Disable 'Enhanced Consumer IR.'
 
 ## Quick Start
 
