@@ -244,10 +244,10 @@
         public: yes
       vars:
         tmux_user_name: "{{ admin_user_and_group_name }}"
+        tmux_shell: 'fish'
         start_tmux_session_in_term:
           term_cmd: "{{ kitty_start_cmd }}"
           term_arg_exec: "{{ kitty_arg_exec }}"
-          shell: 'fish'
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
