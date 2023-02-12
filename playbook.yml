@@ -245,6 +245,7 @@
       vars:
         tmux_user_name: "{{ admin_user_and_group_name }}"
         tmux_shell: 'fish'
+        keymap_prefix: 'C-Space'
         tmux_cmd_start_term_emulator: "{{ kitty_start_cmd }}"
         tmux_cmd_term_emulator_exec_arg: "{{ kitty_arg_exec }}"
         export_start_tmux_term_session_cmd: true
