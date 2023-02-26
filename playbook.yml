@@ -250,8 +250,8 @@
         tmux_cmd_term_emulator_exec_arg: "{{ kitty_arg_exec }}"
         export_start_tmux_term_session_cmd: true
         create_start_tmux_session_prog_in_term_cmd:
-          - { cli: 'ranger', name: 'ranger', dot_desktop_launcher: true }
-          - { cli: 'vim .', name: 'vim_dir_mode', dot_desktop_launcher: false }
+          - { cli: 'ranger', name: 'ranger', dot_desktop_launcher: true, persist_session: true }
+          - { cli: 'vim .', name: 'vim_dir_mode', dot_desktop_launcher: false, persist_session: false }
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
