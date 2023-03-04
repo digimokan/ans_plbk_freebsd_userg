@@ -20,6 +20,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_oss
   - src: https://github.com/digimokan/ans_role_config_picom
   - src: https://github.com/digimokan/ans_role_config_restic
+  - src: https://github.com/digimokan/ans_role_config_ranger
   - src: https://github.com/digimokan/ans_role_config_rofi
   - src: https://github.com/digimokan/ans_role_config_simple_scan
   - src: https://github.com/digimokan/ans_role_config_sndio
