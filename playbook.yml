@@ -178,6 +178,8 @@
         public: yes
       vars:
         wezterm_user_name: "{{ admin_user_and_group_name }}"
+        font_family: 'DejaVu Sans Mono'
+        font_size: 15
     - name: "Install and configure the kitty terminal emulator"
       ansible.builtin.include_role:
         name: ans_role_config_kitty
