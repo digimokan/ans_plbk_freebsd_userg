@@ -5,6 +5,7 @@
   vars:
     admin_user_and_group_name: "admin"
     sudo_users_group_name: "wheel"
+    github_user_name: "digimokan"
     zfs_pool: "zroot"
   tasks:
     - name: "Configure system clock, time, and time zone"
@@ -168,6 +169,13 @@
         user_name: "{{ admin_user_and_group_name }}"
         create_user_xinitrc: true
         xorg_key_repeat_delay_ms_rate_hz: '350 25'
+    - name: "Install and configure the git version control system"
+      ansible.builtin.include_role:
+        name: ans_role_config_git
+        public: yes
+      vars:
+        git_machine_user_name: "{{ admin_user_and_group_name }}"
+        git_vcs_user_name: "{{ github_user_name }}"
     - name: "Define a set of terminal text, background, and cursor colors"
       ansible.builtin.include_role:
         name: ans_role_vars_terminal_colors
