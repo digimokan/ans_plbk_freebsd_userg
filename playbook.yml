@@ -176,6 +176,7 @@
       vars:
         git_machine_user_name: "{{ admin_user_and_group_name }}"
         git_vcs_user_name: "{{ github_user_name }}"
+        export_cmd_current_git_branch: true
     - name: "Define a set of terminal text, background, and cursor colors"
       ansible.builtin.include_role:
         name: ans_role_vars_terminal_colors
