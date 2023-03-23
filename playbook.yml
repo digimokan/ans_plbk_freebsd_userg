@@ -191,6 +191,7 @@
         font_size: 15
         wezterm_term_colors: "{{ terminal_colors }}"
         shell_cmd: 'fish'
+        vcs_tree_icon: "{{ wm_panel_bar_status_item_labels.vcs_tree }}"
         tab_bar_get_git_branch_cmd: "{{ git_cmd_current_git_branch }}"
     - name: "Install and configure the kitty terminal emulator"
       ansible.builtin.include_role:
