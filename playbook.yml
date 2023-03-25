@@ -181,6 +181,10 @@
       ansible.builtin.include_role:
         name: ans_role_vars_terminal_colors
         public: yes
+    - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
+      ansible.builtin.include_role:
+        name: ext/ans_role_vars_wm_labels_colors
+        public: yes
     - name: "Install and configure the wezterm terminal emulator"
       ansible.builtin.include_role:
         name: ans_role_config_wezterm
@@ -205,10 +209,6 @@
         font_style_bold_italic: 'Bold Oblique'
         kitty_term_colors: "{{ terminal_colors }}"
         shell_cmd: 'fish'
-    - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
-      ansible.builtin.include_role:
-        name: ext/ans_role_vars_wm_labels_colors
-        public: yes
     - name: "Install and configure the i3status panel-bar status area utility"
       ansible.builtin.include_role:
         name: ans_role_config_i3status
