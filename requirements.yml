@@ -13,7 +13,6 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_git
   - src: https://github.com/digimokan/ans_role_config_i3status
   - src: https://github.com/digimokan/ans_role_config_i3wm_wm
-  - src: https://github.com/digimokan/ans_role_config_kitty
   - src: https://github.com/digimokan/ans_role_config_libreoffice
   - src: https://github.com/digimokan/ans_role_config_loader
   - src: https://github.com/digimokan/ans_role_config_maim
@@ -27,11 +26,9 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_sndio
   - src: https://github.com/digimokan/ans_role_config_sudo
   - src: https://github.com/digimokan/ans_role_config_time
-  - src: https://github.com/digimokan/ans_role_config_tmux
   - src: https://github.com/digimokan/ans_role_config_upgrades
   - src: https://github.com/digimokan/ans_role_config_video_drivers
   - src: https://github.com/digimokan/ans_role_config_vlc
-  - src: https://github.com/digimokan/ans_role_config_xcape
   - src: https://github.com/digimokan/ans_role_config_xdm_dm
   - src: https://github.com/digimokan/ans_role_config_xorg
   - src: https://github.com/digimokan/ans_role_config_webcam

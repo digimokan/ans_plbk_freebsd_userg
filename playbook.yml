@@ -197,18 +197,6 @@
         shell_cmd: 'fish'
         vcs_tree_icon: "{{ wm_panel_bar_status_item_labels.vcs_tree }}"
         tab_bar_get_git_branch_cmd: "{{ git_cmd_current_git_branch }}"
-    - name: "Install and configure the kitty terminal emulator"
-      ansible.builtin.include_role:
-        name: ans_role_config_kitty
-        public: yes
-      vars:
-        kitty_user_name: "{{ admin_user_and_group_name }}"
-        font_family: 'DejaVu Sans Mono'
-        font_size: 15
-        font_style_italic: 'Oblique'
-        font_style_bold_italic: 'Bold Oblique'
-        kitty_term_colors: "{{ terminal_colors }}"
-        shell_cmd: 'fish'
     - name: "Install and configure the i3status panel-bar status area utility"
       ansible.builtin.include_role:
         name: ans_role_config_i3status
@@ -251,28 +239,6 @@
       ansible.builtin.include_role:
         name: ans_role_config_maim
         public: yes
-    - name: "Install and configure the xcape keyboard-modifier utility"
-      ansible.builtin.include_role:
-        name: ans_role_config_xcape
-        public: yes
-      vars:
-        tap_for_effect_mappings:
-          - { tap_key: 'Control_L', tap_effect: 'Control_L|space' }
-          - { tap_key: 'Control_R', tap_effect: 'Control_R|space' }
-    - name: "Install and configure the tmux terminal-multiplexer application"
-      ansible.builtin.include_role:
-        name: ans_role_config_tmux
-        public: yes
-      vars:
-        tmux_user_name: "{{ admin_user_and_group_name }}"
-        tmux_shell: 'fish'
-        keymap_prefix: 'C-Space'
-        tmux_cmd_start_term_emulator: "{{ kitty_start_cmd }}"
-        tmux_cmd_term_emulator_exec_arg: "{{ kitty_arg_exec }}"
-        export_start_tmux_term_session_cmd: true
-        create_start_tmux_session_prog_in_term_cmd:
-          - { cli: 'ranger', name: 'ranger', dot_desktop_launcher: true, persist_session: true }
-          - { cli: 'vim .', name: 'vim_dir_mode', dot_desktop_launcher: false, persist_session: false }
     - name: "Install and configure the ranger file manager"
       ansible.builtin.include_role:
         name: ans_role_config_ranger
@@ -292,13 +258,10 @@
         cmd_start_screensaver_utility: "{{ xscreensaver_start_cmd }}"
         cmd_screen_lock: "{{ xscreensaver_lock_cmd }}"
         cmd_launch_app_menu: "{{ rofi_start_app_launcher_cmd }}"
-        cmd_start_basic_term_emulator: "{{ kitty_start_cmd }}"
-        cmd_start_enhanced_term_emulator: "{{ tmux_cmd_start_session_in_term_emulator }}"
+        cmd_start_term_emulator: "{{ wezterm_main_cmd }}"
         cmd_inc_volume: "{{ oss_inc_volume_cmd }}"
         cmd_dec_volume: "{{ oss_dec_volume_cmd }}"
         cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
-        cmds_user_utilities:
-          - { cmd_start: "{{ xcape_start_cmd }}", descrip: 'run xcape keymod utility in the background' }
         screenshot_png_save_dir: "/home/{{ admin_user_and_group_name }}/Desktop"
         cmd_start_panel_bar: "i3bar"
         i3bar_font: "Droid Sans Mono 18"
