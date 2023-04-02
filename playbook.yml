@@ -252,7 +252,7 @@
         start_term_emulator: "{{ wezterm_main_cmd }}"
         term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
         dot_desktop_launchers:
-          - { cli: 'ranger_cd', name: 'ranger' }
+          - { cli: 'ranger', name: 'ranger' }
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
