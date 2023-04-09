@@ -250,6 +250,7 @@
         ranger_user_name: "{{ admin_user_and_group_name }}"
         # note: wezterm supports iterm2 image-display protocol
         image_preview_program: "iterm2"
+        ranger_fzf_cmd: "{{ fzf_main_cmd }}"
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
