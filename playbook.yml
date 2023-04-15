@@ -50,7 +50,7 @@
       vars:
         filesystem_datasets:
           - pool: "{{ zfs_pool }}"
-            path: 'home'
+            path: '/home'
             mount: '/home'
             owner: 'root'
             group: "{{ root_user_group_name }}"
