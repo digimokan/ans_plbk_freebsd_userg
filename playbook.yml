@@ -36,6 +36,7 @@
         user_name: "{{ admin_user_and_group_name }}"
         user_groups:
           - "{{ sudo_users_group_name }}"
+          - "video"
           - "webcamd"
         comment: "{{ admin_user_and_group_name }}"
         create_home_dir: false
