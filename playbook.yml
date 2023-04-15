@@ -153,8 +153,6 @@
     - name: "Configure webcam support"
       ansible.builtin.include_role:
         name: ans_role_config_webcam
-      vars:
-        user_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the Cheese webcam snapshot application"
       ansible.builtin.include_role:
         name: ans_role_config_cheese
