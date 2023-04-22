@@ -79,7 +79,7 @@
         name: ext/ans_role_config_xdg_user_dirs
       vars:
         user_name: "{{ admin_user_and_group_name }}"
-    - name: "Configure sudo settings, auth group '{{ sudo_users_group_name }}', and shell user '{{ admin_user_and_group_name }}'"
+    - name: "Configure sudo settings for auth group '{{ sudo_users_group_name }}'"
       ansible.builtin.include_role:
         name: ext/ans_role_config_sudo
       vars:
@@ -87,13 +87,6 @@
         password_prompt_timeout_minutes: 0
         use_root_umask: true
         set_auth_for_group: "{{ sudo_users_group_name }}"
-        user_for_shell_enhancements: "{{ admin_user_and_group_name }}"
-    - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
-      ansible.builtin.include_role:
-        name: ans_role_config_fish
-      vars:
-        user_name: "{{ admin_user_and_group_name }}"
-        set_as_login_shell: false
     - name: "Clone this playbook repo to home dir of admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.git:
         repo: "https://github.com/digimokan/ans_plbk_freebsd_userg.git"
@@ -313,4 +306,14 @@
       vars:
         xdm_user_name: "{{ admin_user_and_group_name }}"
         session: "{{ i3wm_session }}"
+    - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
+      ansible.builtin.include_role:
+        name: ans_role_config_fish
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+    - name: "Set env vars, login actions, and logout actions for admin user '{{ admin_user_and_group_name }}'"
+      ansible.builtin.include_role:
+        name: ans_role_config_shell
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
 
