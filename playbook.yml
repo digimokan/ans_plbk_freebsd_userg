@@ -56,24 +56,14 @@
         name: ans_role_create_filesystem_datasets
       vars:
         filesystem_datasets:
-          - pool: "{{ zfs_pool }}"
-            path: '/home'
-            mount: '/home'
-            owner: 'root'
-            group: "{{ root_user_group_name }}"
-            mode: '755'
-          - pool: "{{ zfs_pool }}"
-            path: "{{ admin_user_home_dir }}"
-            mount: 'inherited'
-            owner: "{{ admin_user_and_group_name }}"
-            group: "{{ admin_user_and_group_name }}"
-            mode: '710'
-          - pool: "{{ zfs_pool }}"
-            path: "{{ admin_user_trash_dir }}"
-            mount: 'inherited'
-            owner: "{{ admin_user_and_group_name }}"
-            group: "{{ admin_user_and_group_name }}"
-            mode: '755'
+          - { pool: "{{ zpl }}", path: '/home',      mount: '/home',     owner: 'root',       group: "{{ rusg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ hdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710' }
+          - { pool: "{{ zpl }}", path: "{{ tdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+        zpl: "{{ zfs_pool }}"
+        hdir: "{{ admin_user_home_dir }}"
+        tdir: "{{ admin_user_trash_dir }}"
+        rusg: "{{ root_user_group_name }}"
+        ausg: "{{ admin_user_and_group_name }}"
     - name: "Create and configure XDG user dirs for '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
         name: ext/ans_role_config_xdg_user_dirs
