@@ -45,6 +45,10 @@
       ansible.builtin.include_role:
         name: ans_role_config_webcam
         public: yes
+    - name: "Install and configure GNU coreutils"
+         ansible.builtin.include_role:
+           name: ans_role_config_gnu_coreutils
+           public: yes
     - name: "Add sudo-users group '{{ sudo_users_group_name }}'"
       ansible.builtin.include_role:
         name: ext/ans_role_add_group

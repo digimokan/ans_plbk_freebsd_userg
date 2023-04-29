@@ -13,6 +13,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_fzf
   - src: https://github.com/digimokan/ans_role_config_fonts
   - src: https://github.com/digimokan/ans_role_config_git
+  - src: https://github.com/digimokan/ans_role_config_gnu_coreutils
   - src: https://github.com/digimokan/ans_role_config_i3status
   - src: https://github.com/digimokan/ans_role_config_i3wm_wm
   - src: https://github.com/digimokan/ans_role_config_libreoffice
