@@ -264,6 +264,10 @@
         ranger_fzf_cmd: "{{ fzf_main_cmd }}"
         ranger_gnu_coreutils_mv_cmd: "{{ gnu_coreutils_mv_cmd }}"
         ranger_trash_dir: "{{ admin_user_trash_dir }}"
+        start_term_emulator: "{{ wezterm_main_cmd }}"
+        term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
+        term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
+        start_text_editor: "{{ neovim_main_cmd }}"
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
