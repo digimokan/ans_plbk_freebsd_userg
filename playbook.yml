@@ -265,6 +265,7 @@
         ranger_gnu_coreutils_mv_cmd: "{{ gnu_coreutils_mv_cmd }}"
         ranger_trash_dir: "{{ admin_user_trash_dir }}"
         start_term_emulator: "{{ wezterm_main_cmd }}"
+        open_new_term_emulator_tab: "{{ wezterm_new_tab_cmd }}"
         term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
         term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
         start_text_editor: "{{ neovim_main_cmd }}"
