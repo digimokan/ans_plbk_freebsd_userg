@@ -120,6 +120,7 @@
     - name: "Install and configure the Firefox browser"
       ansible.builtin.include_role:
         name: ans_role_config_firefox
+        public: yes
       vars:
         user_name: "{{ admin_user_and_group_name }}"
         install_google_widevine_drm_addon: true
@@ -129,6 +130,7 @@
     - name: "Install and configure the Chromium browser"
       ansible.builtin.include_role:
         name: ans_role_config_chromium
+        public: yes
       vars:
         install_vimium_ext: true
         allow_user_ext_install: true
@@ -268,6 +270,7 @@
         term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
         term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
         start_text_editor: "{{ neovim_main_cmd }}"
+        open_html_files_with: ['qutebrowser', "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}"]
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
@@ -320,4 +323,8 @@
         name: ans_role_config_shell
       vars:
         user_name: "{{ admin_user_and_group_name }}"
+        shell_env_vars:
+          - { name: 'VISUAL', val: {{ neovim_main_cmd }}, descrip: 'set default text editor' }
+          - { name: 'EDITOR', val: {{ neovim_main_cmd }}, descrip: 'set default text editor (legacy, line-mode)' }
+          - { name: 'PAGER',  val: 'less',                descrip: 'set default pager program' }
 
