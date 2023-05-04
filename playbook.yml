@@ -135,12 +135,6 @@
         install_vimium_ext: true
         allow_user_ext_install: true
         chromium_search_providers: "{{ browser_search_providers }}"
-
-    - name: "See what chromium_main_cmd is...."
-      ansible.builtin.debug:
-        var: chromium_main_cmd
-
-
     - name: "Configure automatic printer discovery and driverless printing"
       ansible.builtin.include_role:
         name: ans_role_config_automatic_printing
