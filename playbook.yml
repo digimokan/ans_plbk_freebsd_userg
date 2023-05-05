@@ -108,6 +108,10 @@
     - name: "Install and configure the LibreOffice office application suite"
       ansible.builtin.include_role:
         name: ans_role_config_libreoffice
+    - name: "Install and configure the atril pdf viewer"
+      ansible.builtin.include_role:
+        name: ans_role_config_atril
+        public: yes
     - name: "Install and configure the VLC video player"
       ansible.builtin.include_role:
         name: ans_role_config_vlc
@@ -278,11 +282,12 @@
         term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
         term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
         start_text_editor: "{{ neovim_main_cmd }}"
+        open_pdf_files_with: [ "{{ atril_main_cmd }}" ]
+        open_audio_files_with: [ "{{ vlc_main_cmd }}" ]
+        open_video_files_with: [ "{{ vlc_main_cmd }}" ]
         # chromium pkg broken in FreeBSD, as of 05 MAY 2023
         # open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
         open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}" ]
-        open_audio_files_with: [ "{{ vlc_main_cmd }}" ]
-        open_video_files_with: [ "{{ vlc_main_cmd }}" ]
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
