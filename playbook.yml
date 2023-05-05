@@ -131,14 +131,15 @@
         install_vimium_ext: true
         allow_user_extension_install: true
         firefox_search_providers: "{{ browser_search_providers }}"
-    - name: "Install and configure the Chromium browser"
-      ansible.builtin.include_role:
-        name: ans_role_config_chromium
-        public: yes
-      vars:
-        install_vimium_ext: true
-        allow_user_ext_install: true
-        chromium_search_providers: "{{ browser_search_providers }}"
+    # chromium pkg broken in FreeBSD, as of 05 MAY 2023
+    # - name: "Install and configure the Chromium browser"
+    #   ansible.builtin.include_role:
+    #     name: ans_role_config_chromium
+    #     public: yes
+    #   vars:
+    #     install_vimium_ext: true
+    #     allow_user_ext_install: true
+    #     chromium_search_providers: "{{ browser_search_providers }}"
     - name: "Configure automatic printer discovery and driverless printing"
       ansible.builtin.include_role:
         name: ans_role_config_automatic_printing
@@ -276,7 +277,9 @@
         term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
         term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
         start_text_editor: "{{ neovim_main_cmd }}"
-        open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
+        # chromium pkg broken in FreeBSD, as of 05 MAY 2023
+        # open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
+        open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}" ]
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
