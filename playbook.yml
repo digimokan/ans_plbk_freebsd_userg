@@ -108,6 +108,7 @@
     - name: "Install and configure the LibreOffice office application suite"
       ansible.builtin.include_role:
         name: ans_role_config_libreoffice
+        public: yes
     - name: "Install and configure the atril pdf viewer"
       ansible.builtin.include_role:
         name: ans_role_config_atril
@@ -282,6 +283,7 @@
         term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
         term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
         start_text_editor: "{{ neovim_main_cmd }}"
+        open_office_files_with: [ "{{ libreoffice_main_cmd }}" ]
         open_pdf_files_with: [ "{{ atril_main_cmd }}" ]
         open_audio_files_with: [ "{{ vlc_main_cmd }}" ]
         open_video_files_with: [ "{{ vlc_main_cmd }}" ]
