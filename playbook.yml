@@ -111,6 +111,7 @@
     - name: "Install and configure the VLC video player"
       ansible.builtin.include_role:
         name: ans_role_config_vlc
+        public: yes
       vars:
         enable_dvd_support: true
     - name: "Define list of browser search providers"
