@@ -280,6 +280,8 @@
         # chromium pkg broken in FreeBSD, as of 05 MAY 2023
         # open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
         open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}" ]
+        open_audio_files_with: [ "{{ vlc_main_cmd }}" ]
+        open_video_files_with: [ "{{ vlc_main_cmd }}" ]
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
