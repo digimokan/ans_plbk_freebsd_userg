@@ -23,6 +23,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_obs
   - src: https://github.com/digimokan/ans_role_config_oss
   - src: https://github.com/digimokan/ans_role_config_picom
+  - src: https://github.com/digimokan/ans_role_config_qutebrowser
   - src: https://github.com/digimokan/ans_role_config_restic
   - src: https://github.com/digimokan/ans_role_config_ranger
   - src: https://github.com/digimokan/ans_role_config_rofi

@@ -117,6 +117,10 @@
       ansible.builtin.include_role:
         name: ext/ans_role_vars_browser_search_providers
         public: yes
+    - name: "Install and configure the qutebrowser web-browser"
+      ansible.builtin.include_role:
+        name: ans_role_config_qutebrowser
+        public: yes
     - name: "Install and configure the Firefox browser"
       ansible.builtin.include_role:
         name: ans_role_config_firefox
@@ -272,7 +276,7 @@
         term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
         term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
         start_text_editor: "{{ neovim_main_cmd }}"
-        open_html_files_with: [ 'qutebrowser', "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
+        open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
