@@ -300,6 +300,7 @@
         open_audio_files_with: [ "{{ vlc_main_cmd }}" ]
         open_video_files_with: [ "{{ vlc_main_cmd }}" ]
         open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
+        preview_text_file_cmd: "{{ bat_main_cmd }}"
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
