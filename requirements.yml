@@ -19,6 +19,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_gnu_image_mp
   - src: https://github.com/digimokan/ans_role_config_i3status
   - src: https://github.com/digimokan/ans_role_config_i3wm_wm
+  - src: https://github.com/digimokan/ans_role_config_libarchive_utils
   - src: https://github.com/digimokan/ans_role_config_libreoffice
   - src: https://github.com/digimokan/ans_role_config_loader
   - src: https://github.com/digimokan/ans_role_config_maim
