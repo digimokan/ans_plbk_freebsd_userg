@@ -305,6 +305,7 @@
         open_video_files_with: [ "{{ vlc_main_cmd }}" ]
         open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
         preview_text_file_cmd: "{{ bat_8bit_color_plain_cmd }}"
+        preview_docx_file_cmd: "{{ pandoc_conv_to_markdown_cmd }}"
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
