@@ -311,6 +311,11 @@
         preview_text_file_cmd: "{{ bat_8bit_color_plain_cmd }}"
         preview_odt_file_cmd: "{{ pandoc_conv_to_markdown_cmd }}"
         preview_docx_file_cmd: "{{ pandoc_conv_to_markdown_cmd }}"
+        preview_tar_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
+        preview_gzip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
+        preview_zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
+        preview_xz_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
+        preview_7zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
