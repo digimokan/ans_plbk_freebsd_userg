@@ -280,6 +280,10 @@
       ansible.builtin.include_role:
         name: ans_role_config_pandoc
         public: yes
+    - name: "Install and configure the bundled catdoc/xls2cxv file-conversion utilities"
+      ansible.builtin.include_role:
+        name: ans_role_config_catdoc_xls2csv
+        public: yes
     - name: "Install and configure the bat enhanced-cat utility"
       ansible.builtin.include_role:
         name: ans_role_config_bat
@@ -312,8 +316,12 @@
         open_video_files_with: [ "{{ vlc_main_cmd }}" ]
         open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
         preview_text_file_cmd: "{{ bat_8bit_color_plain_cmd }}"
+        preview_rtf_file_cmd: "{{ catdoc_conv_rtf_to_text_cmd }}"
         preview_odt_file_cmd: "{{ pandoc_conv_to_markdown_cmd }}"
+        preview_doc_file_cmd: "{{ catdoc_conv_doc_to_text_cmd }}"
         preview_docx_file_cmd: "{{ pandoc_conv_to_markdown_cmd }}"
+        preview_xls_file_cmd: "{{ xls2csv_conv_xls_to_text_cmd }}"
+        preview_xlsx_file_cmd: "{{ xls2csv_conv_xlsx_to_text_cmd }}"
         preview_tar_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_gzip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
