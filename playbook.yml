@@ -296,8 +296,12 @@
         bat_user_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the neovim text editor"
       ansible.builtin.include_role:
-       name: ans_role_config_neovim
-       public: yes
+        name: ans_role_config_neovim
+        public: yes
+    - name: "Install and configure the helix text editor"
+      ansible.builtin.include_role:
+        name: ans_role_config_helix
+        public: yes
     - name: "Install and configure the ranger file manager"
       ansible.builtin.include_role:
         name: ans_role_config_ranger
