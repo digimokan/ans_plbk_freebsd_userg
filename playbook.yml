@@ -294,12 +294,18 @@
         public: yes
       vars:
         bat_user_name: "{{ admin_user_and_group_name }}"
+    - name: "Install and configure the clang C/C++ compiler"
+      ansible.builtin.include_role:
+        name: ans_role_config_clang
+        public: yes
     - name: "Install and configure the neovim text editor"
       ansible.builtin.include_role:
         name: ans_role_config_neovim
         public: yes
       vars:
         neovim_user_name: "{{ admin_user_and_group_name }}"
+        neovim_lsp_server_cmd_list:
+          - "{{ clang_start_language_server_cmd }}"
     - name: "Install and configure the ranger file manager"
       ansible.builtin.include_role:
         name: ans_role_config_ranger
