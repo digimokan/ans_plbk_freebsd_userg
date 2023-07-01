@@ -298,6 +298,10 @@
       ansible.builtin.include_role:
         name: ans_role_config_clang
         public: yes
+    - name: "Install and configure the cmake build-system generator"
+      ansible.builtin.include_role:
+        name: ans_role_config_cmake
+        public: yes
     - name: "Install and configure the neovim text editor"
       ansible.builtin.include_role:
         name: ans_role_config_neovim
