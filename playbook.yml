@@ -272,6 +272,10 @@
       ansible.builtin.include_role:
         name: ans_role_config_fzf
         public: yes
+    - name: "Install and configure the ripgrep command-line grep replacement"
+      ansible.builtin.include_role:
+        name: ans_role_config_ripgrep
+        public: yes
     - name: "Install and configure libarchive utilities"
       ansible.builtin.include_role:
         name: ans_role_config_libarchive_utils
@@ -308,6 +312,7 @@
         public: yes
       vars:
         neovim_user_name: "{{ admin_user_and_group_name }}"
+        neovim_ripgrep_cmd: "{{ ripgrep_main_cmd }}"
         neovim_lsp_server_cmd_list:
           - "{{ clang_start_language_server_cmd }}"
     - name: "Install and configure the ranger file manager"
