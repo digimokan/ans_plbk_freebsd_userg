@@ -261,6 +261,10 @@
       vars:
         rofi_user_name: "{{ admin_user_and_group_name }}"
         rofi_font: "Liberation Sans 22"
+    - name: "Install and configure the xsel clipboard provider"
+      ansible.builtin.include_role:
+        name: ans_role_config_xsel
+        public: yes
     - name: "Install and configure xscreensaver"
       ansible.builtin.include_role:
         name: ans_role_config_xscreensaver
@@ -325,6 +329,7 @@
         neovim_ripgrep_cmd: "{{ ripgrep_main_cmd }}"
         neovim_lsp_server_cmd_list:
           - "{{ clang_start_language_server_cmd }}"
+        neovim_clipboard_provider: "{{ xsel_main_cmd }}"
     - name: "Install and configure the ranger file manager"
       ansible.builtin.include_role:
         name: ans_role_config_ranger
