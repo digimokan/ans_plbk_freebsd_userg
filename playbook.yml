@@ -320,6 +320,10 @@
       ansible.builtin.include_role:
         name: ans_role_config_cmake
         public: yes
+    - name: "Install and configure the shellcheck shell script linter"
+      ansible.builtin.include_role:
+        name: ans_role_config_shellcheck
+        public: yes
     - name: "Install and configure the neovim text editor"
       ansible.builtin.include_role:
         name: ans_role_config_neovim
@@ -330,6 +334,8 @@
         neovim_lsp_server_cmd_list:
           - "{{ clang_start_language_server_cmd }}"
         neovim_clipboard_provider: "{{ xsel_main_cmd }}"
+        neovim_linters:
+          - { filetype: "sh", cmd: "{{ shellcheck_main_cmd }}" }
     - name: "Install and configure the ranger file manager"
       ansible.builtin.include_role:
         name: ans_role_config_ranger
