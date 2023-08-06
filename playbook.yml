@@ -328,6 +328,10 @@
       ansible.builtin.include_role:
         name: ans_role_config_yamllint
         public: yes
+    - name: "Install and configure the pylint python linter"
+      ansible.builtin.include_role:
+        name: ans_role_config_pylint
+        public: yes
     - name: "Install and configure the neovim text editor"
       ansible.builtin.include_role:
         name: ans_role_config_neovim
@@ -341,6 +345,7 @@
         neovim_linters:
           - { filetype: "sh", cmd: "{{ shellcheck_main_cmd }}" }
           - { filetype: "yaml", cmd: "{{ yamllint_main_cmd }}" }
+          - { filetype: "python", cmd: "{{ pylint_main_cmd }}" }
     - name: "Install and configure the ranger file manager"
       ansible.builtin.include_role:
         name: ans_role_config_ranger
