@@ -113,6 +113,15 @@
     - name: "Install and configure the automount device-mounting utility"
       ansible.builtin.include_role:
         name: ext/ans_role_config_automount
+    - name: "Install a standard set of system font packages"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_fonts
+      vars:
+        install_liberation_font: true
+        install_dejavu_font: true
+        install_droid_font: true
+        install_ms_legacy_fonts: true
+        install_ms_vista_fonts: true
     - name: "Install and configure the LibreOffice office application suite"
       ansible.builtin.include_role:
         name: ans_role_config_libreoffice
@@ -194,15 +203,6 @@
           - "{{ admin_user_home_dir }}/Documents/"
           - "{{ admin_user_home_dir }}/Templates/"
         restic_user_guide_dir: "{{ admin_user_home_dir }}/"
-    - name: "Install a standard set of system font packages"
-      ansible.builtin.include_role:
-        name: ext/ans_role_config_fonts
-      vars:
-        install_liberation_font: true
-        install_dejavu_font: true
-        install_droid_font: true
-        install_ms_legacy_fonts: true
-        install_ms_vista_fonts: true
     - name: "Install and configure Xorg"
       ansible.builtin.include_role:
         name: ans_role_config_xorg
@@ -232,7 +232,7 @@
         public: yes
       vars:
         wezterm_user_name: "{{ admin_user_and_group_name }}"
-        font_family: 'DejaVu Sans Mono'
+        font_family: "{{ dejavu_font_name_mono }}"
         font_size: 15
         wezterm_term_colors: "{{ terminal_colors }}"
         shell_cmd: 'fish'
@@ -262,7 +262,7 @@
         public: yes
       vars:
         rofi_user_name: "{{ admin_user_and_group_name }}"
-        rofi_font: "Liberation Sans 22"
+        rofi_font: "{{ liberation_font_name_sans }} 22"
     - name: "Install and configure the xsel clipboard provider"
       ansible.builtin.include_role:
         name: ans_role_config_xsel
@@ -403,7 +403,7 @@
         public: yes
       vars:
         i3_user_name: "{{ admin_user_and_group_name }}"
-        window_titles_font: "Liberation Sans 19"
+        window_titles_font: "{{ liberation_font_name_sans }} 19"
         i3wm_window_colors: "{{ wm_window_colors }}"
         workspace_labels: "{{ wm_panel_bar_workspace_labels }}"
         cmd_start_compositor: "{{ picom_start_cmd }}"
@@ -418,7 +418,7 @@
         cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
         screenshot_png_save_dir: "{{ admin_user_home_dir }}/Desktop"
         cmd_start_panel_bar: "i3bar"
-        i3bar_font: "Droid Sans Mono 18"
+        i3bar_font: "{{ droid_font_name_mono }} 18"
         i3bar_bg_color: "{{ wm_panel_bar_bg_color }}"
         i3bar_workspace_colors: "{{ wm_panel_bar_workspace_colors }}"
         i3bar_status_area_cmd: "{{ i3status_start_cmd }}"
