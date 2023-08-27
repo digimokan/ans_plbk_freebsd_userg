@@ -146,6 +146,7 @@
         public: yes
       vars:
         qutebrowser_user_name: "{{ admin_user_and_group_name }}"
+        qutebrowser_default_monospace_font: "{{ liberation_font_name_mono }}"
     - name: "Install and configure the Firefox browser"
       ansible.builtin.include_role:
         name: ans_role_config_firefox
