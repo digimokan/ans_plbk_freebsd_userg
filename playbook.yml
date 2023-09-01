@@ -9,7 +9,14 @@
     github_user_name: "digimokan"
     zfs_pool: "zroot"
     admin_user_home_dir: "/home/{{ admin_user_and_group_name }}"
+    admin_user_documents_dir: "/home/{{ admin_user_and_group_name }}/Documents"
+    admin_user_desktop_dir: "/home/{{ admin_user_and_group_name }}/Desktop"
+    admin_user_download_dir: "/home/{{ admin_user_and_group_name }}/Downloads"
+    admin_user_music_dir: "/home/{{ admin_user_and_group_name }}/Music"
+    admin_user_pictures_dir: "/home/{{ admin_user_and_group_name }}/Pictures"
+    admin_user_videos_dir: "/home/{{ admin_user_and_group_name }}/Videos"
     admin_user_trash_dir: "/home/{{ admin_user_and_group_name }}/Trash"
+    admin_user_devel_dir: "/home/{{ admin_user_and_group_name }}/Devel"
   tasks:
     - name: "Configure system clock, time, and time zone"
       ansible.builtin.include_role:
@@ -73,10 +80,24 @@
         filesystem_datasets:
           - { pool: "{{ zpl }}", path: '/home',      mount: '/home',     owner: 'root',       group: "{{ rusg }}", mode: '755' }
           - { pool: "{{ zpl }}", path: "{{ hdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710' }
+          - { pool: "{{ zpl }}", path: "{{ odir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ kdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ wdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ udir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ idir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ vdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
           - { pool: "{{ zpl }}", path: "{{ tdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ edir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
         zpl: "{{ zfs_pool }}"
         hdir: "{{ admin_user_home_dir }}"
+        odir: "{{ admin_user_documents_dir }}"
+        kdir: "{{ admin_user_desktop_dir }}"
+        wdir: "{{ admin_user_download_dir }}"
+        udir: "{{ admin_user_music_dir }}"
+        idir: "{{ admin_user_pictures_dir }}"
+        vdir: "{{ admin_user_videos_dir }}"
         tdir: "{{ admin_user_trash_dir }}"
+        edir: "{{ admin_user_devel_dir }}"
         rusg: "{{ root_user_group_name }}"
         ausg: "{{ admin_user_and_group_name }}"
     - name: "Create and configure XDG user dirs for '{{ admin_user_and_group_name }}'"
@@ -365,7 +386,14 @@
         image_preview_program: "iterm2"
         ranger_fzf_cmd: "{{ fzf_main_cmd }}"
         ranger_gnu_coreutils_mv_cmd: "{{ gnu_coreutils_mv_cmd }}"
-        ranger_trash_dir: "{{ admin_user_trash_dir }}"
+        ranger_user_documents_dir: "{{ admin_user_documents_dir }}"
+        ranger_user_desktop_dir: "{{ admin_user_desktop_dir }}"
+        ranger_user_download_dir: "{{ admin_user_download_dir }}"
+        ranger_user_music_dir: "{{ admin_user_music_dir }}"
+        ranger_user_pictures_dir: "{{ admin_user_pictures_dir }}"
+        ranger_user_videos_dir: "{{ admin_user_videos_dir }}"
+        ranger_user_trash_dir: "{{ admin_user_trash_dir }}"
+        ranger_user_devel_dir: "{{ admin_user_devel_dir }}"
         start_term_emulator: "{{ wezterm_main_cmd }}"
         term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
         term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
