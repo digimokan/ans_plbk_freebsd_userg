@@ -168,11 +168,9 @@
       vars:
         qutebrowser_user_name: "{{ admin_user_and_group_name }}"
         qutebrowser_user_download_dir: "{{ admin_user_download_dir }}"
-        qutebrowser_hints_font: "bold 14pt {{ liberation_font_name_mono }}"
-        qutebrowser_downloads_bar_font: "14pt {{ liberation_font_name_mono }}"
-        qutebrowser_tab_bar_font: "16pt {{ liberation_font_name_sans }}"
-        qutebrowser_completion_categories_font: "bold 14pt {{ liberation_font_name_sans }}"
-        qutebrowser_completion_text_font: "14pt {{ liberation_font_name_sans }}"
+        qutebrowser_sans_font_family: "{{ liberation_font_name_sans }}"
+        qutebrowser_serif_font_family: "{{ liberation_font_name_serif }}"
+        qutebrowser_mono_font_family: "{{ liberation_font_name_mono }}"
     - name: "Install and configure the Firefox browser"
       ansible.builtin.include_role:
         name: ans_role_config_firefox
