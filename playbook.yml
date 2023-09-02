@@ -168,7 +168,8 @@
       vars:
         qutebrowser_user_name: "{{ admin_user_and_group_name }}"
         qutebrowser_user_download_dir: "{{ admin_user_download_dir }}"
-        qutebrowser_default_monospace_font_family: "{{ liberation_font_name_mono }}"
+        qutebrowser_hints_font: "bold 14pt {{ liberation_font_name_mono }}"
+        qutebrowser_downloads_bar_font: "14pt {{ liberation_font_name_mono }}"
         qutebrowser_tab_bar_font: "16pt {{ liberation_font_name_sans }}"
         qutebrowser_completion_categories_font: "bold 14pt {{ liberation_font_name_sans }}"
         qutebrowser_completion_text_font: "14pt {{ liberation_font_name_sans }}"
