@@ -168,6 +168,7 @@
       vars:
         qutebrowser_user_name: "{{ admin_user_and_group_name }}"
         qutebrowser_user_download_dir: "{{ admin_user_download_dir }}"
+        qutebrowser_search_providers: "{{ browser_search_providers }}"
         qutebrowser_sans_font_family: "{{ liberation_font_name_sans }}"
         qutebrowser_serif_font_family: "{{ liberation_font_name_serif }}"
         qutebrowser_mono_font_family: "{{ liberation_font_name_mono }}"
