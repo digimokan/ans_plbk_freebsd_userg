@@ -172,6 +172,7 @@
         qutebrowser_sans_font_family: "{{ liberation_font_name_sans }}"
         qutebrowser_serif_font_family: "{{ liberation_font_name_serif }}"
         qutebrowser_mono_font_family: "{{ liberation_font_name_mono }}"
+        qutebrowser_quickmarks_url_list: "{{ userg_quickmarks_url_list }}"
     - name: "Install and configure the Firefox browser"
       ansible.builtin.include_role:
         name: ans_role_config_firefox
