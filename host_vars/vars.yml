@@ -1,0 +1,27 @@
+# vars.yml:
+#   - has vars pointing to matching encrypted vars in vault.yml
+#
+# vault.yml:
+#   - orig encrypt:   ansible-vault encrypt host_vars/vault.yml
+#   - edit in place:  ansible-vault edit host_vars/vault.yml
+#   - view read-only: ansible-vault view host_vars/vault.yml
+#
+# Notes:
+#   - ansible-vault and ansible-playbook use vault pswd in vault_password.txt
+#   - ansible.cfg wires up vault_password.txt
+
+# for config_restic: an S3 bucket that will host the remote-backup repo
+userg_restic_s3_bucket_url: "{{ vault_userg_restic_s3_bucket_url }}"
+
+# for config_restic: the storage-provider-issued ID for the S3 bucket
+userg_restic_s3_bucket_key_id: "{{ vault_userg_restic_s3_bucket_key_id }}"
+
+# for config_restic: the storage-provider-issued key-string for the S3 bucket
+userg_restic_s3_bucket_secret_keystring: "{{ vault_userg_restic_s3_bucket_secret_keystring }}"
+
+# list of user-selected podcast rss urls
+userg_rss_podcast_feed_url_list: "{{ vault_userg_rss_podcast_feed_url_list }}"
+
+# list of quickmark urls to use in web browsers
+userg_quickmarks_url_list: "{{ vault_userg_quickmarks_url_list }}"
+
