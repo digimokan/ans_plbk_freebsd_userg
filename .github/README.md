@@ -182,7 +182,7 @@ was set up during initial configuration.
 │ │
 │ ├─┬ host_vars/
 │ │ │
-│ │ └── vars.yml          # proxy vars used by playbook, point to vault.yml vars
+│ │ ├── vars.yml          # proxy vars used by playbook, point to vault.yml vars
 │ │ └── vault.yml         # encrypted vault variables used by playbook.yml
 │ │
 │ ├─┬ roles/
