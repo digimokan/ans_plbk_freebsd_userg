@@ -1,6 +1,7 @@
 - hosts: localhost
   connection: local
   vars_files:
+    - host_vars/vars.yml
     - host_vars/vault.yml
   vars:
     admin_user_and_group_name: "admin"
