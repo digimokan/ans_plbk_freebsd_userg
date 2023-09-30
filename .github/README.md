@@ -153,16 +153,26 @@ was set up during initial configuration.
   decrypt vars in [`vault.yml`](../host_vars/vault.yml), via a setting in
   [`ansible.cfg`](../ansible.cfg).
 
-* To create or replace an encrypted vault variable, use the string provided by:
+* [`playbook.yml`](../playbook.yml) uses the proxy vars in
+  [`vars.yml`](../host_vars/vars.yml), which point to encrypted vars in
+  [`vault.yml`](../host_vars/vault.yml).
+
+* To start, encrypt a plaintext-edited vault.yml file:
 
    ```shell
-   $ ansible-vault encrypt_string 'secret_var_value' --name 'secret_var_name'
+   $ ansible-vault encrypt host_vars/vault.yml
    ```
 
-* To decrypt and view a var from [vault.yml](../host_vars/vault.yml):
+* Once vault.yml has been encrypted, do edits/updates in place:
 
    ```shell
-   $ ansible -i hosts localhost -m ansible.builtin.debug -a var="secret_var_name" -e "@host_vars/vault.yml"
+   $ ansible-vault edit host_vars/vault.yml
+   ```
+
+* To view the vault.yml vars in read-only mode:
+
+   ```shell
+   $ ansible-vault view host_vars/vault.yml
    ```
 
 ## Source Code Layout
@@ -172,6 +182,7 @@ was set up during initial configuration.
 │ │
 │ ├─┬ host_vars/
 │ │ │
+│ │ └── vars.yml          # proxy vars used by playbook, point to vault.yml vars
 │ │ └── vault.yml         # encrypted vault variables used by playbook.yml
 │ │
 │ ├─┬ roles/
