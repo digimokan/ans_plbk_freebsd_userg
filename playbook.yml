@@ -219,11 +219,9 @@
     - name: "Install and configure the Cheese webcam snapshot application"
       ansible.builtin.include_role:
         name: ans_role_config_cheese
-    # OBS uses older luajit - needs to update to new/supported luajit-devel
-    # ...neovim uses luajit-devel
-    # - name: "Install and configure the OBS video-recording application"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_obs
+    - name: "Install and configure the OBS video-recording application"
+      ansible.builtin.include_role:
+        name: ans_role_config_obs
     - name: "Install the restic backup program, and configure backups to a remote repo"
       ansible.builtin.include_role:
         name: ans_role_config_restic
