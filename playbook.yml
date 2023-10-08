@@ -81,7 +81,7 @@
         name: ans_role_create_filesystem_datasets
       vars:
         filesystem_datasets:
-          - { pool: "{{ zpl }}", path: '/home',      mount: '/home',     owner: 'root',       group: "{{ rusg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: '/home', mount: '/home', owner: 'root', group: "{{ rusg }}", mode: '755' }
           - { pool: "{{ zpl }}", path: "{{ hdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710' }
           - { pool: "{{ zpl }}", path: "{{ odir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
           - { pool: "{{ zpl }}", path: "{{ kdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
@@ -486,5 +486,5 @@
         shell_env_vars:
           - { name: 'VISUAL', val: "{{ neovim_main_cmd }}", descrip: 'set default text editor' }
           - { name: 'EDITOR', val: "{{ neovim_main_cmd }}", descrip: 'set default text editor (legacy, line-mode)' }
-          - { name: 'PAGER',  val: 'less',                  descrip: 'set default pager program' }
+          - { name: 'PAGER',  val: 'less', descrip: 'set default pager program' }
 
