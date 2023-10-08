@@ -361,6 +361,8 @@
       ansible.builtin.include_role:
         name: ans_role_config_yamllint
         public: true
+      vars:
+        yamllint_user_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the pylint python linter"
       ansible.builtin.include_role:
         name: ans_role_config_pylint
