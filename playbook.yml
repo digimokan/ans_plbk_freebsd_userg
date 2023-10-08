@@ -36,7 +36,7 @@
     - name: "Install and configure the OSS sound driver layer"
       ansible.builtin.include_role:
         name: ext/ans_role_config_oss
-        public: yes
+        public: true
       vars:
         sound_card_type: 'intel'
         force_set_sound_output_pcm_at_boot: '0'
@@ -47,18 +47,18 @@
     - name: "Install and configure video card drivers"
       ansible.builtin.include_role:
         name: ext/ans_role_config_video_drivers
-        public: yes
+        public: true
       vars:
         video_card_make: "Intel"
         video_card_series: "HD"
     - name: "Configure webcam support"
       ansible.builtin.include_role:
         name: ans_role_config_webcam
-        public: yes
+        public: true
     - name: "Install and configure GNU coreutils"
       ansible.builtin.include_role:
         name: ans_role_config_gnu_coreutils
-        public: yes
+        public: true
     - name: "Add sudo-users group '{{ sudo_users_group_name }}'"
       ansible.builtin.include_role:
         name: ext/ans_role_add_group
@@ -128,11 +128,11 @@
     - name: "Install and configure the feh image viewer utility"
       ansible.builtin.include_role:
         name: ans_role_config_feh
-        public: yes
+        public: true
     - name: "Install and configure the GNU Image Manipulation Program"
       ansible.builtin.include_role:
         name: ans_role_config_gnu_image_mp
-        public: yes
+        public: true
     - name: "Install and configure the sndio sound driver layer"
       ansible.builtin.include_role:
         name: ans_role_config_sndio
@@ -151,25 +151,25 @@
     - name: "Install and configure the LibreOffice office application suite"
       ansible.builtin.include_role:
         name: ans_role_config_libreoffice
-        public: yes
+        public: true
     - name: "Install and configure the atril pdf viewer"
       ansible.builtin.include_role:
         name: ans_role_config_atril
-        public: yes
+        public: true
     - name: "Install and configure the VLC video player"
       ansible.builtin.include_role:
         name: ans_role_config_vlc
-        public: yes
+        public: true
       vars:
         enable_dvd_support: true
     - name: "Define list of browser search providers"
       ansible.builtin.include_role:
         name: ext/ans_role_vars_browser_search_providers
-        public: yes
+        public: true
     - name: "Install and configure the qutebrowser web-browser"
       ansible.builtin.include_role:
         name: ans_role_config_qutebrowser
-        public: yes
+        public: true
       vars:
         qutebrowser_user_name: "{{ admin_user_and_group_name }}"
         qutebrowser_user_download_dir: "{{ admin_user_download_dir }}"
@@ -182,7 +182,7 @@
     - name: "Install and configure the Firefox browser"
       ansible.builtin.include_role:
         name: ans_role_config_firefox
-        public: yes
+        public: true
       vars:
         user_name: "{{ admin_user_and_group_name }}"
         install_google_widevine_drm_addon: true
@@ -192,7 +192,7 @@
     - name: "Install and configure the Chromium browser"
       ansible.builtin.include_role:
         name: ans_role_config_chromium
-        public: yes
+        public: true
       vars:
         install_vimium_ext: true
         allow_user_ext_install: true
@@ -200,7 +200,7 @@
     - name: "Install and configure Avahi"
       ansible.builtin.include_role:
         name: ans_role_config_avahi
-        public: yes
+        public: true
       vars:
         enable_host_discovery_service: true
     - name: "Configure automatic printer discovery and driverless printing"
@@ -244,7 +244,7 @@
     - name: "Install and configure the git version control system"
       ansible.builtin.include_role:
         name: ans_role_config_git
-        public: yes
+        public: true
       vars:
         git_machine_user_name: "{{ admin_user_and_group_name }}"
         git_vcs_user_name: "{{ github_user_name }}"
@@ -252,15 +252,15 @@
     - name: "Define a set of terminal text, background, and cursor colors"
       ansible.builtin.include_role:
         name: ans_role_vars_terminal_colors
-        public: yes
+        public: true
     - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
       ansible.builtin.include_role:
         name: ext/ans_role_vars_wm_labels_colors
-        public: yes
+        public: true
     - name: "Install and configure the wezterm terminal emulator"
       ansible.builtin.include_role:
         name: ans_role_config_wezterm
-        public: yes
+        public: true
       vars:
         wezterm_user_name: "{{ admin_user_and_group_name }}"
         font_family: "{{ dejavu_font_name_mono }}"
@@ -272,7 +272,7 @@
     - name: "Install and configure the i3status panel-bar status area utility"
       ansible.builtin.include_role:
         name: ans_role_config_i3status
-        public: yes
+        public: true
       vars:
         i3status_user_name: "{{ admin_user_and_group_name }}"
         i3status_panel_bar_output_format: "i3bar"
@@ -286,22 +286,22 @@
     - name: "Install and configure the picom compositor"
       ansible.builtin.include_role:
         name: ans_role_config_picom
-        public: yes
+        public: true
     - name: "Install and configure the rofi application launcher"
       ansible.builtin.include_role:
         name: ans_role_config_rofi
-        public: yes
+        public: true
       vars:
         rofi_user_name: "{{ admin_user_and_group_name }}"
         rofi_font: "{{ liberation_font_name_sans }} 22"
     - name: "Install and configure the xsel clipboard provider"
       ansible.builtin.include_role:
         name: ans_role_config_xsel
-        public: yes
+        public: true
     - name: "Install and configure xscreensaver"
       ansible.builtin.include_role:
         name: ans_role_config_xscreensaver
-        public: yes
+        public: true
       vars:
         xscreensaver_user_name: "{{ admin_user_and_group_name }}"
         screensaver_timeout_minutes: 10
@@ -310,69 +310,69 @@
     - name: "Install and configure the maim screenshot-capture utility"
       ansible.builtin.include_role:
         name: ans_role_config_maim
-        public: yes
+        public: true
     - name: "Install and configure the exa ls-replacement utility"
       ansible.builtin.include_role:
         name: ans_role_config_exa
-        public: yes
+        public: true
     - name: "Install and configure the fzf command-line fuzzy finder"
       ansible.builtin.include_role:
         name: ans_role_config_fzf
-        public: yes
+        public: true
     - name: "Install and configure the ripgrep command-line grep replacement"
       ansible.builtin.include_role:
         name: ans_role_config_ripgrep
-        public: yes
+        public: true
     - name: "Install and configure libarchive utilities"
       ansible.builtin.include_role:
         name: ans_role_config_libarchive_utils
-        public: yes
+        public: true
     - name: "Install and configure the pandoc file conversion utility"
       ansible.builtin.include_role:
         name: ans_role_config_pandoc
-        public: yes
+        public: true
     - name: "Install and configure the bundled catdoc/xls2cxv file-conversion utilities"
       ansible.builtin.include_role:
         name: ans_role_config_catdoc_xls2csv
-        public: yes
+        public: true
     - name: "Install and configure the odt2txt file conversion utility"
       ansible.builtin.include_role:
         name: ans_role_config_odt2txt
-        public: yes
+        public: true
     - name: "Install and configure the bat enhanced-cat utility"
       ansible.builtin.include_role:
         name: ans_role_config_bat
-        public: yes
+        public: true
       vars:
         bat_user_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the clang C/C++ compiler"
       ansible.builtin.include_role:
         name: ans_role_config_clang
-        public: yes
+        public: true
     - name: "Install and configure the cmake build-system generator"
       ansible.builtin.include_role:
         name: ans_role_config_cmake
-        public: yes
+        public: true
     - name: "Install and configure the shellcheck shell script linter"
       ansible.builtin.include_role:
         name: ans_role_config_shellcheck
-        public: yes
+        public: true
     - name: "Install and configure the yamllint yaml linter"
       ansible.builtin.include_role:
         name: ans_role_config_yamllint
-        public: yes
+        public: true
     - name: "Install and configure the pylint python linter"
       ansible.builtin.include_role:
         name: ans_role_config_pylint
-        public: yes
+        public: true
     - name: "Install and configure the luacheck lua linter"
       ansible.builtin.include_role:
         name: ans_role_config_luacheck
-        public: yes
+        public: true
     - name: "Install and configure the neovim text editor"
       ansible.builtin.include_role:
         name: ans_role_config_neovim
-        public: yes
+        public: true
       vars:
         neovim_user_name: "{{ admin_user_and_group_name }}"
         neovim_ripgrep_cmd: "{{ ripgrep_main_cmd }}"
@@ -387,7 +387,7 @@
     - name: "Install and configure the ranger file manager"
       ansible.builtin.include_role:
         name: ans_role_config_ranger
-        public: yes
+        public: true
       vars:
         ranger_user_name: "{{ admin_user_and_group_name }}"
         # note: wezterm supports iterm2 image-display protocol
@@ -429,7 +429,7 @@
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
-        public: yes
+        public: true
       vars:
         start_term_emulator: "{{ wezterm_main_cmd }}"
         term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
@@ -438,7 +438,7 @@
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
         name: ext/ans_role_config_i3wm_wm
-        public: yes
+        public: true
       vars:
         i3_user_name: "{{ admin_user_and_group_name }}"
         window_titles_font: "{{ liberation_font_name_sans }} 19"
