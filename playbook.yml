@@ -122,7 +122,7 @@
       ansible.builtin.git:
         repo: "https://github.com/digimokan/ans_plbk_freebsd_userg.git"
         dest: "{{ admin_user_home_dir }}/ans_plbk_freebsd_userg"
-        update: no
+        update: false
       become: true
       become_user: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the feh image viewer utility"
