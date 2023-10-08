@@ -486,5 +486,5 @@
         shell_env_vars:
           - { name: 'VISUAL', val: "{{ neovim_main_cmd }}", descrip: 'set default text editor' }
           - { name: 'EDITOR', val: "{{ neovim_main_cmd }}", descrip: 'set default text editor (legacy, line-mode)' }
-          - { name: 'PAGER',  val: 'less', descrip: 'set default pager program' }
+          - { name: 'PAGER', val: 'less', descrip: 'set default pager program' }
 
