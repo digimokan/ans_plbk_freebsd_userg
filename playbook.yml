@@ -159,7 +159,6 @@
     - name: "Install and configure the pdfarranger utility"
       ansible.builtin.include_role:
         name: ans_role_config_pdfarranger
-        public: true
     - name: "Install and configure the VLC video player"
       ansible.builtin.include_role:
         name: ans_role_config_vlc
@@ -226,6 +225,9 @@
     - name: "Install and configure the OBS video-recording application"
       ansible.builtin.include_role:
         name: ans_role_config_obs
+    - name: "Install and configure the avidemux video editing application"
+      ansible.builtin.include_role:
+        name: ans_role_config_avidemux
     - name: "Install the restic backup program, and configure backups to a remote repo"
       ansible.builtin.include_role:
         name: ans_role_config_restic
