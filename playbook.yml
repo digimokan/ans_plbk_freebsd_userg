@@ -488,9 +488,13 @@
         name: ans_role_config_fish
       vars:
         user_name: "{{ admin_user_and_group_name }}"
-        command_aliases:
-          - { alias_keys: 'll', cmd: "{{ exa_long_listing_auto_page_cmd }}", descrip: 'print a long-listing with exa' }
-          - { alias_keys: 'v', cmd: "{{ neovim_main_cmd }}", descrip: 'start the neovim text editor' }
+        command_functions:
+          - name: 'll'
+            body: >-
+              {{ exa_long_listing_force_color_cmd }} $argv |
+              {{ less_auto_page_with_raw_input_cmd }}
+            descrip: 'print a long-listing with exa'
+          - { name: 'v', body: "{{ neovim_main_cmd }} $argv", descrip: 'start the neovim text editor' }
     - name: "Set env vars, login actions, and logout actions for admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
         name: ans_role_config_shell
