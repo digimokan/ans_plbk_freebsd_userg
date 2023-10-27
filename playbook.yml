@@ -19,6 +19,7 @@
     admin_user_trash_dir: "/home/{{ admin_user_and_group_name }}/Trash"
     admin_user_local_dir: "/home/{{ admin_user_and_group_name }}/Local"
     admin_user_devel_dir: "/home/{{ admin_user_and_group_name }}/Devel"
+    admin_user_books_dir: "/home/{{ admin_user_and_group_name }}/Books"
     admin_user_qutebrowser_browse_history_db_path: "{{ admin_user_local_dir }}/qutebrowser_browse_history.sqlite"
   tasks:
     - name: "Configure system clock, time, and time zone"
@@ -92,6 +93,7 @@
           - { pool: "{{ zpl }}", path: "{{ tdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
           - { pool: "{{ zpl }}", path: "{{ ldir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
           - { pool: "{{ zpl }}", path: "{{ edir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ bdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
         zpl: "{{ zfs_pool }}"
         hdir: "{{ admin_user_home_dir }}"
         odir: "{{ admin_user_documents_dir }}"
@@ -103,6 +105,7 @@
         tdir: "{{ admin_user_trash_dir }}"
         ldir: "{{ admin_user_local_dir }}"
         edir: "{{ admin_user_devel_dir }}"
+        bdir: "{{ admin_user_books_dir }}"
         rusg: "{{ root_user_group_name }}"
         ausg: "{{ admin_user_and_group_name }}"
     - name: "Create and configure XDG user dirs for '{{ admin_user_and_group_name }}'"
@@ -164,6 +167,7 @@
         name: ans_role_config_calibre
       vars:
         calibre_user_name: "{{ admin_user_and_group_name }}"
+        calibre_user_book_lib_dir: "{{ admin_user_books_dir }}"
     - name: "Install and configure the VLC video player"
       ansible.builtin.include_role:
         name: ans_role_config_vlc
