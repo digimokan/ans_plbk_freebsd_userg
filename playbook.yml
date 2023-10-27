@@ -168,6 +168,7 @@
       vars:
         calibre_user_name: "{{ admin_user_and_group_name }}"
         calibre_user_book_lib_dir: "{{ admin_user_books_dir }}"
+        calibre_download_and_install_dedrm_plugin: true
     - name: "Install and configure the VLC video player"
       ansible.builtin.include_role:
         name: ans_role_config_vlc
