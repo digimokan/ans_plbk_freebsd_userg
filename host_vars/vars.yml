@@ -27,3 +27,6 @@ userg_rss_podcast_feed_url_list: "{{ vault_userg_rss_podcast_feed_url_list }}"
 # list of quickmark urls to use in web browsers
 userg_quickmarks_url_list: "{{ vault_userg_quickmarks_url_list }}"
 
+# list of kindle device serial numbers (for Calibre DeDRM plugin)
+userg_dedrm_plugin_kindle_serial_num_list: "{{ vault_userg_dedrm_plugin_kindle_serial_num_list }}"
+
