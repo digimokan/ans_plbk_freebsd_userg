@@ -489,6 +489,11 @@
       vars:
         xdm_user_name: "{{ admin_user_and_group_name }}"
         session: "{{ i3wm_session }}"
+    - name: "Install and configure the syncthing file-sync application"
+      ansible.builtin.include_role:
+        name: ans_role_config_syncthing
+      vars:
+        syncthing_user_name: "{{ admin_user_and_group_name }}"
     - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
         name: ans_role_config_fish
