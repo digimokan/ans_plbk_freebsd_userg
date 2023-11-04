@@ -492,8 +492,7 @@
     - name: "Install and configure the syncthing file-sync application"
       ansible.builtin.include_role:
         name: ans_role_config_syncthing
-        apply:
-          tags: config_syncthing
+        apply: { tags: config_syncthing }
       vars:
         syncthing_user_name: "{{ admin_user_and_group_name }}"
       tags: config_syncthing
