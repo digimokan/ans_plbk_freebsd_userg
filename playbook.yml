@@ -494,6 +494,9 @@
         name: ans_role_config_syncthing
       vars:
         syncthing_user_name: "{{ admin_user_and_group_name }}"
+        syncthing_local_machine_private_key: "{{ userg_syncthing_local_machine_private_key }}"
+        syncthing_local_machine_public_key: "{{ userg_syncthing_local_machine_public_key }}"
+        syncthing_local_machine_device_id: "{{ userg_syncthing_local_machine_device_id }}"
     - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
         name: ans_role_config_fish
