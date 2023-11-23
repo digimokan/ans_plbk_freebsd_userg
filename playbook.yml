@@ -25,7 +25,7 @@
   tasks:
     - name: "Set the machine hostname to '{{ machine_hostname }}'"
       ansible.builtin.hostname:
-      name: "{{ machine_hostname }}"
+        name: "{{ machine_hostname }}"
     - name: "Configure system clock, time, and time zone"
       ansible.builtin.include_role:
         name: ext/ans_role_config_time
