@@ -78,7 +78,8 @@ for normal daily use, for one user:
 
 4. Follow guided installation. Select/enable __only__ these options:
 
-    * Host Name: _userg.machine_.
+    * Host Name: _tempname.machine_.
+        * Note: [playbook `machine_hostname` var](../playbook.yml)) sets persistent hostname.
     * Optional system components: none.
     * zfs guided installation: _mirror_ (for 2 disks), and enable _encrypt disks_.
     * Network interface _em0_: enable _IPv4_, and enable _dhcp_.

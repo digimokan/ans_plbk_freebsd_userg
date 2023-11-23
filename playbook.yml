@@ -4,6 +4,7 @@
     - host_vars/vars.yml
     - host_vars/vault.yml
   vars:
+    machine_hostname: 'userg-workstation0.machine'
     admin_user_and_group_name: "admin"
     sudo_users_group_name: "wheel"
     root_user_group_name: "wheel"
@@ -22,6 +23,9 @@
     admin_user_books_dir: "/home/{{ admin_user_and_group_name }}/Books"
     admin_user_qutebrowser_browse_history_db_path: "{{ admin_user_local_dir }}/qutebrowser_browse_history.sqlite"
   tasks:
+    - name: "Set the machine hostname to '{{ machine_hostname }}'"
+      ansible.builtin.hostname:
+      name: "{{ machine_hostname }}"
     - name: "Configure system clock, time, and time zone"
       ansible.builtin.include_role:
         name: ext/ans_role_config_time
