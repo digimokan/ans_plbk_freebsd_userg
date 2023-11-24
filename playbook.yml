@@ -493,6 +493,10 @@
       vars:
         xdm_user_name: "{{ admin_user_and_group_name }}"
         session: "{{ i3wm_session }}"
+    - name: "Define a set of LAN-common syncthing devices and shared syncthing folders"
+      ansible.builtin.import_role:
+        name: ans_vars_syncthing_devices_folders
+        public: true
     - name: "Install and configure the syncthing file-sync application"
       ansible.builtin.include_role:
         name: ans_role_config_syncthing
@@ -502,6 +506,8 @@
         syncthing_local_machine_private_key: "{{ userg_syncthing_local_machine_private_key }}"
         syncthing_local_machine_public_key: "{{ userg_syncthing_local_machine_public_key }}"
         syncthing_local_machine_device_id: "{{ userg_syncthing_local_machine_device_id }}"
+        syncthing_list_of_available_sync_devices: "{{ ans_vars_list_of_available_syncthing_devices }}"
+        syncthing_list_of_available_sync_folders: "{{ ans_vars_list_of_available_syncthing_folders }}"
     - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
         name: ans_role_config_fish
