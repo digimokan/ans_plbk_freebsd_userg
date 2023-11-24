@@ -494,7 +494,7 @@
         xdm_user_name: "{{ admin_user_and_group_name }}"
         session: "{{ i3wm_session }}"
     - name: "Define a set of LAN-common syncthing devices and shared syncthing folders"
-      ansible.builtin.import_role:
+      ansible.builtin.include_role:
         name: ans_vars_syncthing_devices_folders
         public: true
     - name: "Install and configure the syncthing file-sync application"
