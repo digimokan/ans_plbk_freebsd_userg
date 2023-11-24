@@ -1,70 +1,70 @@
 roles:
-  - src: https://github.com/digimokan/ans_role_add_group
-  - src: https://github.com/digimokan/ans_role_add_user
-  - src: https://github.com/digimokan/ans_role_config_atril
-  - src: https://github.com/digimokan/ans_role_config_automount
-  - src: https://github.com/digimokan/ans_role_config_automatic_printing
-  - src: https://github.com/digimokan/ans_role_config_automatic_scanning
-  - src: https://github.com/digimokan/ans_role_config_avahi
-  - src: https://github.com/digimokan/ans_role_config_avidemux
-  - src: https://github.com/digimokan/ans_role_config_bat
-  - src: https://github.com/digimokan/ans_role_config_calibre
-  - src: https://github.com/digimokan/ans_role_config_catdoc_xls2csv
-  - src: https://github.com/digimokan/ans_role_config_cheese
-  - src: https://github.com/digimokan/ans_role_config_chromium
-  - src: https://github.com/digimokan/ans_role_config_clang
-  - src: https://github.com/digimokan/ans_role_config_cmake
-  - src: https://github.com/digimokan/ans_role_config_dot_desktops
-  - src: https://github.com/digimokan/ans_role_config_exa
-  - src: https://github.com/digimokan/ans_role_config_feh
-  - src: https://github.com/digimokan/ans_role_config_firefox
-  - src: https://github.com/digimokan/ans_role_config_fish
-  - src: https://github.com/digimokan/ans_role_config_fzf
-  - src: https://github.com/digimokan/ans_role_config_fonts
-  - src: https://github.com/digimokan/ans_role_config_git
-  - src: https://github.com/digimokan/ans_role_config_gnu_coreutils
-  - src: https://github.com/digimokan/ans_role_config_gnu_image_mp
-  - src: https://github.com/digimokan/ans_role_config_i3status
-  - src: https://github.com/digimokan/ans_role_config_i3wm_wm
-  - src: https://github.com/digimokan/ans_role_config_libarchive_utils
-  - src: https://github.com/digimokan/ans_role_config_libreoffice
-  - src: https://github.com/digimokan/ans_role_config_loader
-  - src: https://github.com/digimokan/ans_role_config_luacheck
-  - src: https://github.com/digimokan/ans_role_config_maim
-  - src: https://github.com/digimokan/ans_role_config_neovim
-  - src: https://github.com/digimokan/ans_role_config_odt2txt
-  - src: https://github.com/digimokan/ans_role_config_obs
-  - src: https://github.com/digimokan/ans_role_config_oss
-  - src: https://github.com/digimokan/ans_role_config_pandoc
-  - src: https://github.com/digimokan/ans_role_config_pdfarranger
-  - src: https://github.com/digimokan/ans_role_config_picom
-  - src: https://github.com/digimokan/ans_role_config_pylint
-  - src: https://github.com/digimokan/ans_role_config_qutebrowser
-  - src: https://github.com/digimokan/ans_role_config_restic
-  - src: https://github.com/digimokan/ans_role_config_ranger
-  - src: https://github.com/digimokan/ans_role_config_ripgrep
-  - src: https://github.com/digimokan/ans_role_config_rofi
-  - src: https://github.com/digimokan/ans_role_config_shell
-  - src: https://github.com/digimokan/ans_role_config_shellcheck
-  - src: https://github.com/digimokan/ans_role_config_simple_scan
-  - src: https://github.com/digimokan/ans_role_config_sndio
-  - src: https://github.com/digimokan/ans_role_config_sudo
+  # - src: https://github.com/digimokan/ans_role_add_group
+  # - src: https://github.com/digimokan/ans_role_add_user
+  # - src: https://github.com/digimokan/ans_role_config_atril
+  # - src: https://github.com/digimokan/ans_role_config_automount
+  # - src: https://github.com/digimokan/ans_role_config_automatic_printing
+  # - src: https://github.com/digimokan/ans_role_config_automatic_scanning
+  # - src: https://github.com/digimokan/ans_role_config_avahi
+  # - src: https://github.com/digimokan/ans_role_config_avidemux
+  # - src: https://github.com/digimokan/ans_role_config_bat
+  # - src: https://github.com/digimokan/ans_role_config_calibre
+  # - src: https://github.com/digimokan/ans_role_config_catdoc_xls2csv
+  # - src: https://github.com/digimokan/ans_role_config_cheese
+  # - src: https://github.com/digimokan/ans_role_config_chromium
+  # - src: https://github.com/digimokan/ans_role_config_clang
+  # - src: https://github.com/digimokan/ans_role_config_cmake
+  # - src: https://github.com/digimokan/ans_role_config_dot_desktops
+  # - src: https://github.com/digimokan/ans_role_config_exa
+  # - src: https://github.com/digimokan/ans_role_config_feh
+  # - src: https://github.com/digimokan/ans_role_config_firefox
+  # - src: https://github.com/digimokan/ans_role_config_fish
+  # - src: https://github.com/digimokan/ans_role_config_fzf
+  # - src: https://github.com/digimokan/ans_role_config_fonts
+  # - src: https://github.com/digimokan/ans_role_config_git
+  # - src: https://github.com/digimokan/ans_role_config_gnu_coreutils
+  # - src: https://github.com/digimokan/ans_role_config_gnu_image_mp
+  # - src: https://github.com/digimokan/ans_role_config_i3status
+  # - src: https://github.com/digimokan/ans_role_config_i3wm_wm
+  # - src: https://github.com/digimokan/ans_role_config_libarchive_utils
+  # - src: https://github.com/digimokan/ans_role_config_libreoffice
+  # - src: https://github.com/digimokan/ans_role_config_loader
+  # - src: https://github.com/digimokan/ans_role_config_luacheck
+  # - src: https://github.com/digimokan/ans_role_config_maim
+  # - src: https://github.com/digimokan/ans_role_config_neovim
+  # - src: https://github.com/digimokan/ans_role_config_odt2txt
+  # - src: https://github.com/digimokan/ans_role_config_obs
+  # - src: https://github.com/digimokan/ans_role_config_oss
+  # - src: https://github.com/digimokan/ans_role_config_pandoc
+  # - src: https://github.com/digimokan/ans_role_config_pdfarranger
+  # - src: https://github.com/digimokan/ans_role_config_picom
+  # - src: https://github.com/digimokan/ans_role_config_pylint
+  # - src: https://github.com/digimokan/ans_role_config_qutebrowser
+  # - src: https://github.com/digimokan/ans_role_config_restic
+  # - src: https://github.com/digimokan/ans_role_config_ranger
+  # - src: https://github.com/digimokan/ans_role_config_ripgrep
+  # - src: https://github.com/digimokan/ans_role_config_rofi
+  # - src: https://github.com/digimokan/ans_role_config_shell
+  # - src: https://github.com/digimokan/ans_role_config_shellcheck
+  # - src: https://github.com/digimokan/ans_role_config_simple_scan
+  # - src: https://github.com/digimokan/ans_role_config_sndio
+  # - src: https://github.com/digimokan/ans_role_config_sudo
   - src: https://github.com/digimokan/ans_role_config_syncthing
-  - src: https://github.com/digimokan/ans_role_config_time
-  - src: https://github.com/digimokan/ans_role_config_upgrades
-  - src: https://github.com/digimokan/ans_role_config_video_drivers
-  - src: https://github.com/digimokan/ans_role_config_vlc
-  - src: https://github.com/digimokan/ans_role_config_xdm_dm
-  - src: https://github.com/digimokan/ans_role_config_xorg
-  - src: https://github.com/digimokan/ans_role_config_webcam
-  - src: https://github.com/digimokan/ans_role_config_wezterm
-  - src: https://github.com/digimokan/ans_role_config_xdg_user_dirs
-  - src: https://github.com/digimokan/ans_role_config_xscreensaver
-  - src: https://github.com/digimokan/ans_role_config_xsel
-  - src: https://github.com/digimokan/ans_role_config_yamllint
-  - src: https://github.com/digimokan/ans_role_create_filesystem_datasets
-  - src: https://github.com/digimokan/ans_role_vars_browser_search_providers
-  - src: https://github.com/digimokan/ans_role_vars_terminal_colors
-  - src: https://github.com/digimokan/ans_role_vars_wm_labels_colors
+  # - src: https://github.com/digimokan/ans_role_config_time
+  # - src: https://github.com/digimokan/ans_role_config_upgrades
+  # - src: https://github.com/digimokan/ans_role_config_video_drivers
+  # - src: https://github.com/digimokan/ans_role_config_vlc
+  # - src: https://github.com/digimokan/ans_role_config_xdm_dm
+  # - src: https://github.com/digimokan/ans_role_config_xorg
+  # - src: https://github.com/digimokan/ans_role_config_webcam
+  # - src: https://github.com/digimokan/ans_role_config_wezterm
+  # - src: https://github.com/digimokan/ans_role_config_xdg_user_dirs
+  # - src: https://github.com/digimokan/ans_role_config_xscreensaver
+  # - src: https://github.com/digimokan/ans_role_config_xsel
+  # - src: https://github.com/digimokan/ans_role_config_yamllint
+  # - src: https://github.com/digimokan/ans_role_create_filesystem_datasets
+  # - src: https://github.com/digimokan/ans_role_vars_browser_search_providers
+  # - src: https://github.com/digimokan/ans_role_vars_terminal_colors
+  # - src: https://github.com/digimokan/ans_role_vars_wm_labels_colors
   - src: https://github.com/digimokan/ans_vars_syncthing_devices_folders
 
