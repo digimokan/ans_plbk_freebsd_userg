@@ -26,482 +26,482 @@
     admin_user_temp_sync_dir: "/home/{{ admin_user_and_group_name }}/Sync"
     admin_user_qutebrowser_browse_history_db_path: "{{ admin_user_local_dir }}/qutebrowser_browse_history.sqlite"
   tasks:
-    # - name: "Set the machine hostname to '{{ machine_hostname }}'"
-    #   ansible.builtin.hostname:
-    #     name: "{{ machine_hostname }}"
-    # - name: "Configure system clock, time, and time zone"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_time
-    # - name: "Configure system and package upgrades"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_upgrades
-    # - name: "Configure the FreeBSD 'loader' bootloader"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_loader
-    #   vars:
-    #     menu_timeout_seconds: "2"
-    #     load_cpu_microcode_updates: true
-    # - name: "Install and configure the OSS sound driver layer"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_oss
-    #     public: true
-    #   vars:
-    #     sound_card_type: 'intel'
-    #     force_set_sound_output_pcm_at_boot: '0'
-    #     intel_nid_disable_list:
-    #       - { card: '0', nid: '30', descrip: 'rear speaker/optical combo jack optical-out-channel' }
-    #       - { card: '0', nid: '33', descrip: 'front headphones jack out-channel' }
-    #       - { card: '1', nid: '3', descrip: 'rear HDMI jack audio-out-channel' }
-    # - name: "Install and configure video card drivers"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_video_drivers
-    #     public: true
-    #   vars:
-    #     video_card_make: "Intel"
-    #     video_card_series: "HD"
-    # - name: "Configure webcam support"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_webcam
-    #     public: true
-    # - name: "Install and configure GNU coreutils"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_gnu_coreutils
-    #     public: true
-    # - name: "Add sudo-users group '{{ sudo_users_group_name }}'"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_add_group
-    #   vars:
-    #     group_name: "{{ sudo_users_group_name }}"
-    #     is_system_group: true
-    # - name: "Add and configure admin user '{{ admin_user_and_group_name }}'"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_add_user
-    #   vars:
-    #     user_name: "{{ admin_user_and_group_name }}"
-    #     user_groups:
-    #       - "{{ sudo_users_group_name }}"
-    #       - "{{ video_group_name }}"
-    #       - "{{ webcam_group_name }}"
-    #     comment: "{{ admin_user_and_group_name }}"
-    #     create_home_dir: false
-    # - name: "Create all zfs filesystem datasets for the system"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_create_filesystem_datasets
-    #   vars:
-    #     filesystem_datasets:
-    #       - { pool: "{{ zpl }}", path: '/home', mount: '/home', owner: 'root', group: "{{ rusg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ hdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710' }
-    #       - { pool: "{{ zpl }}", path: "{{ odir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ kdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ wdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ udir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ idir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ vdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ tdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ ldir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ edir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ bdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ pdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ cdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #       - { pool: "{{ zpl }}", path: "{{ ydir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-    #     zpl: "{{ zfs_pool }}"
-    #     hdir: "{{ admin_user_home_dir }}"
-    #     odir: "{{ admin_user_documents_dir }}"
-    #     kdir: "{{ admin_user_desktop_dir }}"
-    #     wdir: "{{ admin_user_download_dir }}"
-    #     udir: "{{ admin_user_music_dir }}"
-    #     idir: "{{ admin_user_pictures_dir }}"
-    #     vdir: "{{ admin_user_videos_dir }}"
-    #     tdir: "{{ admin_user_trash_dir }}"
-    #     ldir: "{{ admin_user_local_dir }}"
-    #     edir: "{{ admin_user_devel_dir }}"
-    #     bdir: "{{ admin_user_books_dir }}"
-    #     pdir: "{{ admin_user_snapped_photos_dir }}"
-    #     cdir: "{{ admin_user_podcasts_dir }}"
-    #     ydir: "{{ admin_user_temp_sync_dir }}"
-    #     rusg: "{{ root_user_group_name }}"
-    #     ausg: "{{ admin_user_and_group_name }}"
-    # - name: "Create and configure XDG user dirs for '{{ admin_user_and_group_name }}'"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_xdg_user_dirs
-    #   vars:
-    #     user_name: "{{ admin_user_and_group_name }}"
-    # - name: "Configure sudo settings for auth group '{{ sudo_users_group_name }}'"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_sudo
-    #   vars:
-    #     ask_password_timeout: 45
-    #     password_prompt_timeout_minutes: 0
-    #     use_root_umask: true
-    #     set_auth_for_group: "{{ sudo_users_group_name }}"
-    # - name: "Clone this playbook repo to home dir of admin user '{{ admin_user_and_group_name }}'"
-    #   ansible.builtin.git:
-    #     repo: "https://github.com/digimokan/ans_plbk_freebsd_userg.git"
-    #     dest: "{{ admin_user_home_dir }}/ans_plbk_freebsd_userg"
-    #     update: false
-    #   become: true
-    #   become_user: "{{ admin_user_and_group_name }}"
-    # - name: "Install and configure the feh image viewer utility"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_feh
-    #     public: true
-    # - name: "Install and configure the GNU Image Manipulation Program"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_gnu_image_mp
-    #     public: true
-    # - name: "Install and configure the sndio sound driver layer"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_sndio
-    # - name: "Install and configure the automount device-mounting utility"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_automount
-    # - name: "Install a standard set of system font packages"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_fonts
-    #   vars:
-    #     install_liberation_font: true
-    #     install_dejavu_font: true
-    #     install_droid_font: true
-    #     install_ms_legacy_fonts: true
-    #     install_ms_vista_fonts: true
-    # - name: "Install and configure the LibreOffice office application suite"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_libreoffice
-    #     public: true
-    # - name: "Install and configure the atril pdf viewer"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_atril
-    #     public: true
-    # - name: "Install and configure the pdfarranger utility"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_pdfarranger
-    # - name: "Install and configure the calibre ebook management application"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_calibre
-    #   vars:
-    #     calibre_user_name: "{{ admin_user_and_group_name }}"
-    #     calibre_user_book_lib_dir: "{{ admin_user_books_dir }}"
-    #     calibre_enable_dedrm_plugin_collection: true
-    #     calibre_dedrm_plugin_kindle_serial_num_list: "{{ userg_dedrm_plugin_kindle_serial_num_list }}"
-    # - name: "Install and configure the VLC video player"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_vlc
-    #     public: true
-    #   vars:
-    #     enable_dvd_support: true
-    # - name: "Define list of browser search providers"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_vars_browser_search_providers
-    #     public: true
-    # - name: "Install and configure the qutebrowser web-browser"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_qutebrowser
-    #     public: true
-    #   vars:
-    #     qutebrowser_user_name: "{{ admin_user_and_group_name }}"
-    #     qutebrowser_user_download_dir: "{{ admin_user_download_dir }}"
-    #     qutebrowser_search_providers: "{{ browser_search_providers }}"
-    #     qutebrowser_sans_font_family: "{{ liberation_font_name_sans }}"
-    #     qutebrowser_serif_font_family: "{{ liberation_font_name_serif }}"
-    #     qutebrowser_mono_font_family: "{{ liberation_font_name_mono }}"
-    #     qutebrowser_quickmarks_url_list: "{{ userg_quickmarks_url_list }}"
-    #     qutebrowser_try_link_to_saved_history_db_path: "{{ admin_user_qutebrowser_browse_history_db_path }}"
-    # - name: "Install and configure the Firefox browser"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_firefox
-    #     public: true
-    #   vars:
-    #     user_name: "{{ admin_user_and_group_name }}"
-    #     install_google_widevine_drm_addon: true
-    #     install_vimium_ext: true
-    #     install_user_agent_switcher_ext: true
-    #     allow_user_extension_install: true
-    #     firefox_search_providers: "{{ browser_search_providers }}"
-    # - name: "Install and configure the Chromium browser"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_chromium
-    #     public: true
-    #   vars:
-    #     install_vimium_ext: true
-    #     install_user_agent_switcher_ext: true
-    #     allow_user_ext_install: true
-    #     chromium_search_providers: "{{ browser_search_providers }}"
-    # - name: "Install and configure Avahi"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_avahi
-    #     public: true
-    #   vars:
-    #     enable_host_discovery_service: true
-    # - name: "Configure automatic printer discovery and driverless printing"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_automatic_printing
-    #   vars:
-    #     notify_avahi_handler_on_auto_printing_change: "{{ handler_to_restart_avahi_services }}"
-    # - name: "Configure automatic scanner discovery and driverless scanning"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_automatic_scanning
-    #   vars:
-    #     notify_avahi_handler_on_auto_printing_change: "{{ handler_to_restart_avahi_services }}"
-    # - name: "Install and configure the simple-scan scanning application"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_simple_scan
-    # - name: "Install and configure the Cheese webcam snapshot application"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_cheese
-    # - name: "Install and configure the OBS video-recording application"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_obs
-    # - name: "Install and configure the avidemux video editing application"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_avidemux
-    # - name: "Install the restic backup program, and configure backups to a remote repo"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_restic
-    #   vars:
-    #     restic_user_name: "{{ admin_user_and_group_name }}"
-    #     restic_s3_bucket_url: "{{ userg_restic_s3_bucket_url }}"
-    #     restic_s3_bucket_key_id: "{{ userg_restic_s3_bucket_key_id }}"
-    #     restic_s3_bucket_secret_keystring: "{{ userg_restic_s3_bucket_secret_keystring }}"
-    #     automatic_restic_backup_dirs:
-    #       - "{{ admin_user_home_dir }}/Documents/"
-    #       - "{{ admin_user_home_dir }}/Templates/"
-    #     restic_user_guide_dir: "{{ admin_user_home_dir }}/"
-    # - name: "Install and configure Xorg"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_xorg
-    #   vars:
-    #     user_name: "{{ admin_user_and_group_name }}"
-    #     create_user_xinitrc: true
-    #     xorg_key_repeat_delay_ms_rate_hz: '350 25'
-    # - name: "Install and configure the git version control system"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_git
-    #     public: true
-    #   vars:
-    #     git_machine_user_name: "{{ admin_user_and_group_name }}"
-    #     git_vcs_user_name: "{{ github_user_name }}"
-    #     export_cmd_current_git_branch: true
-    # - name: "Define a set of terminal text, background, and cursor colors"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_vars_terminal_colors
-    #     public: true
-    # - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_vars_wm_labels_colors
-    #     public: true
-    # - name: "Install and configure the wezterm terminal emulator"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_wezterm
-    #     public: true
-    #   vars:
-    #     wezterm_user_name: "{{ admin_user_and_group_name }}"
-    #     font_family: "{{ dejavu_font_name_mono }}"
-    #     font_size: 15
-    #     wezterm_term_colors: "{{ terminal_colors }}"
-    #     shell_cmd: 'fish'
-    #     vcs_tree_icon: "{{ wm_panel_bar_status_item_labels.vcs_tree }}"
-    #     tab_bar_get_git_branch_cmd: "{{ git_cmd_current_git_branch }}"
-    # - name: "Install and configure the i3status panel-bar status area utility"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_i3status
-    #     public: true
-    #   vars:
-    #     i3status_user_name: "{{ admin_user_and_group_name }}"
-    #     i3status_panel_bar_output_format: "i3bar"
-    #     i3status_status_item_labels: "{{ wm_panel_bar_status_item_labels }}"
-    #     i3status_status_item_separator: "{{ wm_panel_bar_status_item_separator }}"
-    #     i3status_status_item_colors: "{{ wm_panel_bar_status_item_colors }}"
-    #     show_wired_up_status_item: true
-    #     show_audio_volume_status_item: true
-    #     show_sys_load_avg_status_item: true
-    #     show_date_time_status_item: true
-    # - name: "Install and configure the picom compositor"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_picom
-    #     public: true
-    # - name: "Install and configure the rofi application launcher"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_rofi
-    #     public: true
-    #   vars:
-    #     rofi_user_name: "{{ admin_user_and_group_name }}"
-    #     rofi_font: "{{ liberation_font_name_sans }} 22"
-    # - name: "Install and configure the xsel clipboard provider"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_xsel
-    #     public: true
-    # - name: "Install and configure xscreensaver"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_xscreensaver
-    #     public: true
-    #   vars:
-    #     xscreensaver_user_name: "{{ admin_user_and_group_name }}"
-    #     screensaver_timeout_minutes: 10
-    #     screensaver_screen_lock_enable: false
-    #     monitor_turn_power_off: true
-    # - name: "Install and configure the maim screenshot-capture utility"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_maim
-    #     public: true
-    # - name: "Install and configure the exa ls-replacement utility"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_exa
-    #     public: true
-    # - name: "Install and configure the fzf command-line fuzzy finder"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_fzf
-    #     public: true
-    # - name: "Install and configure the ripgrep command-line grep replacement"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_ripgrep
-    #     public: true
-    # - name: "Install and configure libarchive utilities"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_libarchive_utils
-    #     public: true
-    # - name: "Install and configure the pandoc file conversion utility"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_pandoc
-    #     public: true
-    # - name: "Install and configure the bundled catdoc/xls2cxv file-conversion utilities"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_catdoc_xls2csv
-    #     public: true
-    # - name: "Install and configure the odt2txt file conversion utility"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_odt2txt
-    #     public: true
-    # - name: "Install and configure the bat enhanced-cat utility"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_bat
-    #     public: true
-    #   vars:
-    #     bat_user_name: "{{ admin_user_and_group_name }}"
-    # - name: "Install and configure the clang C/C++ compiler"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_clang
-    #     public: true
-    # - name: "Install and configure the cmake build-system generator"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_cmake
-    #     public: true
-    # - name: "Install and configure the shellcheck shell script linter"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_shellcheck
-    #     public: true
-    # - name: "Install and configure the yamllint yaml linter"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_yamllint
-    #     public: true
-    #   vars:
-    #     yamllint_user_name: "{{ admin_user_and_group_name }}"
-    # - name: "Install and configure the pylint python linter"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_pylint
-    #     public: true
-    # - name: "Install and configure the luacheck lua linter"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_luacheck
-    #     public: true
-    # - name: "Install and configure the neovim text editor"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_neovim
-    #     public: true
-    #   vars:
-    #     neovim_user_name: "{{ admin_user_and_group_name }}"
-    #     neovim_ripgrep_cmd: "{{ ripgrep_main_cmd }}"
-    #     neovim_lsp_server_cmd_list:
-    #       - "{{ clang_start_language_server_cmd }}"
-    #     neovim_clipboard_provider: "{{ xsel_main_cmd }}"
-    #     neovim_linters:
-    #       - { filetype: "python", cmd: "{{ pylint_main_cmd }}" }
-    #       - { filetype: "sh", cmd: "{{ shellcheck_main_cmd }}" }
-    #       - { filetype: "yaml", cmd: "{{ yamllint_main_cmd }}" }
-    #       - { filetype: "lua", cmd: "{{ luacheck_main_cmd }}" }
-    # - name: "Install and configure the ranger file manager"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_ranger
-    #     public: true
-    #   vars:
-    #     ranger_user_name: "{{ admin_user_and_group_name }}"
-    #     # note: wezterm supports iterm2 image-display protocol
-    #     image_preview_program: "iterm2"
-    #     ranger_fzf_cmd: "{{ fzf_main_cmd }}"
-    #     ranger_gnu_coreutils_mv_cmd: "{{ gnu_coreutils_mv_cmd }}"
-    #     ranger_user_documents_dir: "{{ admin_user_documents_dir }}"
-    #     ranger_user_desktop_dir: "{{ admin_user_desktop_dir }}"
-    #     ranger_user_download_dir: "{{ admin_user_download_dir }}"
-    #     ranger_user_music_dir: "{{ admin_user_music_dir }}"
-    #     ranger_user_pictures_dir: "{{ admin_user_pictures_dir }}"
-    #     ranger_user_videos_dir: "{{ admin_user_videos_dir }}"
-    #     ranger_user_trash_dir: "{{ admin_user_trash_dir }}"
-    #     ranger_user_devel_dir: "{{ admin_user_devel_dir }}"
-    #     start_term_emulator: "{{ wezterm_main_cmd }}"
-    #     term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
-    #     term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
-    #     start_text_editor: "{{ neovim_main_cmd }}"
-    #     open_image_files_with: [ "{{ feh_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
-    #     open_office_files_with: [ "{{ libreoffice_main_cmd }}" ]
-    #     open_pdf_files_with: [ "{{ atril_main_cmd }}" ]
-    #     open_audio_files_with: [ "{{ vlc_main_cmd }}" ]
-    #     open_video_files_with: [ "{{ vlc_main_cmd }}" ]
-    #     open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
-    #     preview_text_file_cmd: "{{ bat_8bit_color_plain_cmd }}"
-    #     preview_rtf_file_cmd: "{{ catdoc_conv_rtf_to_text_cmd }}"
-    #     preview_odt_file_cmd: "{{ odt2txt_conv_odt_to_txt_cmd }}"
-    #     preview_ods_file_cmd: "{{ odt2txt_conv_ods_to_txt_cmd }}"
-    #     preview_odp_file_cmd: "{{ odt2txt_conv_odp_to_txt_cmd }}"
-    #     preview_doc_file_cmd: "{{ catdoc_conv_doc_to_text_cmd }}"
-    #     preview_docx_file_cmd: "{{ pandoc_conv_to_markdown_cmd }}"
-    #     preview_xls_file_cmd: "{{ xls2csv_conv_xls_to_text_cmd }}"
-    #     preview_xlsx_file_cmd: "{{ xls2csv_conv_xlsx_to_text_cmd }}"
-    #     preview_tar_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
-    #     preview_gzip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
-    #     preview_zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
-    #     preview_xz_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
-    #     preview_7zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
-    # - name: "Add custom xxxx.desktop launcher files for terminal programs"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_dot_desktops
-    #     public: true
-    #   vars:
-    #     start_term_emulator: "{{ wezterm_main_cmd }}"
-    #     term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
-    #     dot_desktop_launchers:
-    #       - { cli: "{{ ranger_in_last_dir_cmd }}", name: 'ranger' }
-    # - name: "Install and configure the i3wm window manager"
-    #   ansible.builtin.include_role:
-    #     name: ext/ans_role_config_i3wm_wm
-    #     public: true
-    #   vars:
-    #     i3_user_name: "{{ admin_user_and_group_name }}"
-    #     window_titles_font: "{{ liberation_font_name_sans }} 19"
-    #     i3wm_window_colors: "{{ wm_window_colors }}"
-    #     workspace_labels: "{{ wm_panel_bar_workspace_labels }}"
-    #     cmd_start_compositor: "{{ picom_start_cmd }}"
-    #     cmd_display_bg_wallpaper: "{{ feh_display_wallpaper_cmd }}"
-    #     cmd_start_screensaver_utility: "{{ xscreensaver_start_cmd }}"
-    #     cmd_screen_lock: "{{ xscreensaver_lock_cmd }}"
-    #     cmd_launch_app_menu: "{{ rofi_start_app_launcher_cmd }}"
-    #     cmd_start_term_emulator: "{{ wezterm_main_cmd }}"
-    #     cmd_arg_term_emulator_class: "{{ wezterm_arg_class }}"
-    #     cmd_inc_volume: "{{ oss_inc_volume_cmd }}"
-    #     cmd_dec_volume: "{{ oss_dec_volume_cmd }}"
-    #     cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
-    #     screenshot_png_save_dir: "{{ admin_user_home_dir }}/Desktop"
-    #     cmd_start_panel_bar: "i3bar"
-    #     i3bar_font: "{{ droid_font_name_mono }} 18"
-    #     i3bar_bg_color: "{{ wm_panel_bar_bg_color }}"
-    #     i3bar_workspace_colors: "{{ wm_panel_bar_workspace_colors }}"
-    #     i3bar_status_area_cmd: "{{ i3status_start_cmd }}"
-    #     i3bar_status_item_separator: "{{ wm_panel_bar_status_item_separator }}"
-    #     i3bar_status_item_colors: "{{ wm_panel_bar_status_item_colors }}"
-    # - name: "Install and configure the XDM display manager"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_xdm_dm
-    #   vars:
-    #     xdm_user_name: "{{ admin_user_and_group_name }}"
-    #     session: "{{ i3wm_session }}"
+    - name: "Set the machine hostname to '{{ machine_hostname }}'"
+      ansible.builtin.hostname:
+        name: "{{ machine_hostname }}"
+    - name: "Configure system clock, time, and time zone"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_time
+    - name: "Configure system and package upgrades"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_upgrades
+    - name: "Configure the FreeBSD 'loader' bootloader"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_loader
+      vars:
+        menu_timeout_seconds: "2"
+        load_cpu_microcode_updates: true
+    - name: "Install and configure the OSS sound driver layer"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_oss
+        public: true
+      vars:
+        sound_card_type: 'intel'
+        force_set_sound_output_pcm_at_boot: '0'
+        intel_nid_disable_list:
+          - { card: '0', nid: '30', descrip: 'rear speaker/optical combo jack optical-out-channel' }
+          - { card: '0', nid: '33', descrip: 'front headphones jack out-channel' }
+          - { card: '1', nid: '3', descrip: 'rear HDMI jack audio-out-channel' }
+    - name: "Install and configure video card drivers"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_video_drivers
+        public: true
+      vars:
+        video_card_make: "Intel"
+        video_card_series: "HD"
+    - name: "Configure webcam support"
+      ansible.builtin.include_role:
+        name: ans_role_config_webcam
+        public: true
+    - name: "Install and configure GNU coreutils"
+      ansible.builtin.include_role:
+        name: ans_role_config_gnu_coreutils
+        public: true
+    - name: "Add sudo-users group '{{ sudo_users_group_name }}'"
+      ansible.builtin.include_role:
+        name: ext/ans_role_add_group
+      vars:
+        group_name: "{{ sudo_users_group_name }}"
+        is_system_group: true
+    - name: "Add and configure admin user '{{ admin_user_and_group_name }}'"
+      ansible.builtin.include_role:
+        name: ext/ans_role_add_user
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+        user_groups:
+          - "{{ sudo_users_group_name }}"
+          - "{{ video_group_name }}"
+          - "{{ webcam_group_name }}"
+        comment: "{{ admin_user_and_group_name }}"
+        create_home_dir: false
+    - name: "Create all zfs filesystem datasets for the system"
+      ansible.builtin.include_role:
+        name: ans_role_create_filesystem_datasets
+      vars:
+        filesystem_datasets:
+          - { pool: "{{ zpl }}", path: '/home', mount: '/home', owner: 'root', group: "{{ rusg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ hdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710' }
+          - { pool: "{{ zpl }}", path: "{{ odir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ kdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ wdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ udir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ idir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ vdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ tdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ ldir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ edir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ bdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ pdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ cdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ ydir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+        zpl: "{{ zfs_pool }}"
+        hdir: "{{ admin_user_home_dir }}"
+        odir: "{{ admin_user_documents_dir }}"
+        kdir: "{{ admin_user_desktop_dir }}"
+        wdir: "{{ admin_user_download_dir }}"
+        udir: "{{ admin_user_music_dir }}"
+        idir: "{{ admin_user_pictures_dir }}"
+        vdir: "{{ admin_user_videos_dir }}"
+        tdir: "{{ admin_user_trash_dir }}"
+        ldir: "{{ admin_user_local_dir }}"
+        edir: "{{ admin_user_devel_dir }}"
+        bdir: "{{ admin_user_books_dir }}"
+        pdir: "{{ admin_user_snapped_photos_dir }}"
+        cdir: "{{ admin_user_podcasts_dir }}"
+        ydir: "{{ admin_user_temp_sync_dir }}"
+        rusg: "{{ root_user_group_name }}"
+        ausg: "{{ admin_user_and_group_name }}"
+    - name: "Create and configure XDG user dirs for '{{ admin_user_and_group_name }}'"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_xdg_user_dirs
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+    - name: "Configure sudo settings for auth group '{{ sudo_users_group_name }}'"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_sudo
+      vars:
+        ask_password_timeout: 45
+        password_prompt_timeout_minutes: 0
+        use_root_umask: true
+        set_auth_for_group: "{{ sudo_users_group_name }}"
+    - name: "Clone this playbook repo to home dir of admin user '{{ admin_user_and_group_name }}'"
+      ansible.builtin.git:
+        repo: "https://github.com/digimokan/ans_plbk_freebsd_userg.git"
+        dest: "{{ admin_user_home_dir }}/ans_plbk_freebsd_userg"
+        update: false
+      become: true
+      become_user: "{{ admin_user_and_group_name }}"
+    - name: "Install and configure the feh image viewer utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_feh
+        public: true
+    - name: "Install and configure the GNU Image Manipulation Program"
+      ansible.builtin.include_role:
+        name: ans_role_config_gnu_image_mp
+        public: true
+    - name: "Install and configure the sndio sound driver layer"
+      ansible.builtin.include_role:
+        name: ans_role_config_sndio
+    - name: "Install and configure the automount device-mounting utility"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_automount
+    - name: "Install a standard set of system font packages"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_fonts
+      vars:
+        install_liberation_font: true
+        install_dejavu_font: true
+        install_droid_font: true
+        install_ms_legacy_fonts: true
+        install_ms_vista_fonts: true
+    - name: "Install and configure the LibreOffice office application suite"
+      ansible.builtin.include_role:
+        name: ans_role_config_libreoffice
+        public: true
+    - name: "Install and configure the atril pdf viewer"
+      ansible.builtin.include_role:
+        name: ans_role_config_atril
+        public: true
+    - name: "Install and configure the pdfarranger utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_pdfarranger
+    - name: "Install and configure the calibre ebook management application"
+      ansible.builtin.include_role:
+        name: ans_role_config_calibre
+      vars:
+        calibre_user_name: "{{ admin_user_and_group_name }}"
+        calibre_user_book_lib_dir: "{{ admin_user_books_dir }}"
+        calibre_enable_dedrm_plugin_collection: true
+        calibre_dedrm_plugin_kindle_serial_num_list: "{{ userg_dedrm_plugin_kindle_serial_num_list }}"
+    - name: "Install and configure the VLC video player"
+      ansible.builtin.include_role:
+        name: ans_role_config_vlc
+        public: true
+      vars:
+        enable_dvd_support: true
+    - name: "Define list of browser search providers"
+      ansible.builtin.include_role:
+        name: ext/ans_role_vars_browser_search_providers
+        public: true
+    - name: "Install and configure the qutebrowser web-browser"
+      ansible.builtin.include_role:
+        name: ans_role_config_qutebrowser
+        public: true
+      vars:
+        qutebrowser_user_name: "{{ admin_user_and_group_name }}"
+        qutebrowser_user_download_dir: "{{ admin_user_download_dir }}"
+        qutebrowser_search_providers: "{{ browser_search_providers }}"
+        qutebrowser_sans_font_family: "{{ liberation_font_name_sans }}"
+        qutebrowser_serif_font_family: "{{ liberation_font_name_serif }}"
+        qutebrowser_mono_font_family: "{{ liberation_font_name_mono }}"
+        qutebrowser_quickmarks_url_list: "{{ userg_quickmarks_url_list }}"
+        qutebrowser_try_link_to_saved_history_db_path: "{{ admin_user_qutebrowser_browse_history_db_path }}"
+    - name: "Install and configure the Firefox browser"
+      ansible.builtin.include_role:
+        name: ans_role_config_firefox
+        public: true
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+        install_google_widevine_drm_addon: true
+        install_vimium_ext: true
+        install_user_agent_switcher_ext: true
+        allow_user_extension_install: true
+        firefox_search_providers: "{{ browser_search_providers }}"
+    - name: "Install and configure the Chromium browser"
+      ansible.builtin.include_role:
+        name: ans_role_config_chromium
+        public: true
+      vars:
+        install_vimium_ext: true
+        install_user_agent_switcher_ext: true
+        allow_user_ext_install: true
+        chromium_search_providers: "{{ browser_search_providers }}"
+    - name: "Install and configure Avahi"
+      ansible.builtin.include_role:
+        name: ans_role_config_avahi
+        public: true
+      vars:
+        enable_host_discovery_service: true
+    - name: "Configure automatic printer discovery and driverless printing"
+      ansible.builtin.include_role:
+        name: ans_role_config_automatic_printing
+      vars:
+        notify_avahi_handler_on_auto_printing_change: "{{ handler_to_restart_avahi_services }}"
+    - name: "Configure automatic scanner discovery and driverless scanning"
+      ansible.builtin.include_role:
+        name: ans_role_config_automatic_scanning
+      vars:
+        notify_avahi_handler_on_auto_printing_change: "{{ handler_to_restart_avahi_services }}"
+    - name: "Install and configure the simple-scan scanning application"
+      ansible.builtin.include_role:
+        name: ans_role_config_simple_scan
+    - name: "Install and configure the Cheese webcam snapshot application"
+      ansible.builtin.include_role:
+        name: ans_role_config_cheese
+    - name: "Install and configure the OBS video-recording application"
+      ansible.builtin.include_role:
+        name: ans_role_config_obs
+    - name: "Install and configure the avidemux video editing application"
+      ansible.builtin.include_role:
+        name: ans_role_config_avidemux
+    - name: "Install the restic backup program, and configure backups to a remote repo"
+      ansible.builtin.include_role:
+        name: ans_role_config_restic
+      vars:
+        restic_user_name: "{{ admin_user_and_group_name }}"
+        restic_s3_bucket_url: "{{ userg_restic_s3_bucket_url }}"
+        restic_s3_bucket_key_id: "{{ userg_restic_s3_bucket_key_id }}"
+        restic_s3_bucket_secret_keystring: "{{ userg_restic_s3_bucket_secret_keystring }}"
+        automatic_restic_backup_dirs:
+          - "{{ admin_user_home_dir }}/Documents/"
+          - "{{ admin_user_home_dir }}/Templates/"
+        restic_user_guide_dir: "{{ admin_user_home_dir }}/"
+    - name: "Install and configure Xorg"
+      ansible.builtin.include_role:
+        name: ans_role_config_xorg
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+        create_user_xinitrc: true
+        xorg_key_repeat_delay_ms_rate_hz: '350 25'
+    - name: "Install and configure the git version control system"
+      ansible.builtin.include_role:
+        name: ans_role_config_git
+        public: true
+      vars:
+        git_machine_user_name: "{{ admin_user_and_group_name }}"
+        git_vcs_user_name: "{{ github_user_name }}"
+        export_cmd_current_git_branch: true
+    - name: "Define a set of terminal text, background, and cursor colors"
+      ansible.builtin.include_role:
+        name: ans_role_vars_terminal_colors
+        public: true
+    - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
+      ansible.builtin.include_role:
+        name: ext/ans_role_vars_wm_labels_colors
+        public: true
+    - name: "Install and configure the wezterm terminal emulator"
+      ansible.builtin.include_role:
+        name: ans_role_config_wezterm
+        public: true
+      vars:
+        wezterm_user_name: "{{ admin_user_and_group_name }}"
+        font_family: "{{ dejavu_font_name_mono }}"
+        font_size: 15
+        wezterm_term_colors: "{{ terminal_colors }}"
+        shell_cmd: 'fish'
+        vcs_tree_icon: "{{ wm_panel_bar_status_item_labels.vcs_tree }}"
+        tab_bar_get_git_branch_cmd: "{{ git_cmd_current_git_branch }}"
+    - name: "Install and configure the i3status panel-bar status area utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_i3status
+        public: true
+      vars:
+        i3status_user_name: "{{ admin_user_and_group_name }}"
+        i3status_panel_bar_output_format: "i3bar"
+        i3status_status_item_labels: "{{ wm_panel_bar_status_item_labels }}"
+        i3status_status_item_separator: "{{ wm_panel_bar_status_item_separator }}"
+        i3status_status_item_colors: "{{ wm_panel_bar_status_item_colors }}"
+        show_wired_up_status_item: true
+        show_audio_volume_status_item: true
+        show_sys_load_avg_status_item: true
+        show_date_time_status_item: true
+    - name: "Install and configure the picom compositor"
+      ansible.builtin.include_role:
+        name: ans_role_config_picom
+        public: true
+    - name: "Install and configure the rofi application launcher"
+      ansible.builtin.include_role:
+        name: ans_role_config_rofi
+        public: true
+      vars:
+        rofi_user_name: "{{ admin_user_and_group_name }}"
+        rofi_font: "{{ liberation_font_name_sans }} 22"
+    - name: "Install and configure the xsel clipboard provider"
+      ansible.builtin.include_role:
+        name: ans_role_config_xsel
+        public: true
+    - name: "Install and configure xscreensaver"
+      ansible.builtin.include_role:
+        name: ans_role_config_xscreensaver
+        public: true
+      vars:
+        xscreensaver_user_name: "{{ admin_user_and_group_name }}"
+        screensaver_timeout_minutes: 10
+        screensaver_screen_lock_enable: false
+        monitor_turn_power_off: true
+    - name: "Install and configure the maim screenshot-capture utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_maim
+        public: true
+    - name: "Install and configure the exa ls-replacement utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_exa
+        public: true
+    - name: "Install and configure the fzf command-line fuzzy finder"
+      ansible.builtin.include_role:
+        name: ans_role_config_fzf
+        public: true
+    - name: "Install and configure the ripgrep command-line grep replacement"
+      ansible.builtin.include_role:
+        name: ans_role_config_ripgrep
+        public: true
+    - name: "Install and configure libarchive utilities"
+      ansible.builtin.include_role:
+        name: ans_role_config_libarchive_utils
+        public: true
+    - name: "Install and configure the pandoc file conversion utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_pandoc
+        public: true
+    - name: "Install and configure the bundled catdoc/xls2cxv file-conversion utilities"
+      ansible.builtin.include_role:
+        name: ans_role_config_catdoc_xls2csv
+        public: true
+    - name: "Install and configure the odt2txt file conversion utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_odt2txt
+        public: true
+    - name: "Install and configure the bat enhanced-cat utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_bat
+        public: true
+      vars:
+        bat_user_name: "{{ admin_user_and_group_name }}"
+    - name: "Install and configure the clang C/C++ compiler"
+      ansible.builtin.include_role:
+        name: ans_role_config_clang
+        public: true
+    - name: "Install and configure the cmake build-system generator"
+      ansible.builtin.include_role:
+        name: ans_role_config_cmake
+        public: true
+    - name: "Install and configure the shellcheck shell script linter"
+      ansible.builtin.include_role:
+        name: ans_role_config_shellcheck
+        public: true
+    - name: "Install and configure the yamllint yaml linter"
+      ansible.builtin.include_role:
+        name: ans_role_config_yamllint
+        public: true
+      vars:
+        yamllint_user_name: "{{ admin_user_and_group_name }}"
+    - name: "Install and configure the pylint python linter"
+      ansible.builtin.include_role:
+        name: ans_role_config_pylint
+        public: true
+    - name: "Install and configure the luacheck lua linter"
+      ansible.builtin.include_role:
+        name: ans_role_config_luacheck
+        public: true
+    - name: "Install and configure the neovim text editor"
+      ansible.builtin.include_role:
+        name: ans_role_config_neovim
+        public: true
+      vars:
+        neovim_user_name: "{{ admin_user_and_group_name }}"
+        neovim_ripgrep_cmd: "{{ ripgrep_main_cmd }}"
+        neovim_lsp_server_cmd_list:
+          - "{{ clang_start_language_server_cmd }}"
+        neovim_clipboard_provider: "{{ xsel_main_cmd }}"
+        neovim_linters:
+          - { filetype: "python", cmd: "{{ pylint_main_cmd }}" }
+          - { filetype: "sh", cmd: "{{ shellcheck_main_cmd }}" }
+          - { filetype: "yaml", cmd: "{{ yamllint_main_cmd }}" }
+          - { filetype: "lua", cmd: "{{ luacheck_main_cmd }}" }
+    - name: "Install and configure the ranger file manager"
+      ansible.builtin.include_role:
+        name: ans_role_config_ranger
+        public: true
+      vars:
+        ranger_user_name: "{{ admin_user_and_group_name }}"
+        # note: wezterm supports iterm2 image-display protocol
+        image_preview_program: "iterm2"
+        ranger_fzf_cmd: "{{ fzf_main_cmd }}"
+        ranger_gnu_coreutils_mv_cmd: "{{ gnu_coreutils_mv_cmd }}"
+        ranger_user_documents_dir: "{{ admin_user_documents_dir }}"
+        ranger_user_desktop_dir: "{{ admin_user_desktop_dir }}"
+        ranger_user_download_dir: "{{ admin_user_download_dir }}"
+        ranger_user_music_dir: "{{ admin_user_music_dir }}"
+        ranger_user_pictures_dir: "{{ admin_user_pictures_dir }}"
+        ranger_user_videos_dir: "{{ admin_user_videos_dir }}"
+        ranger_user_trash_dir: "{{ admin_user_trash_dir }}"
+        ranger_user_devel_dir: "{{ admin_user_devel_dir }}"
+        start_term_emulator: "{{ wezterm_main_cmd }}"
+        term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
+        term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
+        start_text_editor: "{{ neovim_main_cmd }}"
+        open_image_files_with: [ "{{ feh_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
+        open_office_files_with: [ "{{ libreoffice_main_cmd }}" ]
+        open_pdf_files_with: [ "{{ atril_main_cmd }}" ]
+        open_audio_files_with: [ "{{ vlc_main_cmd }}" ]
+        open_video_files_with: [ "{{ vlc_main_cmd }}" ]
+        open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
+        preview_text_file_cmd: "{{ bat_8bit_color_plain_cmd }}"
+        preview_rtf_file_cmd: "{{ catdoc_conv_rtf_to_text_cmd }}"
+        preview_odt_file_cmd: "{{ odt2txt_conv_odt_to_txt_cmd }}"
+        preview_ods_file_cmd: "{{ odt2txt_conv_ods_to_txt_cmd }}"
+        preview_odp_file_cmd: "{{ odt2txt_conv_odp_to_txt_cmd }}"
+        preview_doc_file_cmd: "{{ catdoc_conv_doc_to_text_cmd }}"
+        preview_docx_file_cmd: "{{ pandoc_conv_to_markdown_cmd }}"
+        preview_xls_file_cmd: "{{ xls2csv_conv_xls_to_text_cmd }}"
+        preview_xlsx_file_cmd: "{{ xls2csv_conv_xlsx_to_text_cmd }}"
+        preview_tar_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
+        preview_gzip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
+        preview_zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
+        preview_xz_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
+        preview_7zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
+    - name: "Add custom xxxx.desktop launcher files for terminal programs"
+      ansible.builtin.include_role:
+        name: ans_role_config_dot_desktops
+        public: true
+      vars:
+        start_term_emulator: "{{ wezterm_main_cmd }}"
+        term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
+        dot_desktop_launchers:
+          - { cli: "{{ ranger_in_last_dir_cmd }}", name: 'ranger' }
+    - name: "Install and configure the i3wm window manager"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_i3wm_wm
+        public: true
+      vars:
+        i3_user_name: "{{ admin_user_and_group_name }}"
+        window_titles_font: "{{ liberation_font_name_sans }} 19"
+        i3wm_window_colors: "{{ wm_window_colors }}"
+        workspace_labels: "{{ wm_panel_bar_workspace_labels }}"
+        cmd_start_compositor: "{{ picom_start_cmd }}"
+        cmd_display_bg_wallpaper: "{{ feh_display_wallpaper_cmd }}"
+        cmd_start_screensaver_utility: "{{ xscreensaver_start_cmd }}"
+        cmd_screen_lock: "{{ xscreensaver_lock_cmd }}"
+        cmd_launch_app_menu: "{{ rofi_start_app_launcher_cmd }}"
+        cmd_start_term_emulator: "{{ wezterm_main_cmd }}"
+        cmd_arg_term_emulator_class: "{{ wezterm_arg_class }}"
+        cmd_inc_volume: "{{ oss_inc_volume_cmd }}"
+        cmd_dec_volume: "{{ oss_dec_volume_cmd }}"
+        cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
+        screenshot_png_save_dir: "{{ admin_user_home_dir }}/Desktop"
+        cmd_start_panel_bar: "i3bar"
+        i3bar_font: "{{ droid_font_name_mono }} 18"
+        i3bar_bg_color: "{{ wm_panel_bar_bg_color }}"
+        i3bar_workspace_colors: "{{ wm_panel_bar_workspace_colors }}"
+        i3bar_status_area_cmd: "{{ i3status_start_cmd }}"
+        i3bar_status_item_separator: "{{ wm_panel_bar_status_item_separator }}"
+        i3bar_status_item_colors: "{{ wm_panel_bar_status_item_colors }}"
+    - name: "Install and configure the XDM display manager"
+      ansible.builtin.include_role:
+        name: ans_role_config_xdm_dm
+      vars:
+        xdm_user_name: "{{ admin_user_and_group_name }}"
+        session: "{{ i3wm_session }}"
     - name: "Define a set of LAN-common syncthing devices and shared syncthing folders"
       ansible.builtin.include_role:
         name: ans_vars_syncthing_devices_folders
@@ -522,25 +522,25 @@
           - { folder_id: 'st_sync', folder_path: "{{ admin_user_temp_sync_dir }}", sync_mode: 'sendreceive' }
         syncthing_list_of_available_sync_devices: "{{ ans_vars_list_of_available_syncthing_devices }}"
         syncthing_list_of_available_sync_folders: "{{ ans_vars_list_of_available_syncthing_folders }}"
-    # - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_fish
-    #   vars:
-    #     user_name: "{{ admin_user_and_group_name }}"
-    #     command_functions:
-    #       - name: 'll'
-    #         body: >-
-    #           {{ exa_long_listing_force_color_cmd }} $argv |
-    #           {{ less_auto_page_with_raw_input_cmd }}
-    #         descrip: 'print a long-listing with exa'
-    #       - { name: 'v', body: "{{ neovim_main_cmd }} $argv", descrip: 'start the neovim text editor' }
-    # - name: "Set env vars, login actions, and logout actions for admin user '{{ admin_user_and_group_name }}'"
-    #   ansible.builtin.include_role:
-    #     name: ans_role_config_shell
-    #   vars:
-    #     user_name: "{{ admin_user_and_group_name }}"
-    #     shell_env_vars:
-    #       - { name: 'VISUAL', val: "{{ neovim_main_cmd }}", descrip: 'set default text editor' }
-    #       - { name: 'EDITOR', val: "{{ neovim_main_cmd }}", descrip: 'set default text editor (legacy, line-mode)' }
-    #       - { name: 'PAGER', val: 'less', descrip: 'set default pager program' }
+    - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
+      ansible.builtin.include_role:
+        name: ans_role_config_fish
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+        command_functions:
+          - name: 'll'
+            body: >-
+              {{ exa_long_listing_force_color_cmd }} $argv |
+              {{ less_auto_page_with_raw_input_cmd }}
+            descrip: 'print a long-listing with exa'
+          - { name: 'v', body: "{{ neovim_main_cmd }} $argv", descrip: 'start the neovim text editor' }
+    - name: "Set env vars, login actions, and logout actions for admin user '{{ admin_user_and_group_name }}'"
+      ansible.builtin.include_role:
+        name: ans_role_config_shell
+      vars:
+        user_name: "{{ admin_user_and_group_name }}"
+        shell_env_vars:
+          - { name: 'VISUAL', val: "{{ neovim_main_cmd }}", descrip: 'set default text editor' }
+          - { name: 'EDITOR', val: "{{ neovim_main_cmd }}", descrip: 'set default text editor (legacy, line-mode)' }
+          - { name: 'PAGER', val: 'less', descrip: 'set default pager program' }
 
