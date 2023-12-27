@@ -141,6 +141,9 @@
         update: false
       become: true
       become_user: "{{ admin_user_and_group_name }}"
+    - name: "Install and configure the Bitwarden CLI password manager utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_bitwarden_cli
     - name: "Install and configure the feh image viewer utility"
       ansible.builtin.include_role:
         name: ans_role_config_feh
