@@ -12,6 +12,12 @@
 #   - ansible.cfg wires up vault_password.txt
 #   - playbook.yml wires up linking in vars from vars.yml, vault.yml
 
+# for config_bitwarden_cli: API key client ID
+userg_bitwarden_api_key_client_id: "{{ vault_userg_bitwarden_api_key_client_id }}"
+
+# for config_bitwarden_cli: API key client ID
+userg_bitwarden_api_key_client_secret: "{{ vault_userg_bitwarden_api_key_client_secret }}"
+
 # for config_restic: an S3 bucket that will host the remote-backup repo
 userg_restic_s3_bucket_url: "{{ vault_userg_restic_s3_bucket_url }}"
 
