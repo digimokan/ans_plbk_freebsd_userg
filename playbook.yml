@@ -63,6 +63,10 @@
       ansible.builtin.include_role:
         name: ans_role_config_webcam
         public: true
+    - name: "Install and configure the FreeBSD Linux Binary-Compat Layer"
+      ansible.builtin.include_role:
+        name: ans_role_config_freebsd_linux_compat
+        public: true
     - name: "Install and configure GNU coreutils"
       ansible.builtin.include_role:
         name: ans_role_config_gnu_coreutils
