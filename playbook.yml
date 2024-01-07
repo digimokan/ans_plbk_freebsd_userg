@@ -145,11 +145,6 @@
         update: false
       become: true
       become_user: "{{ admin_user_and_group_name }}"
-    - name: "Install and configure the Bitwarden CLI password manager utility"
-      ansible.builtin.include_role:
-        name: ans_role_config_bitwarden_cli
-      vars:
-        bitwarden_check_freebsd_linux_compat_cmd: "{{ freebsd_linux_compat_check_cmd }}"
     - name: "Install and configure the feh image viewer utility"
       ansible.builtin.include_role:
         name: ans_role_config_feh
@@ -429,6 +424,18 @@
           - { filetype: "sh", cmd: "{{ shellcheck_main_cmd }}" }
           - { filetype: "yaml", cmd: "{{ yamllint_main_cmd }}" }
           - { filetype: "lua", cmd: "{{ luacheck_main_cmd }}" }
+    - name: "Install and configure the jq command-line json parser"
+      ansible.builtin.include_role:
+        name: ans_role_config_jq
+        public: true
+    - name: "Install and configure the Bitwarden CLI password manager utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_bitwarden_cli
+      vars:
+        bitwarden_check_freebsd_linux_compat_cmd: "{{ freebsd_linux_compat_check_cmd }}"
+        bitwarden_exec_jq_cmd: "{{ jq_main_cmd }}"
+        bitwarden_exec_xsel_cmd: "{{ xsel_main_cmd }}"
+        bitwarden_exec_fzf_cmd: "{{ fzf_main_cmd }}"
     - name: "Install and configure the ranger file manager"
       ansible.builtin.include_role:
         name: ans_role_config_ranger
