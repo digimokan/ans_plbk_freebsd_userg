@@ -433,9 +433,10 @@
         name: ans_role_config_bitwarden_cli
       vars:
         bitwarden_check_freebsd_linux_compat_cmd: "{{ freebsd_linux_compat_check_cmd }}"
-        bitwarden_exec_jq_cmd: "{{ jq_main_cmd }}"
-        bitwarden_exec_xsel_cmd: "{{ xsel_main_cmd }}"
-        bitwarden_exec_fzf_cmd: "{{ fzf_main_cmd }}"
+        bitwarden_cli_user_email_addr: "{{ userg_bitwarden_cli_user_email_addr }}"
+        bitwarden_cli_exec_jq_cmd: "{{ jq_main_cmd }}"
+        bitwarden_cli_exec_xsel_cmd: "{{ xsel_main_cmd }}"
+        bitwarden_cli_exec_fzf_cmd: "{{ fzf_main_cmd }}"
     - name: "Install and configure the ranger file manager"
       ansible.builtin.include_role:
         name: ans_role_config_ranger
