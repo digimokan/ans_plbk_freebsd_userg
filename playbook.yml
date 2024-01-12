@@ -433,7 +433,8 @@
         name: ans_role_config_bitwarden_cli
       vars:
         bitwarden_check_freebsd_linux_compat_cmd: "{{ freebsd_linux_compat_check_cmd }}"
-        bitwarden_cli_user_email_addr: "{{ userg_bitwarden_cli_user_email_addr }}"
+        bitwarden_cli_api_key_client_id: "{{ userg_bitwarden_api_key_client_id }}"
+        bitwarden_cli_api_key_client_secret: "{{ userg_bitwarden_api_key_client_secret }}"
         bitwarden_cli_exec_jq_cmd: "{{ jq_main_cmd }}"
         bitwarden_cli_exec_xsel_cmd: "{{ xsel_main_cmd }}"
         bitwarden_cli_exec_fzf_cmd: "{{ fzf_main_cmd }}"
