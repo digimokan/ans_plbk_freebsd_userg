@@ -138,6 +138,30 @@
         password_prompt_timeout_minutes: 0
         use_root_umask: true
         set_auth_for_group: "{{ sudo_users_group_name }}"
+    - name: "Install and configure the jq command-line json parser"
+      ansible.builtin.include_role:
+        name: ans_role_config_jq
+        public: true
+    - name: "Install and configure the xsel clipboard provider"
+      ansible.builtin.include_role:
+        name: ans_role_config_xsel
+        public: true
+    - name: "Install and configure the fzf command-line fuzzy finder"
+      ansible.builtin.include_role:
+        name: ans_role_config_fzf
+        public: true
+    - name: "Install and configure the Bitwarden CLI password manager utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_bitwarden_cli
+        public: true
+      vars:
+        bitwarden_user_name: "{{ admin_user_and_group_name }}"
+        bitwarden_check_freebsd_linux_compat_cmd: "{{ freebsd_linux_compat_check_cmd }}"
+        bitwarden_cli_api_key_client_id: "{{ userg_bitwarden_api_key_client_id }}"
+        bitwarden_cli_api_key_client_secret: "{{ userg_bitwarden_api_key_client_secret }}"
+        bitwarden_cli_exec_jq_cmd: "{{ jq_main_cmd }}"
+        bitwarden_cli_exec_xsel_cmd: "{{ xsel_main_cmd }}"
+        bitwarden_cli_exec_fzf_cmd: "{{ fzf_main_cmd }}"
     - name: "Clone this playbook repo to home dir of admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.git:
         repo: "https://github.com/digimokan/ans_plbk_freebsd_userg.git"
@@ -332,10 +356,6 @@
       vars:
         rofi_user_name: "{{ admin_user_and_group_name }}"
         rofi_font: "{{ liberation_font_name_sans }} 22"
-    - name: "Install and configure the xsel clipboard provider"
-      ansible.builtin.include_role:
-        name: ans_role_config_xsel
-        public: true
     - name: "Install and configure xscreensaver"
       ansible.builtin.include_role:
         name: ans_role_config_xscreensaver
@@ -352,10 +372,6 @@
     - name: "Install and configure the exa ls-replacement utility"
       ansible.builtin.include_role:
         name: ans_role_config_exa
-        public: true
-    - name: "Install and configure the fzf command-line fuzzy finder"
-      ansible.builtin.include_role:
-        name: ans_role_config_fzf
         public: true
     - name: "Install and configure the ripgrep command-line grep replacement"
       ansible.builtin.include_role:
@@ -424,21 +440,6 @@
           - { filetype: "sh", cmd: "{{ shellcheck_main_cmd }}" }
           - { filetype: "yaml", cmd: "{{ yamllint_main_cmd }}" }
           - { filetype: "lua", cmd: "{{ luacheck_main_cmd }}" }
-    - name: "Install and configure the jq command-line json parser"
-      ansible.builtin.include_role:
-        name: ans_role_config_jq
-        public: true
-    - name: "Install and configure the Bitwarden CLI password manager utility"
-      ansible.builtin.include_role:
-        name: ans_role_config_bitwarden_cli
-      vars:
-        bitwarden_user_name: "{{ admin_user_and_group_name }}"
-        bitwarden_check_freebsd_linux_compat_cmd: "{{ freebsd_linux_compat_check_cmd }}"
-        bitwarden_cli_api_key_client_id: "{{ userg_bitwarden_api_key_client_id }}"
-        bitwarden_cli_api_key_client_secret: "{{ userg_bitwarden_api_key_client_secret }}"
-        bitwarden_cli_exec_jq_cmd: "{{ jq_main_cmd }}"
-        bitwarden_cli_exec_xsel_cmd: "{{ xsel_main_cmd }}"
-        bitwarden_cli_exec_fzf_cmd: "{{ fzf_main_cmd }}"
     - name: "Install and configure the ranger file manager"
       ansible.builtin.include_role:
         name: ans_role_config_ranger
