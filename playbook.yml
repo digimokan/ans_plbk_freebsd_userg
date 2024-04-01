@@ -217,6 +217,12 @@
         public: true
       vars:
         enable_dvd_support: true
+    - name: "Install and configure the MPD Music Player Daemon"
+      ansible.builtin.include_role:
+        name: ans_role_config_musicpd
+        public: true
+      vars:
+        musicpd_user_name: "{{ admin_user_and_group_name }}"
     - name: "Define list of browser search providers"
       ansible.builtin.include_role:
         name: ext/ans_role_vars_browser_search_providers
