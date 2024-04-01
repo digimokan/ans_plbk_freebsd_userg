@@ -223,6 +223,7 @@
         public: true
       vars:
         musicpd_user_name: "{{ admin_user_and_group_name }}"
+        musicpd_music_dir: "{{ admin_user_music_dir }}"
     - name: "Define list of browser search providers"
       ansible.builtin.include_role:
         name: ext/ans_role_vars_browser_search_providers
