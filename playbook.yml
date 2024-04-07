@@ -226,6 +226,7 @@
         musicpd_music_dir: "{{ admin_user_music_dir }}"
         musicpd_run_as_user: "{{ admin_user_and_group_name }}"
         musicpd_run_as_group: "{{ admin_user_and_group_name }}"
+        musicpd_output_sound_server_name: "{{ oss_sound_server_name }}"
     - name: "Define list of browser search providers"
       ansible.builtin.include_role:
         name: ext/ans_role_vars_browser_search_providers
