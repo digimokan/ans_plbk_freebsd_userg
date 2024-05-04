@@ -225,15 +225,6 @@
         musicpd_user_name: "{{ admin_user_and_group_name }}"
         musicpd_music_dir: "{{ admin_user_music_dir }}"
         musicpd_output_sound_server_name: "{{ oss_sound_server_name }}"
-    - name: "Install and configure the ncmpcpp NCurses Music Player Client"
-      ansible.builtin.include_role:
-        name: ans_role_config_ncmpcpp
-        public: true
-      vars:
-        ncmpcpp_user_name: "{{ admin_user_and_group_name }}"
-        ncmpcpp_music_dir: "{{ admin_user_music_dir }}"
-        ncmpcpp_mpd_service_host: 'localhost'
-        ncmpcpp_mpd_service_port: "{{ musicpd_service_listen_port }}"
     - name: "Define list of browser search providers"
       ansible.builtin.include_role:
         name: ext/ans_role_vars_browser_search_providers
@@ -499,6 +490,16 @@
         preview_zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_xz_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_7zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
+    - name: "Install and configure the ncmpcpp NCurses Music Player Client"
+      ansible.builtin.include_role:
+        name: ans_role_config_ncmpcpp
+        public: true
+      vars:
+        ncmpcpp_user_name: "{{ admin_user_and_group_name }}"
+        ncmpcpp_music_dir: "{{ admin_user_music_dir }}"
+        ncmpcpp_mpd_service_host: 'localhost'
+        ncmpcpp_mpd_service_port: "{{ musicpd_service_listen_port }}"
+        ncmpcpp_external_text_editor_cmd: "{{ neovim_main_cmd }}"
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
