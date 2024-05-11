@@ -25,6 +25,8 @@
     admin_user_podcasts_dir: "/home/{{ admin_user_and_group_name }}/Podcasts"
     admin_user_temp_sync_dir: "/home/{{ admin_user_and_group_name }}/Sync"
     admin_user_qutebrowser_browse_history_db_path: "{{ admin_user_local_dir }}/qutebrowser_browse_history.sqlite"
+    admin_user_musicpd_db_file_path: "{{ admin_user_music_dir }}/mpd_database"
+    admin_user_musicpd_playlists_dir: "{{ admin_user_music_dir }}/MPD Playlists"
   tasks:
     - name: "Set the machine hostname to '{{ machine_hostname }}'"
       ansible.builtin.hostname:
@@ -224,8 +226,8 @@
       vars:
         musicpd_user_name: "{{ admin_user_and_group_name }}"
         musicpd_music_dir: "{{ admin_user_music_dir }}"
-        musicpd_user_music_db_file_path: "{{ admin_user_music_dir }}/mpd_database"
-        musicpd_user_playlists_dir: "{{ admin_user_music_dir }}/MPD Playlists"
+        musicpd_user_music_db_file_path: "{{ admin_user_musicpd_db_file_path }}"
+        musicpd_user_playlists_dir: "{{ admin_user_musicpd_playlists_dir }}"
         musicpd_output_sound_server_name: "{{ oss_sound_server_name }}"
     - name: "Define list of browser search providers"
       ansible.builtin.include_role:
