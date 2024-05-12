@@ -2,6 +2,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_add_group
   - src: https://github.com/digimokan/ans_role_add_user
   - src: https://github.com/digimokan/ans_role_config_atril
+  - src: https://github.com/digimokan/ans_role_config_audacity
   - src: https://github.com/digimokan/ans_role_config_automount
   - src: https://github.com/digimokan/ans_role_config_automatic_printing
   - src: https://github.com/digimokan/ans_role_config_automatic_scanning
