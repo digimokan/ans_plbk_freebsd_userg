@@ -313,7 +313,7 @@
         name: ans_role_config_xorg
       vars:
         user_name: "{{ admin_user_and_group_name }}"
-        create_user_xinitrc: true
+        create_user_xinitrc_and_xsession: true
         xorg_key_repeat_delay_ms_rate_hz: '350 25'
     - name: "Install and configure the git version control system"
       ansible.builtin.include_role:
