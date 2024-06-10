@@ -536,6 +536,13 @@
         i3bar_status_area_cmd: "{{ i3status_start_cmd }}"
         i3bar_status_item_separator: "{{ wm_panel_bar_status_item_separator }}"
         i3bar_status_item_colors: "{{ wm_panel_bar_status_item_colors }}"
+    - name: "Install and configure the Adwaita icon theme"
+      ansible.builtin.include_role:
+        name: ans_role_config_adwaita_icon_theme
+        public: true
+      vars:
+        adwaita_user_name: "{{ admin_user_and_group_name }}"
+        adwaita_mouse_pointer_size: 48
     - name: "Install and configure Xorg"
       ansible.builtin.include_role:
         name: ans_role_config_xorg
