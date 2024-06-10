@@ -558,6 +558,8 @@
         name: ans_role_config_xdm_dm
       vars:
         xdm_user_name: "{{ admin_user_and_group_name }}"
+        xdm_extra_xresources_lines:
+          - "{{ adwaita_xresources_entries }}"
     - name: "Define a set of LAN-common syncthing devices and shared syncthing folders"
       ansible.builtin.include_role:
         name: ans_vars_syncthing_devices_folders
