@@ -308,13 +308,6 @@
           - "{{ admin_user_home_dir }}/Documents/"
           - "{{ admin_user_home_dir }}/Templates/"
         restic_user_guide_dir: "{{ admin_user_home_dir }}/"
-    - name: "Install and configure Xorg"
-      ansible.builtin.include_role:
-        name: ans_role_config_xorg
-      vars:
-        user_name: "{{ admin_user_and_group_name }}"
-        create_user_xinitrc_and_xsession: true
-        xorg_key_repeat_delay_ms_rate_hz: '350 25'
     - name: "Install and configure the git version control system"
       ansible.builtin.include_role:
         name: ans_role_config_git
@@ -543,12 +536,21 @@
         i3bar_status_area_cmd: "{{ i3status_start_cmd }}"
         i3bar_status_item_separator: "{{ wm_panel_bar_status_item_separator }}"
         i3bar_status_item_colors: "{{ wm_panel_bar_status_item_colors }}"
+    - name: "Install and configure Xorg"
+      ansible.builtin.include_role:
+        name: ans_role_config_xorg
+        public: true
+      vars:
+        xorg_user_name: "{{ admin_user_and_group_name }}"
+        xorg_exec_de_or_wm: "{{ i3wm_session }}"
+        xorg_key_repeat_delay_ms: '350'
+        xorg_key_repeat_rate_hz: '25'
     - name: "Install and configure the XDM display manager"
       ansible.builtin.include_role:
         name: ans_role_config_xdm_dm
       vars:
         xdm_user_name: "{{ admin_user_and_group_name }}"
-        session: "{{ i3wm_session }}"
+        xdm_user_xsession_file_path: "{{ xorg_user_xsession_path }}"
     - name: "Define a set of LAN-common syncthing devices and shared syncthing folders"
       ansible.builtin.include_role:
         name: ans_vars_syncthing_devices_folders
