@@ -552,6 +552,8 @@
         xorg_exec_de_or_wm: "{{ i3wm_session }}"
         xorg_key_repeat_delay_ms: '350'
         xorg_key_repeat_rate_hz: '25'
+        xorg_xresources_lines:
+          - "{{ adwaita_xresources_entries }}"
     - name: "Install and configure the XDM display manager"
       ansible.builtin.include_role:
         name: ans_role_config_xdm_dm
