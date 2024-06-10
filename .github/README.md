@@ -62,6 +62,8 @@ for normal daily use, for one user:
     * Disable 'WLAN.'
     * Disable 'Bluetooth.'
     * Disable 'Enhanced Consumer IR.'
+* In BIOS menu, go to Cooling Tab:
+    * Set 'Fan Control Mode' to 'Quiet.'
 
 ## Quick Start
 
