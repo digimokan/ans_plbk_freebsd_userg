@@ -112,7 +112,12 @@ for normal daily use, for one user:
 4. Ensure `vault_password.txt` has been created, as desribed in
    [Vault Variables](#vault-variables).
 
-5. Run the [`configure.sh`](../configure.sh) script to configure the workstation.
+5. For the first run of `configure.sh`, temporarily define the following role
+   vars in `playbook.yml`:
+
+    * [`bitwarden_master_password`](https://github.com/digimokan/ans_role_config_bitwarden_cli?tab=readme-ov-file#role-options).
+
+6. Run the [`configure.sh`](../configure.sh) script to configure the workstation.
 
    ```shell
    $ ./configure.sh -u
