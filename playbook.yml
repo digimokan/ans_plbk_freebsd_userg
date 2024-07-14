@@ -159,8 +159,8 @@
       vars:
         bitwarden_user_name: "{{ admin_user_and_group_name }}"
         bitwarden_check_freebsd_linux_compat_cmd: "{{ freebsd_linux_compat_check_cmd }}"
-        bitwarden_cli_api_key_client_id: "{{ userg_bitwarden_api_key_client_id }}"
-        bitwarden_cli_api_key_client_secret: "{{ userg_bitwarden_api_key_client_secret }}"
+        bitwarden_cli_api_key_client_id: "{{ vault_clear_bitwarden_api_key_client_id }}"
+        bitwarden_cli_api_key_client_secret: "{{ vault_clear_bitwarden_api_key_client_secret }}"
         bitwarden_cli_exec_jq_cmd: "{{ jq_main_cmd }}"
         bitwarden_cli_exec_xsel_cmd: "{{ xsel_main_cmd }}"
         bitwarden_cli_exec_fzf_cmd: "{{ fzf_main_cmd }}"
@@ -212,7 +212,7 @@
         calibre_user_name: "{{ admin_user_and_group_name }}"
         calibre_user_book_lib_dir: "{{ admin_user_books_dir }}"
         calibre_enable_dedrm_plugin_collection: true
-        calibre_dedrm_plugin_kindle_serial_num_list: "{{ userg_dedrm_plugin_kindle_serial_num_list }}"
+        calibre_dedrm_plugin_kindle_serial_num_list: "{{ vault_clear_dedrm_plugin_kindle_serial_num_list }}"
     - name: "Install and configure the VLC video player"
       ansible.builtin.include_role:
         name: ans_role_config_vlc
@@ -244,7 +244,7 @@
         qutebrowser_sans_font_family: "{{ liberation_font_name_sans }}"
         qutebrowser_serif_font_family: "{{ liberation_font_name_serif }}"
         qutebrowser_mono_font_family: "{{ liberation_font_name_mono }}"
-        qutebrowser_quickmarks_url_list: "{{ userg_quickmarks_url_list }}"
+        qutebrowser_quickmarks_url_list: "{{ vault_clear_quickmarks_url_list }}"
         qutebrowser_try_link_to_saved_history_db_path: "{{ admin_user_qutebrowser_browse_history_db_path }}"
     - name: "Install and configure the Firefox browser"
       ansible.builtin.include_role:
@@ -301,9 +301,9 @@
         name: ans_role_config_restic
       vars:
         restic_user_name: "{{ admin_user_and_group_name }}"
-        restic_s3_bucket_url: "{{ userg_restic_s3_bucket_url }}"
-        restic_s3_bucket_key_id: "{{ userg_restic_s3_bucket_key_id }}"
-        restic_s3_bucket_secret_keystring: "{{ userg_restic_s3_bucket_secret_keystring }}"
+        restic_s3_bucket_url: "{{ vault_clear_restic_s3_bucket_url }}"
+        restic_s3_bucket_key_id: "{{ vault_clear_restic_s3_bucket_key_id }}"
+        restic_s3_bucket_secret_keystring: "{{ vault_clear_restic_s3_bucket_secret_keystring }}"
         default_pass_cmd: >-
           {{ bitwarden_cli_utility_script_main_cmd }}
           --print-entry=Wasabidigimokan
@@ -574,9 +574,9 @@
       vars:
         syncthing_user_name: "{{ admin_user_and_group_name }}"
         syncthing_local_machine_hostname: "{{ machine_hostname }}"
-        syncthing_local_machine_private_key: "{{ userg_syncthing_local_machine_private_key }}"
-        syncthing_local_machine_public_key: "{{ userg_syncthing_local_machine_public_key }}"
-        syncthing_local_machine_device_id: "{{ userg_syncthing_local_machine_device_id }}"
+        syncthing_local_machine_private_key: "{{ vault_clear_syncthing_local_machine_private_key }}"
+        syncthing_local_machine_public_key: "{{ vault_clear_syncthing_local_machine_public_key }}"
+        syncthing_local_machine_device_id: "{{ vault_clear_syncthing_local_machine_device_id }}"
         syncthing_list_of_local_folders_to_sync:
           - { folder_id: 'st_books', folder_path: "{{ admin_user_books_dir }}", sync_mode: 'sendreceive' }
           - { folder_id: 'st_pics', folder_path: "{{ admin_user_snapped_photos_dir }}", sync_mode: 'sendreceive' }

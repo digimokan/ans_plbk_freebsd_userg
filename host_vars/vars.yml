@@ -13,35 +13,35 @@
 #   - playbook.yml wires up linking in vars from vars.yml, vault.yml
 
 # for config_bitwarden_cli: API key client ID
-userg_bitwarden_api_key_client_id: "{{ vault_userg_bitwarden_api_key_client_id }}"
+vault_clear_bitwarden_api_key_client_id: "{{ vault_enc_bitwarden_api_key_client_id }}"
 
-# for config_bitwarden_cli: API key client ID
-userg_bitwarden_api_key_client_secret: "{{ vault_userg_bitwarden_api_key_client_secret }}"
+# for config_bitwarden_cli: API key client secret
+vault_clear_bitwarden_api_key_client_secret: "{{ vault_enc_bitwarden_api_key_client_secret }}"
 
 # for config_restic: an S3 bucket that will host the remote-backup repo
-userg_restic_s3_bucket_url: "{{ vault_userg_restic_s3_bucket_url }}"
+vault_clear_restic_s3_bucket_url: "{{ vault_enc_restic_s3_bucket_url }}"
 
 # for config_restic: the storage-provider-issued ID for the S3 bucket
-userg_restic_s3_bucket_key_id: "{{ vault_userg_restic_s3_bucket_key_id }}"
+vault_clear_restic_s3_bucket_key_id: "{{ vault_enc_restic_s3_bucket_key_id }}"
 
 # for config_restic: the storage-provider-issued key-string for the S3 bucket
-userg_restic_s3_bucket_secret_keystring: "{{ vault_userg_restic_s3_bucket_secret_keystring }}"
+vault_clear_restic_s3_bucket_secret_keystring: "{{ vault_enc_restic_s3_bucket_secret_keystring }}"
 
 # list of user-selected podcast rss urls
-userg_rss_podcast_feed_url_list: "{{ vault_userg_rss_podcast_feed_url_list }}"
+vault_clear_rss_podcast_feed_url_list: "{{ vault_enc_rss_podcast_feed_url_list }}"
 
 # list of quickmark urls to use in web browsers
-userg_quickmarks_url_list: "{{ vault_userg_quickmarks_url_list }}"
+vault_clear_quickmarks_url_list: "{{ vault_enc_quickmarks_url_list }}"
 
 # list of kindle device serial numbers (for Calibre DeDRM plugin)
-userg_dedrm_plugin_kindle_serial_num_list: "{{ vault_userg_dedrm_plugin_kindle_serial_num_list }}"
+vault_clear_dedrm_plugin_kindle_serial_num_list: "{{ vault_enc_dedrm_plugin_kindle_serial_num_list }}"
 
 # syncthing local machine ECDSA private key
-userg_syncthing_local_machine_private_key: "{{ vault_userg_syncthing_local_machine_private_key }}"
+vault_clear_syncthing_local_machine_private_key: "{{ vault_enc_syncthing_local_machine_private_key }}"
 
 # syncthing local machine ECDSA public key (self-signed cert, used for TLS exchanges)
-userg_syncthing_local_machine_public_key: "{{ vault_userg_syncthing_local_machine_public_key }}"
+vault_clear_syncthing_local_machine_public_key: "{{ vault_enc_syncthing_local_machine_public_key }}"
 
 # syncthing local machine Device ID (hash of public key, used in sync config)
-userg_syncthing_local_machine_device_id: "{{ vault_userg_syncthing_local_machine_device_id }}"
+vault_clear_syncthing_local_machine_device_id: "{{ vault_enc_syncthing_local_machine_device_id }}"
 
