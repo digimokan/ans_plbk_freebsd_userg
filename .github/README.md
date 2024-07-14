@@ -151,36 +151,36 @@ was set up during initial configuration.
 
 ## Vault Variables
 
-* The encrypted vault variables are stored in [`vault.yml`](../host_vars/vault.yml).
+* The encrypted vault variables are stored in [`vault_enc.yml`](../host_vars/vault_enc.yml).
 
 * Prior to encrypting or decrypting vault variables, the vault password string
   needs to be put into the `vault_password.txt` file
   ([at the root of this repo directory](#source-code-layout)).
 
 * [`playbook.yml`](../playbook.yml) automatically uses the vault password file to
-  decrypt vars in [`vault.yml`](../host_vars/vault.yml), via a setting in
+  decrypt vars in [`vault_enc.yml`](../host_vars/vault_enc.yml), via a setting in
   [`ansible.cfg`](../ansible.cfg).
 
 * [`playbook.yml`](../playbook.yml) uses the proxy vars in
-  [`vars.yml`](../host_vars/vars.yml), which point to encrypted vars in
-  [`vault.yml`](../host_vars/vault.yml).
+  [`vault_clear.yml`](../host_vars/vault_clear.yml), which point to encrypted vars in
+  [`vault_enc.yml`](../host_vars/vault_enc.yml).
 
-* To start, encrypt a plaintext-edited vault.yml file:
+* To start, encrypt a plaintext-edited vault_enc.yml file:
 
    ```shell
-   $ ansible-vault encrypt host_vars/vault.yml
+   $ ansible-vault encrypt host_vars/vault_enc.yml
    ```
 
-* Once vault.yml has been encrypted, do edits/updates in place:
+* Once vault_enc.yml has been encrypted, do edits/updates in place:
 
    ```shell
-   $ ansible-vault edit host_vars/vault.yml
+   $ ansible-vault edit host_vars/vault_enc.yml
    ```
 
-* To view the vault.yml vars in read-only mode:
+* To view the vault_enc.yml vars in read-only mode:
 
    ```shell
-   $ ansible-vault view host_vars/vault.yml
+   $ ansible-vault view host_vars/vault_enc.yml
    ```
 
 ## Source Code Layout
@@ -190,8 +190,8 @@ was set up during initial configuration.
 │ │
 │ ├─┬ host_vars/
 │ │ │
-│ │ ├── vars.yml          # proxy vars used by playbook, point to vault.yml vars
-│ │ └── vault.yml         # encrypted vault variables used by playbook.yml
+│ │ ├── vault_clear.yml   # proxy vars used by pb, point to vault_enc.yml vars
+│ │ └── vault_enc.yml     # encrypted vault variables used by playbook.yml
 │ │
 │ ├─┬ roles/
 │ │ │
