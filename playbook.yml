@@ -306,7 +306,7 @@
         restic_s3_bucket_secret_keystring: "{{ vault_clear_restic_s3_bucket_secret_keystring }}"
         default_pass_cmd: >-
           {{ bitwarden_cli_utility_script_main_cmd }}
-          --print-entry=Wasabidigimokan
+          --print-entry=WasabiUserG
           --custom-field=AMAZON_S3_BUCKET_REPO_KEYSTRING
         automatic_restic_backup_dirs:
           - "{{ admin_user_home_dir }}/Documents/"
