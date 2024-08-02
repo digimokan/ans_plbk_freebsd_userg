@@ -116,6 +116,7 @@ for normal daily use, for one user:
    vars in `playbook.yml`:
 
     * [`bitwarden_master_password`](https://github.com/digimokan/ans_role_config_bitwarden_cli?tab=readme-ov-file#role-options).
+    * [`cfg_user_password`](https://github.com/digimokan/ans_role_config_user/blob/main/defaults/main/settings.yml).
 
 6. Run the [`configure.sh`](../configure.sh) script to configure the workstation.
 

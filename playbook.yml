@@ -79,17 +79,23 @@
       vars:
         group_name: "{{ sudo_users_group_name }}"
         is_system_group: true
+    - name: "Install and configure the python passlib password-hashing module"
+      ansible.builtin.include_role:
+        name: ans_role_config_passlib
+        public: true
     - name: "Add and configure admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
-        name: ext/ans_role_add_user
+        name: ext/ans_role_config_user
       vars:
-        user_name: "{{ admin_user_and_group_name }}"
-        user_groups:
+        cfg_user_name: "{{ admin_user_and_group_name }}"
+        cfg_user_primary_group: "{{ admin_user_and_group_name }}"
+        cfg_user_groups:
           - "{{ sudo_users_group_name }}"
           - "{{ video_group_name }}"
           - "{{ webcam_group_name }}"
-        comment: "{{ admin_user_and_group_name }}"
-        create_home_dir: false
+        cfg_user_create_home_dir_in_existing_filesystem: false
+        cfg_user_path_to_home_dir: "{{ admin_user_home_dir }}"
+        cfg_user_comment: "{{ admin_user_and_group_name }}"
     - name: "Create all zfs filesystem datasets for the system"
       ansible.builtin.include_role:
         name: ans_role_create_filesystem_datasets

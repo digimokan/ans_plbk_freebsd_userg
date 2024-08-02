@@ -1,6 +1,5 @@
 roles:
   - src: https://github.com/digimokan/ans_role_add_group
-  - src: https://github.com/digimokan/ans_role_add_user
   - src: https://github.com/digimokan/ans_role_config_adwaita_icon_theme
   - src: https://github.com/digimokan/ans_role_config_atril
   - src: https://github.com/digimokan/ans_role_config_audacity
@@ -43,6 +42,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_obs
   - src: https://github.com/digimokan/ans_role_config_oss
   - src: https://github.com/digimokan/ans_role_config_pandoc
+  - src: https://github.com/digimokan/ans_role_config_passlib
   - src: https://github.com/digimokan/ans_role_config_pdfarranger
   - src: https://github.com/digimokan/ans_role_config_picom
   - src: https://github.com/digimokan/ans_role_config_pylint
@@ -59,6 +59,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_syncthing
   - src: https://github.com/digimokan/ans_role_config_time
   - src: https://github.com/digimokan/ans_role_config_upgrades
+  - src: https://github.com/digimokan/ans_role_config_user
   - src: https://github.com/digimokan/ans_role_config_video_drivers
   - src: https://github.com/digimokan/ans_role_config_vlc
   - src: https://github.com/digimokan/ans_role_config_xdm_dm
