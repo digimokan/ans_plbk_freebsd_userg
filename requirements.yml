@@ -42,7 +42,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_obs
   - src: https://github.com/digimokan/ans_role_config_oss
   - src: https://github.com/digimokan/ans_role_config_pandoc
-  # - src: https://github.com/digimokan/ans_role_config_passlib
+  - src: https://github.com/digimokan/ans_role_config_passlib
   - src: https://github.com/digimokan/ans_role_config_pdfarranger
   - src: https://github.com/digimokan/ans_role_config_picom
   - src: https://github.com/digimokan/ans_role_config_pylint
