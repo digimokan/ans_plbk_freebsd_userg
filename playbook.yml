@@ -218,6 +218,10 @@
     - name: "Install and configure the pdfarranger utility"
       ansible.builtin.include_role:
         name: ans_role_config_pdfarranger
+    - name: "Install and configure the unzip archive extraction utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_unzip
+        public: true
     - name: "Install and configure the calibre ebook management application"
       ansible.builtin.include_role:
         name: ans_role_config_calibre
@@ -225,6 +229,7 @@
         calibre_user_name: "{{ admin_user_and_group_name }}"
         calibre_user_book_lib_dir: "{{ admin_user_books_dir }}"
         calibre_enable_dedrm_plugin_collection: true
+        cablibre_unzip_main_cmd: "{{ unzip_main_cmd }}"
         calibre_dedrm_plugin_kindle_serial_num_list: "{{ vault_clear_dedrm_plugin_kindle_serial_num_list }}"
     - name: "Install and configure the VLC video player"
       ansible.builtin.include_role:
