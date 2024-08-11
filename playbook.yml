@@ -322,13 +322,15 @@
         restic_s3_bucket_url: "{{ vault_clear_restic_s3_bucket_url }}"
         restic_s3_bucket_key_id: "{{ vault_clear_restic_s3_bucket_key_id }}"
         restic_s3_bucket_secret_keystring: "{{ vault_clear_restic_s3_bucket_secret_keystring }}"
-        default_pass_cmd: >-
+        restic_default_pass_cmd: >-
           {{ bitwarden_cli_utility_script_main_cmd }}
-          --print-entry=WasabiUserG
-          --custom-field=AMAZON_S3_BUCKET_REPO_KEYSTRING
-        automatic_restic_backup_dirs:
+          --print-entry={{ 'Wasabi (User G)' | quote }}
+          --custom-field={{ 'AMAZON_S3_BUCKET_REPO_KEYSTRING' | quote }}
+          --no-interactive-search
+        restic_automatic_daily_backup_dirs:
           - "{{ admin_user_home_dir }}/Documents/"
           - "{{ admin_user_home_dir }}/Templates/"
+        restic_automatic_daily_backup_hour: 13
         restic_user_guide_dir: "{{ admin_user_home_dir }}/"
     - name: "Install and configure the git version control system"
       ansible.builtin.include_role:
