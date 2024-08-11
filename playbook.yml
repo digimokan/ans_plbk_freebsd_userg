@@ -330,7 +330,6 @@
         restic_automatic_daily_backup_dirs:
           - "{{ admin_user_home_dir }}/Documents/"
           - "{{ admin_user_home_dir }}/Templates/"
-        restic_automatic_daily_backup_hour: 13
         restic_user_guide_dir: "{{ admin_user_home_dir }}/"
     - name: "Install and configure the git version control system"
       ansible.builtin.include_role:
