@@ -75,15 +75,15 @@
         public: true
     - name: "Add and configure sudo-users group '{{ sudo_users_group_name }}'"
       ansible.builtin.include_role:
-        name: ext/ans_role_add_group
+        name: ext/ans_role_config_group
       vars:
-        group_name: "{{ sudo_users_group_name }}"
-        is_system_group: true
+        cfg_group_name: "{{ sudo_users_group_name }}"
+        cfg_group_is_system_group: true
     - name: "Add and configure admin group '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
-        name: ext/ans_role_add_group
+        name: ext/ans_role_config_group
       vars:
-        group_name: "{{ admin_user_and_group_name }}"
+        cfg_group_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the python passlib password-hashing module"
       ansible.builtin.include_role:
         name: ans_role_config_passlib
