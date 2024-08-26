@@ -570,6 +570,7 @@
     - name: "Install and configure Xorg"
       ansible.builtin.include_role:
         name: ans_role_config_xorg
+        public: true
       vars:
         xorg_user_name: "{{ admin_user_and_group_name }}"
         xorg_exec_de_or_wm: "{{ i3wm_session }}"
@@ -582,6 +583,7 @@
         name: ans_role_config_xdm_dm
       vars:
         xdm_user_name: "{{ admin_user_and_group_name }}"
+        xdm_user_xinitrc_path: "{{ xorg_user_xinitrc_path }}"
         xdm_extra_xresources_lines:
           - "{{ adwaita_xresources_entries }}"
     - name: "Define a set of LAN-common syncthing devices and shared syncthing folders"
