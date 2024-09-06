@@ -520,6 +520,11 @@
         ncmpcpp_mpd_service_host: 'localhost'
         ncmpcpp_mpd_service_port: "{{ musicpd_service_listen_port }}"
         ncmpcpp_external_text_editor_cmd: "{{ neovim_main_cmd }}"
+    - name: "Install and configure the Newsboat news aggregator and Podboat podcast client"
+      ansible.builtin.include_role:
+        name: ans_role_config_newsboat
+      vars:
+        newsboat_user_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the Audacity audio track editor"
       ansible.builtin.include_role:
         name: ans_role_config_audacity
