@@ -525,6 +525,7 @@
         name: ans_role_config_newsboat
       vars:
         newsboat_user_name: "{{ admin_user_and_group_name }}"
+        podboat_podcast_download_dir: "{{ admin_user_podcasts_dir }}"
     - name: "Install and configure the Audacity audio track editor"
       ansible.builtin.include_role:
         name: ans_role_config_audacity
