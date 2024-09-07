@@ -19,12 +19,14 @@
     admin_user_videos_dir: "/home/{{ admin_user_and_group_name }}/Videos"
     admin_user_trash_dir: "/home/{{ admin_user_and_group_name }}/Trash"
     admin_user_local_dir: "/home/{{ admin_user_and_group_name }}/Local"
+    admin_user_cache_dir: "/home/{{ admin_user_and_group_name }}/Cache"
     admin_user_devel_dir: "/home/{{ admin_user_and_group_name }}/Devel"
     admin_user_books_dir: "/home/{{ admin_user_and_group_name }}/Books"
     admin_user_snapped_photos_dir: "/home/{{ admin_user_and_group_name }}/Photos"
     admin_user_podcasts_dir: "/home/{{ admin_user_and_group_name }}/Podcasts"
     admin_user_temp_sync_dir: "/home/{{ admin_user_and_group_name }}/Sync"
-    admin_user_qutebrowser_browse_history_db_path: "{{ admin_user_local_dir }}/qutebrowser_browse_history.sqlite"
+    admin_user_qutebrowser_browse_history_db_path: "{{ admin_user_cache_dir }}/qutebrowser_browse_history.sqlite"
+    admin_user_newsboat_rss_feed_tracking_db_path: "{{ admin_user_cache_dir }}/newsboat_rss_feed_tracking.sqlite"
     admin_user_musicpd_db_file_path: "{{ admin_user_music_dir }}/mpd_database"
     admin_user_musicpd_playlists_dir: "{{ admin_user_music_dir }}/MPD Playlists"
   tasks:
@@ -118,6 +120,7 @@
           - { pool: "{{ zpl }}", path: "{{ vdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
           - { pool: "{{ zpl }}", path: "{{ tdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
           - { pool: "{{ zpl }}", path: "{{ ldir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ adir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
           - { pool: "{{ zpl }}", path: "{{ edir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
           - { pool: "{{ zpl }}", path: "{{ bdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
           - { pool: "{{ zpl }}", path: "{{ pdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
@@ -133,6 +136,7 @@
         vdir: "{{ admin_user_videos_dir }}"
         tdir: "{{ admin_user_trash_dir }}"
         ldir: "{{ admin_user_local_dir }}"
+        adir: "{{ admin_user_cache_dir }}"
         edir: "{{ admin_user_devel_dir }}"
         bdir: "{{ admin_user_books_dir }}"
         pdir: "{{ admin_user_snapped_photos_dir }}"
@@ -525,7 +529,9 @@
         name: ans_role_config_newsboat
       vars:
         newsboat_user_name: "{{ admin_user_and_group_name }}"
+        newsboat_rss_feed_url_list: "{{ vault_clear_rss_podcast_feed_url_list }}"
         podboat_podcast_download_dir: "{{ admin_user_podcasts_dir }}"
+        newsboat_try_link_to_saved_rss_tracking_db_path: "{{ admin_user_newsboat_rss_feed_tracking_db_path }}"
     - name: "Install and configure the Audacity audio track editor"
       ansible.builtin.include_role:
         name: ans_role_config_audacity
