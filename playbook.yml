@@ -623,6 +623,7 @@
         name: ans_role_config_fish
       vars:
         fish_user_name: "{{ admin_user_and_group_name }}"
+        fish_prompt_show_git_branch_cmd: "{{ git_cmd_current_git_branch }}"
         fish_command_functions:
           - name: 'll'
             body: >-
