@@ -1,5 +1,6 @@
 roles:
   - src: https://github.com/digimokan/ans_role_config_adwaita_icon_theme
+  - src: https://github.com/digimokan/ans_role_config_alacritty
   - src: https://github.com/digimokan/ans_role_config_atril
   - src: https://github.com/digimokan/ans_role_config_audacity
   - src: https://github.com/digimokan/ans_role_config_automount
@@ -67,7 +68,6 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_xdm_dm
   - src: https://github.com/digimokan/ans_role_config_xorg
   - src: https://github.com/digimokan/ans_role_config_webcam
-  - src: https://github.com/digimokan/ans_role_config_wezterm
   - src: https://github.com/digimokan/ans_role_config_xdg_user_dirs
   - src: https://github.com/digimokan/ans_role_config_xscreensaver
   - src: https://github.com/digimokan/ans_role_config_xsel

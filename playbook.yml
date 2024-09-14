@@ -343,60 +343,6 @@
         git_machine_user_name: "{{ admin_user_and_group_name }}"
         git_vcs_user_name: "{{ github_user_name }}"
         export_cmd_current_git_branch: true
-    - name: "Define a set of terminal text, background, and cursor colors"
-      ansible.builtin.include_role:
-        name: ans_role_vars_terminal_colors
-        public: true
-    - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
-      ansible.builtin.include_role:
-        name: ext/ans_role_vars_wm_labels_colors
-        public: true
-    - name: "Install and configure the wezterm terminal emulator"
-      ansible.builtin.include_role:
-        name: ans_role_config_wezterm
-        public: true
-      vars:
-        wezterm_user_name: "{{ admin_user_and_group_name }}"
-        font_family: "{{ dejavu_font_name_mono }}"
-        font_size: 15
-        wezterm_term_colors: "{{ terminal_colors }}"
-        shell_cmd: 'fish'
-        vcs_tree_icon: "{{ wm_panel_bar_status_item_labels.vcs_tree }}"
-        tab_bar_get_git_branch_cmd: "{{ git_cmd_current_git_branch }}"
-    - name: "Install and configure the i3status panel-bar status area utility"
-      ansible.builtin.include_role:
-        name: ans_role_config_i3status
-        public: true
-      vars:
-        i3status_user_name: "{{ admin_user_and_group_name }}"
-        i3status_panel_bar_output_format: "i3bar"
-        i3status_status_item_labels: "{{ wm_panel_bar_status_item_labels }}"
-        i3status_status_item_separator: "{{ wm_panel_bar_status_item_separator }}"
-        i3status_status_item_colors: "{{ wm_panel_bar_status_item_colors }}"
-        show_wired_up_status_item: true
-        show_audio_volume_status_item: true
-        show_sys_load_avg_status_item: true
-        show_date_time_status_item: true
-    - name: "Install and configure the picom compositor"
-      ansible.builtin.include_role:
-        name: ans_role_config_picom
-        public: true
-    - name: "Install and configure the rofi application launcher"
-      ansible.builtin.include_role:
-        name: ans_role_config_rofi
-        public: true
-      vars:
-        rofi_user_name: "{{ admin_user_and_group_name }}"
-        rofi_font: "{{ liberation_font_name_sans }} 22"
-    - name: "Install and configure xscreensaver"
-      ansible.builtin.include_role:
-        name: ans_role_config_xscreensaver
-        public: true
-      vars:
-        xscreensaver_user_name: "{{ admin_user_and_group_name }}"
-        screensaver_timeout_minutes: 10
-        screensaver_screen_lock_enable: false
-        monitor_turn_power_off: true
     - name: "Install and configure the maim screenshot-capture utility"
       ansible.builtin.include_role:
         name: ans_role_config_maim
@@ -472,6 +418,71 @@
           - { filetype: "sh", cmd: "{{ shellcheck_main_cmd }}" }
           - { filetype: "yaml", cmd: "{{ yamllint_main_cmd }}" }
           - { filetype: "lua", cmd: "{{ luacheck_main_cmd }}" }
+    - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
+      ansible.builtin.include_role:
+        name: ans_role_config_fish
+      vars:
+        fish_user_name: "{{ admin_user_and_group_name }}"
+        fish_prompt_show_git_branch_cmd: "{{ git_cmd_current_git_branch }}"
+        fish_command_functions:
+          - name: 'll'
+            body: >-
+              {{ exa_long_listing_force_color_cmd }} $argv |
+              {{ less_auto_page_with_raw_input_cmd }}
+            descrip: 'print a long-listing with exa'
+          - { name: 'v', body: "{{ neovim_main_cmd }} $argv", descrip: 'start the neovim text editor' }
+    - name: "Define a set of terminal text, background, and cursor colors"
+      ansible.builtin.include_role:
+        name: ans_role_vars_terminal_colors
+        public: true
+    - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
+      ansible.builtin.include_role:
+        name: ext/ans_role_vars_wm_labels_colors
+        public: true
+    - name: "Install and configure the alacritty terminal emulator"
+      ansible.builtin.include_role:
+        name: ans_role_config_alacritty
+        public: true
+      vars:
+        alacritty_user_name: "{{ admin_user_and_group_name }}"
+        alacritty_font_family: "{{ dejavu_font_name_mono }}"
+        alacritty_font_size: 15
+        alacritty_term_colors: "{{ terminal_colors }}"
+        alacritty_shell_cmd: "{{ fish_main_cmd }}"
+    - name: "Install and configure the i3status panel-bar status area utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_i3status
+        public: true
+      vars:
+        i3status_user_name: "{{ admin_user_and_group_name }}"
+        i3status_panel_bar_output_format: "i3bar"
+        i3status_status_item_labels: "{{ wm_panel_bar_status_item_labels }}"
+        i3status_status_item_separator: "{{ wm_panel_bar_status_item_separator }}"
+        i3status_status_item_colors: "{{ wm_panel_bar_status_item_colors }}"
+        show_wired_up_status_item: true
+        show_audio_volume_status_item: true
+        show_sys_load_avg_status_item: true
+        show_date_time_status_item: true
+    - name: "Install and configure the picom compositor"
+      ansible.builtin.include_role:
+        name: ans_role_config_picom
+        public: true
+    - name: "Install and configure the rofi application launcher"
+      ansible.builtin.include_role:
+        name: ans_role_config_rofi
+        public: true
+      vars:
+        rofi_user_name: "{{ admin_user_and_group_name }}"
+        rofi_font: "{{ liberation_font_name_sans }} 22"
+    - name: "Install and configure xscreensaver"
+      ansible.builtin.include_role:
+        name: ans_role_config_xscreensaver
+        public: true
+      vars:
+        xscreensaver_user_name: "{{ admin_user_and_group_name }}"
+        screensaver_timeout_minutes: 10
+        screensaver_screen_lock_enable: false
+        monitor_turn_power_off: true
     - name: "Install and configure the ranger file manager"
       ansible.builtin.include_role:
         name: ans_role_config_ranger
@@ -490,9 +501,9 @@
         ranger_user_videos_dir: "{{ admin_user_videos_dir }}"
         ranger_user_trash_dir: "{{ admin_user_trash_dir }}"
         ranger_user_devel_dir: "{{ admin_user_devel_dir }}"
-        start_term_emulator: "{{ wezterm_main_cmd }}"
-        term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
-        term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
+        start_term_emulator: "{{ alacritty_main_cmd }}"
+        term_arg_set_dir: "{{ alacritty_arg_starting_dir }}"
+        term_arg_exec_cmd: "{{ alacritty_arg_exec }}"
         start_text_editor: "{{ neovim_main_cmd }}"
         open_image_files_with: [ "{{ feh_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
         open_office_files_with: [ "{{ libreoffice_main_cmd }}" ]
@@ -540,8 +551,8 @@
         name: ans_role_config_dot_desktops
         public: true
       vars:
-        start_term_emulator: "{{ wezterm_main_cmd }}"
-        term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
+        start_term_emulator: "{{ alacritty_main_cmd }}"
+        term_arg_exec_cmd: "{{ alacritty_arg_exec }}"
         dot_desktop_launchers:
           - { cli: "{{ ranger_in_last_dir_cmd }}", name: 'ranger' }
           - { cli: "{{ ncmpcpp_main_cmd }}", name: 'ncmpcpp' }
@@ -559,8 +570,8 @@
         cmd_start_screensaver_utility: "{{ xscreensaver_start_cmd }}"
         cmd_screen_lock: "{{ xscreensaver_lock_cmd }}"
         cmd_launch_app_menu: "{{ rofi_start_app_launcher_cmd }}"
-        cmd_start_term_emulator: "{{ wezterm_main_cmd }}"
-        cmd_arg_term_emulator_class: "{{ wezterm_arg_class }}"
+        cmd_start_term_emulator: "{{ alacritty_main_cmd }}"
+        cmd_arg_term_emulator_class: "{{ alacritty_arg_class }}"
         cmd_inc_volume: "{{ oss_inc_volume_cmd }}"
         cmd_dec_volume: "{{ oss_dec_volume_cmd }}"
         cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
@@ -618,19 +629,6 @@
           - { folder_id: 'st_sync', folder_path: "{{ admin_user_temp_sync_dir }}", sync_mode: 'sendreceive' }
         syncthing_list_of_available_sync_devices: "{{ ans_vars_list_of_available_syncthing_devices }}"
         syncthing_list_of_available_sync_folders: "{{ ans_vars_list_of_available_syncthing_folders }}"
-    - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
-      ansible.builtin.include_role:
-        name: ans_role_config_fish
-      vars:
-        fish_user_name: "{{ admin_user_and_group_name }}"
-        fish_prompt_show_git_branch_cmd: "{{ git_cmd_current_git_branch }}"
-        fish_command_functions:
-          - name: 'll'
-            body: >-
-              {{ exa_long_listing_force_color_cmd }} $argv |
-              {{ less_auto_page_with_raw_input_cmd }}
-            descrip: 'print a long-listing with exa'
-          - { name: 'v', body: "{{ neovim_main_cmd }} $argv", descrip: 'start the neovim text editor' }
     - name: "Set env vars, login actions, and logout actions for admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
         name: ans_role_config_shell
