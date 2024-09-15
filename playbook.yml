@@ -371,6 +371,10 @@
       ansible.builtin.include_role:
         name: ans_role_config_odt2txt
         public: true
+    - name: "Install and configure the w3m text-based web browser"
+      ansible.builtin.include_role:
+        name: ans_role_config_w3m
+        public: true
     - name: "Install and configure the bat enhanced-cat utility"
       ansible.builtin.include_role:
         name: ans_role_config_bat
@@ -490,8 +494,7 @@
         public: true
       vars:
         ranger_user_name: "{{ admin_user_and_group_name }}"
-        # note: wezterm supports iterm2 image-display protocol
-        image_preview_program: "iterm2"
+        ranger_image_preview_selection: "{{ w3m_ranger_image_preview_selection }}"
         ranger_fzf_cmd: "{{ fzf_main_cmd }}"
         ranger_gnu_coreutils_mv_cmd: "{{ gnu_coreutils_mv_cmd }}"
         ranger_user_documents_dir: "{{ admin_user_documents_dir }}"

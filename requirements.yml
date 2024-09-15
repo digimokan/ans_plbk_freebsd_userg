@@ -68,6 +68,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_xdm_dm
   - src: https://github.com/digimokan/ans_role_config_xorg
   - src: https://github.com/digimokan/ans_role_config_webcam
+  - src: https://github.com/digimokan/ans_role_config_w3m
   - src: https://github.com/digimokan/ans_role_config_xdg_user_dirs
   - src: https://github.com/digimokan/ans_role_config_xscreensaver
   - src: https://github.com/digimokan/ans_role_config_xsel
