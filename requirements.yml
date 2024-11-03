@@ -43,6 +43,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_newsboat
   - src: https://github.com/digimokan/ans_role_config_odt2txt
   - src: https://github.com/digimokan/ans_role_config_obs
+  - src: https://github.com/digimokan/ans_role_config_openssh_client
   - src: https://github.com/digimokan/ans_role_config_oss
   - src: https://github.com/digimokan/ans_role_config_pandoc
   - src: https://github.com/digimokan/ans_role_config_passlib

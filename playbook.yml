@@ -157,6 +157,12 @@
         password_prompt_timeout_minutes: 0
         use_root_umask: true
         set_auth_for_group: "{{ sudo_users_group_name }}"
+    - name: "Install and configure the OpenSSH client"
+      ansible.builtin.include_role:
+        name: ans_role_config_openssh_client
+        public: true
+      vars:
+        openssh_client_user_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the jq command-line json parser"
       ansible.builtin.include_role:
         name: ans_role_config_jq
