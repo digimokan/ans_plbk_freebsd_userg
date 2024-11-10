@@ -75,6 +75,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_xscreensaver
   - src: https://github.com/digimokan/ans_role_config_xsel
   - src: https://github.com/digimokan/ans_role_config_yamllint
+  - src: https://github.com/digimokan/ans_role_config_zfs
   - src: https://github.com/digimokan/ans_role_create_filesystem_datasets
   - src: https://github.com/digimokan/ans_role_vars_browser_search_providers
   - src: https://github.com/digimokan/ans_role_vars_terminal_colors

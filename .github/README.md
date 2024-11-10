@@ -109,7 +109,7 @@ for normal daily use, for one user:
    $ cd ans_plbk_freebsd_userg
    ```
 
-4. Ensure `vault_password.txt` has been created, as desribed in
+4. Specify password in `vault_password.txt`, as desribed in
    [Vault Variables](#vault-variables).
 
 5. For the first run of `configure.sh`, temporarily define the following role
@@ -147,7 +147,7 @@ was set up during initial configuration.
 4. Run the [`configure.sh`](../configure.sh) script to update the workstation.
 
    ```shell
-   $ ./configure.sh
+   $ sudo ./configure.sh
    ```
 
 ## Vault Variables
