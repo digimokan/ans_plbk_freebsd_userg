@@ -31,6 +31,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_i3status
   - src: https://github.com/digimokan/ans_role_config_i3wm_wm
   - src: https://github.com/digimokan/ans_role_config_jq
+  - src: https://github.com/digimokan/ans_role_config_kinesis_adv360_smartset
   - src: https://github.com/digimokan/ans_role_config_libarchive_utils
   - src: https://github.com/digimokan/ans_role_config_libreoffice
   - src: https://github.com/digimokan/ans_role_config_loader
