@@ -35,6 +35,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_libarchive_utils
   - src: https://github.com/digimokan/ans_role_config_libreoffice
   - src: https://github.com/digimokan/ans_role_config_loader
+  - src: https://github.com/digimokan/ans_role_config_lsblk
   - src: https://github.com/digimokan/ans_role_config_luacheck
   - src: https://github.com/digimokan/ans_role_config_maim
   - src: https://github.com/digimokan/ans_role_config_musicpd

@@ -105,6 +105,10 @@
         cfg_user_comment: "{{ admin_user_and_group_name }}"
         cfg_user_password_hash_type: "{{ passlib_password_hash_type }}"
         cfg_user_password_salt: "{{ passlib_password_constant_salt }}"
+    - name: "Install and configure the lsblk block-device info utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_lsblk
+        public: true
     - name: "Install and configure ZFS utilities"
       ansible.builtin.include_role:
         name: ans_role_config_zfs
