@@ -12,7 +12,7 @@
     zfs_pool: "zroot"
     # Note: temporarily set these user_password vars on first playbook run
     admin_user_password_for_login: ''
-    # admin_user_password_for_zfs_homedir_dataset: ''
+    admin_user_password_for_zfs_homedir_dataset: ''
     admin_user_password_for_bitwarden: ''
     admin_user_home_dir: "/home/{{ admin_user_and_group_name }}"
     admin_user_documents_dir: "/home/{{ admin_user_and_group_name }}/Documents"
@@ -121,25 +121,26 @@
       ansible.builtin.include_role:
         name: ans_role_config_zfs_datasets
       vars:
-        filesystem_datasets:
+        zfs_datasets_to_create:
           - { pool: "{{ zpl }}", path: '/home', mount: '/home', owner: 'root', group: "{{ rusg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ hdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710' }
-          - { pool: "{{ zpl }}", path: "{{ odir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ kdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ wdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ udir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ idir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ vdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ tdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ ldir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ adir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ edir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ bdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ pdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ cdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
-          - { pool: "{{ zpl }}", path: "{{ ydir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: "{{ hdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710', enc: "{{ hpswd }}" }
+          - { pool: "{{ zpl }}", path: "{{ odir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ kdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ wdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ udir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ idir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ vdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ tdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ ldir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ adir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ edir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ bdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ pdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ cdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ ydir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
         zpl: "{{ zfs_pool }}"
         hdir: "{{ admin_user_home_dir }}"
+        hpswd: "{{ admin_user_password_for_zfs_homedir_dataset }}"
         odir: "{{ admin_user_documents_dir }}"
         kdir: "{{ admin_user_desktop_dir }}"
         wdir: "{{ admin_user_download_dir }}"
