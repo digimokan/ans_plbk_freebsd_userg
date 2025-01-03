@@ -112,11 +112,8 @@ for normal daily use, for one user:
 4. Specify password in `vault_password.txt`, as desribed in
    [Vault Variables](#vault-variables).
 
-5. For the first run of `configure.sh`, temporarily define the following role
-   vars in `playbook.yml`:
-
-    * [`bitwarden_master_password`](https://github.com/digimokan/ans_role_config_bitwarden_cli?tab=readme-ov-file#role-options).
-    * [`cfg_user_password`](https://github.com/digimokan/ans_role_config_user/blob/main/defaults/main/overridable/main.yml).
+5. For the first run of `configure.sh`, temporarily set the
+   [`user_password` vars](../playbook.yml#L6) in playbook.yml:
 
 6. Run the [`configure.sh`](../configure.sh) script to configure the workstation.
 
