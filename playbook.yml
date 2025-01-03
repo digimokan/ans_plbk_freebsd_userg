@@ -122,7 +122,7 @@
         name: ans_role_config_zfs_datasets
       vars:
         zfs_datasets_to_create:
-          - { pool: "{{ zpl }}", path: '/home', mount: '/home', owner: 'root', group: "{{ rusg }}", mode: '755' }
+          - { pool: "{{ zpl }}", path: '/home', mount: '/home', owner: 'root', group: "{{ rusg }}", mode: '755', enc: '' }
           - { pool: "{{ zpl }}", path: "{{ hdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710', enc: "{{ hpswd }}" }
           - { pool: "{{ zpl }}", path: "{{ odir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
           - { pool: "{{ zpl }}", path: "{{ kdir }}", mount: 'inherited', owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
