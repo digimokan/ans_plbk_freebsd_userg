@@ -10,6 +10,9 @@
     root_user_group_name: "wheel"
     github_user_name: "digimokan"
     zfs_pool: "zroot"
+    # admin_user_password_for_login: ''
+    # admin_user_password_for_zfs_homedir_dataset: ''
+    # admin_user_password_for_bitwarden: ''
     admin_user_home_dir: "/home/{{ admin_user_and_group_name }}"
     admin_user_documents_dir: "/home/{{ admin_user_and_group_name }}/Documents"
     admin_user_desktop_dir: "/home/{{ admin_user_and_group_name }}/Desktop"
@@ -95,6 +98,7 @@
         name: ext/ans_role_config_user
       vars:
         cfg_user_name: "{{ admin_user_and_group_name }}"
+        cfg_user_password: "{{ admin_user_password_for_login | default(omit) }}"
         cfg_user_primary_group: "{{ admin_user_and_group_name }}"
         cfg_user_groups:
           - "{{ sudo_users_group_name }}"
@@ -188,6 +192,7 @@
         public: true
       vars:
         bitwarden_user_name: "{{ admin_user_and_group_name }}"
+        bitwarden_master_password: "{{ admin_user_password_for_bitwarden | default(omit) }}"
         bitwarden_check_freebsd_linux_compat_cmd: "{{ freebsd_linux_compat_check_cmd }}"
         bitwarden_cli_api_key_client_id: "{{ vault_clear_bitwarden_api_key_client_id }}"
         bitwarden_cli_api_key_client_secret: "{{ vault_clear_bitwarden_api_key_client_secret }}"
