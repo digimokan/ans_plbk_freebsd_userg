@@ -113,7 +113,7 @@ for normal daily use, for one user:
    [Vault Variables](#vault-variables).
 
 5. For the first run of `configure.sh`, temporarily set the
-   [`user_password` vars](../playbook.yml#L6) in playbook.yml:
+   [`user_password` vars](../playbook.yml#L6) in `playbook.yml`:
 
 6. Run the [`configure.sh`](../configure.sh) script to configure the workstation.
 
