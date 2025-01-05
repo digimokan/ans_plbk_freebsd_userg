@@ -122,8 +122,8 @@
         name: ans_role_config_zfs_datasets
       vars:
         zfs_datasets_to_create:
-          - { pool: "{{ zpl }}", path: '/home', owner: 'root', group: "{{ rusg }}", mode: '755', enc: '' }
-          - { pool: "{{ zpl }}", path: "{{ hdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710', enc: "{{ hpswd }}" }
+          - { pool: "{{ zpl }}", path: '/home', owner: 'root', group: "{{ rusg }}", mode: '755', enc: "{{ hpswd }}" }
+          - { pool: "{{ zpl }}", path: "{{ hdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710', enc: '' }
           - { pool: "{{ zpl }}", path: "{{ odir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
           - { pool: "{{ zpl }}", path: "{{ kdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
           - { pool: "{{ zpl }}", path: "{{ wdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
@@ -139,8 +139,8 @@
           - { pool: "{{ zpl }}", path: "{{ cdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
           - { pool: "{{ zpl }}", path: "{{ ydir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
         zpl: "{{ zfs_pool }}"
-        hdir: "{{ admin_user_home_dir }}"
         hpswd: "{{ admin_user_password_for_zfs_homedir_dataset }}"
+        hdir: "{{ admin_user_home_dir }}"
         odir: "{{ admin_user_documents_dir }}"
         kdir: "{{ admin_user_desktop_dir }}"
         wdir: "{{ admin_user_download_dir }}"
