@@ -122,8 +122,8 @@
         name: ans_role_config_zfs_datasets
       vars:
         zfs_datasets_to_create:
-          - { pool: "{{ zpl }}", path: '/home', owner: 'root', group: "{{ rusg }}", mode: '755', enc: "{{ hpswd }}" }
-          - { pool: "{{ zpl }}", path: "{{ hdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710', enc: '' }
+          - { pool: "{{ zpl }}", path: "{{ hdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710', enc: "{{ hpswd }}" }
+          - { pool: "{{ zpl }}", path: "/tmp/testdir1", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '777', enc: "{{ hpswd }}" }
           - { pool: "{{ zpl }}", path: "{{ odir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
           - { pool: "{{ zpl }}", path: "{{ kdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
           - { pool: "{{ zpl }}", path: "{{ wdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
@@ -155,7 +155,6 @@
         pdir: "{{ admin_user_snapped_photos_dir }}"
         cdir: "{{ admin_user_podcasts_dir }}"
         ydir: "{{ admin_user_temp_sync_dir }}"
-        rusg: "{{ root_user_group_name }}"
         ausg: "{{ admin_user_and_group_name }}"
     - name: "Create and configure XDG user dirs for '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
