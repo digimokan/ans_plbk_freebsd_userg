@@ -123,7 +123,6 @@
       vars:
         zfs_datasets_to_create:
           - { pool: "{{ zpl }}", path: "{{ hdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '710', enc: "{{ hpswd }}" }
-          - { pool: "{{ zpl }}", path: "/tmp/testdir1", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '777', enc: "{{ hpswd }}" }
           - { pool: "{{ zpl }}", path: "{{ odir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
           - { pool: "{{ zpl }}", path: "{{ kdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
           - { pool: "{{ zpl }}", path: "{{ wdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
