@@ -138,8 +138,8 @@
           - { pool: "{{ zpl }}", path: "{{ cdir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
           - { pool: "{{ zpl }}", path: "{{ ydir }}", owner: "{{ ausg }}", group: "{{ ausg }}", mode: '755', enc: '' }
         zpl: "{{ zfs_pool }}"
-        hpswd: "{{ admin_user_password_for_zfs_homedir_dataset }}"
         hdir: "{{ admin_user_home_dir }}"
+        hpswd: "{{ admin_user_password_for_zfs_homedir_dataset }}"
         odir: "{{ admin_user_documents_dir }}"
         kdir: "{{ admin_user_desktop_dir }}"
         wdir: "{{ admin_user_download_dir }}"
