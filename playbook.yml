@@ -271,7 +271,7 @@
         musicpd_output_sound_server_name: "{{ oss_sound_server_name }}"
     - name: "Define list of browser search providers"
       ansible.builtin.include_role:
-        name: ext/ans_role_vars_browser_search_providers
+        name: ext/ans_vars_browser_search_providers
         public: true
     - name: "Install and configure the qutebrowser web-browser"
       ansible.builtin.include_role:
