@@ -464,7 +464,7 @@
         public: true
     - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
       ansible.builtin.include_role:
-        name: ext/ans_role_vars_wm_labels_colors
+        name: ext/ans_vars_wm_labels_colors
         public: true
     - name: "Install and configure the alacritty terminal emulator"
       ansible.builtin.include_role:
