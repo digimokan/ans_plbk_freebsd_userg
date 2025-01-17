@@ -80,7 +80,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_zfs_datasets
   - src: https://github.com/digimokan/ans_role_config_zfs_hw
   - src: https://github.com/digimokan/ans_vars_browser_search_providers
-  - src: https://github.com/digimokan/ans_role_vars_terminal_colors
+  - src: https://github.com/digimokan/ans_vars_terminal_colors
   - src: https://github.com/digimokan/ans_role_vars_wm_labels_colors
   - src: https://github.com/digimokan/ans_vars_syncthing_devices_folders
 

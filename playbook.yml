@@ -460,7 +460,7 @@
           - { name: 'v', body: "{{ neovim_main_cmd }} $argv", descrip: 'start the neovim text editor' }
     - name: "Define a set of terminal text, background, and cursor colors"
       ansible.builtin.include_role:
-        name: ans_role_vars_terminal_colors
+        name: ans_vars_terminal_colors
         public: true
     - name: "Define the WM icons, labels, and colors for windows, panel-bar, etc"
       ansible.builtin.include_role:
