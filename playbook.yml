@@ -34,6 +34,16 @@
     admin_user_musicpd_db_file_path: "{{ admin_user_music_dir }}/mpd_database"
     admin_user_musicpd_playlists_dir: "{{ admin_user_music_dir }}/MPD Playlists"
   tasks:
+    - name: "Define a list of LAN hosts (names, addresses, etc)"
+      ansible.builtin.include_role:
+        name: ans_vars_lan_hosts
+        public: true
+    - name: "Extract an IP address to a fact"
+      ansible.builtin.set_fact:
+        hosts: "{{ ans_vars_lan_host_list }}"
+        ip_addr: "{{ hosts | selectattr('hostname', 'equalto', 'fileserver0.machine') | map(attribute='addr') | first }}"
+    - debug:
+        var: ip_addr
     - name: "Set the machine hostname to '{{ machine_hostname }}'"
       ansible.builtin.hostname:
         name: "{{ machine_hostname }}"
