@@ -40,8 +40,7 @@
         public: true
     - name: "Extract an IP address to a fact"
       ansible.builtin.set_fact:
-        hosts: "{{ ans_vars_lan_host_list }}"
-        ip_addr: "{{ hosts | selectattr('hostname', 'equalto', 'fileserver0.machine') | map(attribute='addr') | first }}"
+        ip_addr: "{{ ans_vars_lan_host_list | selectattr('hostname', 'equalto', 'fileserver0.machine') | map(attribute='addr') | first }}"
     - debug:
         var: ip_addr
     - name: "Set the machine hostname to '{{ machine_hostname }}'"
