@@ -221,6 +221,10 @@
     - name: "Install and configure the sndio sound driver layer"
       ansible.builtin.include_role:
         name: ans_role_config_sndio
+    - name: "Install and configure the Network File System (NFS) client"
+      ansible.builtin.include_role:
+        name: ans_role_config_nfs_client
+        public: true
     - name: "Install and configure the automount device-mounting utility"
       ansible.builtin.include_role:
         name: ext/ans_role_config_automount
