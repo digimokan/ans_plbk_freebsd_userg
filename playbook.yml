@@ -38,11 +38,6 @@
       ansible.builtin.include_role:
         name: ans_vars_lan_hosts
         public: true
-    - name: "Extract an IP address to a fact"
-      ansible.builtin.set_fact:
-        ip_addr: "{{ ans_vars_lan_host_list | selectattr('hostname', 'equalto', 'fileserver0.machine') | map(attribute='addr') | first }}"
-    - debug:
-        var: ip_addr
     - name: "Set the machine hostname to '{{ machine_hostname }}'"
       ansible.builtin.hostname:
         name: "{{ machine_hostname }}"
