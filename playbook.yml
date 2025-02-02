@@ -232,7 +232,7 @@
       vars:
         autofs_mount_nfs_share_cmd: "{{ nfs_client_mount_nfs_share }}"
         autofs_enable_auto_device_mounting: false
-        autofs_enable_auto_nfs_share_mounting: false
+        autofs_enable_auto_nfs_share_mounting: true
     - name: "Install a standard set of system font packages"
       ansible.builtin.include_role:
         name: ext/ans_role_config_fonts
