@@ -3,7 +3,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_alacritty
   - src: https://github.com/digimokan/ans_role_config_atril
   - src: https://github.com/digimokan/ans_role_config_audacity
-  - src: https://github.com/digimokan/ans_role_config_automount
+  - src: https://github.com/digimokan/ans_role_config_autofs
   - src: https://github.com/digimokan/ans_role_config_automatic_printing
   - src: https://github.com/digimokan/ans_role_config_automatic_scanning
   - src: https://github.com/digimokan/ans_role_config_avahi
