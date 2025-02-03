@@ -65,6 +65,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_sudo
   - src: https://github.com/digimokan/ans_role_config_syncthing
   - src: https://github.com/digimokan/ans_role_config_time
+  - src: https://github.com/digimokan/ans_role_config_udisks
   - src: https://github.com/digimokan/ans_role_config_unzip
   - src: https://github.com/digimokan/ans_role_config_upgrades
   - src: https://github.com/digimokan/ans_role_config_user
