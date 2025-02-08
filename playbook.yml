@@ -536,6 +536,10 @@
         ranger_image_preview_selection: "{{ w3m_ranger_image_preview_selection }}"
         ranger_fzf_cmd: "{{ fzf_main_cmd }}"
         ranger_gnu_coreutils_mv_cmd: "{{ gnu_coreutils_mv_cmd }}"
+        fileserver_ip_addr: >-
+          {{ ans_vars_lan_host_list | selectattr('hostname', 'equalto',
+          'fileserver0.machine') | map(attribute='addr') | first }}
+        ranger_filserver_dir: "{{ autofs_nfs_share_mount_dir }}/{{ fileserver_ip_addr }}"
         ranger_user_documents_dir: "{{ admin_user_documents_dir }}"
         ranger_user_desktop_dir: "{{ admin_user_desktop_dir }}"
         ranger_user_download_dir: "{{ admin_user_download_dir }}"
@@ -544,10 +548,6 @@
         ranger_user_videos_dir: "{{ admin_user_videos_dir }}"
         ranger_user_trash_dir: "{{ admin_user_trash_dir }}"
         ranger_user_devel_dir: "{{ admin_user_devel_dir }}"
-        fileserver_ip_addr: >-
-          {{ ans_vars_lan_host_list | selectattr('hostname', 'equalto',
-          'fileserver0.machine') | map(attribute='addr') | first }}
-        ranger_user_filserver_dir: "{{ autofs_nfs_share_mount_dir }}/{{ fileserver_ip_addr }}"
         start_term_emulator: "{{ alacritty_main_cmd }}"
         term_arg_set_dir: "{{ alacritty_arg_starting_dir }}"
         term_arg_exec_cmd: "{{ alacritty_arg_exec }}"
