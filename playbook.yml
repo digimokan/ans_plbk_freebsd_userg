@@ -548,8 +548,6 @@
         ranger_user_videos_dir: "{{ admin_user_videos_dir }}"
         ranger_user_trash_dir: "{{ admin_user_trash_dir }}"
         ranger_user_devel_dir: "{{ admin_user_devel_dir }}"
-        ranger_extra_keymaps_jump_to_dir:
-          - { key_presses: 'gx', dir: "/var/log" }
         start_term_emulator: "{{ alacritty_main_cmd }}"
         term_arg_set_dir: "{{ alacritty_arg_starting_dir }}"
         term_arg_exec_cmd: "{{ alacritty_arg_exec }}"
