@@ -9,6 +9,9 @@
     sudo_users_group_name: "wheel"
     root_user_group_name: "wheel"
     github_user_name: "digimokan"
+    left_monitor_id: "DVI-0"
+    center_monitor_id: "DVI-1"
+    right_monitor_id: "DVI-2"
     zfs_pool: "zroot"
     # Note: temporarily set these user_password vars on first playbook run
     admin_user_password_for_login: ''
@@ -651,8 +654,9 @@
         xorg_xresources_lines:
           - "{{ adwaita_xresources_entries }}"
         xorg_monitors_layout_and_resolutions:
-          - { id: 'DVI-0', resolution: 'default', position: 'Primary' }
-          - { id: 'DVI-1', resolution: '3840x2160', position: 'RightOf DVI-0' }
+          - { id: "{{ center_monitor_id }}", resolution: 'default', position: 'Primary' }
+          - { id: "{{ left_monitor_id }}", resolution: 'default', position: 'LeftOf ' ~ "{{ center_monitor_id }}" }
+          - { id: "{{ right_monitor_id }}", resolution: 'default', position: 'RightOf ' ~ "{{ center_monitor_id }}" }
     - name: "Install and configure the XDM display manager"
       ansible.builtin.include_role:
         name: ans_role_config_xdm_dm
