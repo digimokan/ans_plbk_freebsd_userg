@@ -203,13 +203,13 @@
         bitwarden_cli_exec_jq_cmd: "{{ jq_main_cmd }}"
         bitwarden_cli_exec_xsel_cmd: "{{ xsel_main_cmd }}"
         bitwarden_cli_exec_fzf_cmd: "{{ fzf_main_cmd }}"
-    - name: "Clone this playbook repo to home dir of admin user '{{ admin_user_and_group_name }}'"
-      ansible.builtin.git:
-        repo: "https://github.com/digimokan/ans_plbk_freebsd_userg.git"
-        dest: "{{ admin_user_home_dir }}/ans_plbk_freebsd_userg"
-        update: false
-      become: true
-      become_user: "{{ admin_user_and_group_name }}"
+    - name: "Clone playbook used to set up the machine, and emplace vault password"
+      ansible.builtin.include_role:
+        name: ans_role_config_user_playbook
+      vars:
+        cfg_user_playbook_pb_name: "{{ playbook_dir | basename }}"
+        cfg_user_playbook_target_user_name: "{{ admin_user_and_group_name }}"
+        cfg_user_playbook_target_group_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the feh image viewer utility"
       ansible.builtin.include_role:
         name: ans_role_config_feh

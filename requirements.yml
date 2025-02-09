@@ -69,6 +69,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_unzip
   - src: https://github.com/digimokan/ans_role_config_upgrades
   - src: https://github.com/digimokan/ans_role_config_user
+  - src: https://github.com/digimokan/ans_role_config_user_playbook
   - src: https://github.com/digimokan/ans_role_config_video_drivers
   - src: https://github.com/digimokan/ans_role_config_vlc
   - src: https://github.com/digimokan/ans_role_config_xdm_dm
