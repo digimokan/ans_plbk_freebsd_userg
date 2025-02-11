@@ -170,6 +170,7 @@
     - name: "Configure sudo settings for auth group '{{ sudo_users_group_name }}'"
       ansible.builtin.include_role:
         name: ext/ans_role_config_sudo
+        public: true
       vars:
         ask_password_timeout: 'ask_once'
         password_prompt_timeout_minutes: 0
@@ -477,7 +478,12 @@
               {{ exa_long_listing_force_color_cmd }} $argv |
               {{ less_auto_page_with_raw_input_cmd }}
             descrip: 'print a long-listing with exa'
-          - { name: 'v', body: "{{ neovim_main_cmd }} $argv", descrip: 'start the neovim text editor' }
+          - name: 'v'
+            body: "{{ neovim_main_cmd }} $argv"
+            descrip: 'start the neovim text editor'
+          - name: 'm'
+            body: "{{ sudo_main_cmd }} {{ udisks_utility_script_cmd }} $argv"
+            descrip: 'mount or unmount a device'
     - name: "Define a set of terminal text, background, and cursor colors"
       ansible.builtin.include_role:
         name: ans_vars_terminal_colors
