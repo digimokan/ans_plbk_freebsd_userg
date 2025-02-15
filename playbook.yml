@@ -61,9 +61,9 @@
         name: ext/ans_role_config_oss
         public: true
       vars:
-        sound_card_type: 'intel'
-        force_set_sound_output_pcm_at_boot: '0'
-        intel_nid_disable_list:
+        oss_sound_card_type: 'intel'
+        oss_force_set_sound_output_pcm_at_boot: '0'
+        oss_intel_nid_disable_list:
           - { card: '0', nid: '30', descrip: 'rear speaker/optical combo jack optical-out-channel' }
           - { card: '0', nid: '33', descrip: 'front headphones jack out-channel' }
           - { card: '1', nid: '3', descrip: 'rear HDMI jack audio-out-channel' }
