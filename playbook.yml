@@ -484,6 +484,9 @@
           - name: 'm'
             body: "{{ sudo_main_cmd }} {{ udisks_utility_script_cmd }} $argv"
             descrip: 'mount or unmount a device'
+          - name: 's'
+            body: "{{ oss_utility_script_cmd }} $argv"
+            descrip: 'enable sound devices and set volume'
     - name: "Define a set of terminal text, background, and cursor colors"
       ansible.builtin.include_role:
         name: ans_vars_terminal_colors
