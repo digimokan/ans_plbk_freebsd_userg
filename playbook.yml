@@ -69,8 +69,8 @@
         name: ext/ans_role_config_video_drivers
         public: true
       vars:
-        video_card_make: "Intel"
-        video_card_series: "HD"
+        video_card_make: "AMD"
+        video_card_series: "GCN_3_4_5_RDNA"
     - name: "Configure webcam support"
       ansible.builtin.include_role:
         name: ans_role_config_webcam
