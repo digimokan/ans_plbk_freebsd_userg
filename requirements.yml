@@ -58,6 +58,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_ranger
   - src: https://github.com/digimokan/ans_role_config_ripgrep
   - src: https://github.com/digimokan/ans_role_config_rofi
+  - src: https://github.com/digimokan/ans_role_config_security_hardening
   - src: https://github.com/digimokan/ans_role_config_shell
   - src: https://github.com/digimokan/ans_role_config_shellcheck
   - src: https://github.com/digimokan/ans_role_config_simple_scan

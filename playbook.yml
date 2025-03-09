@@ -47,6 +47,9 @@
     - name: "Configure system clock, time, and time zone"
       ansible.builtin.include_role:
         name: ext/ans_role_config_time
+    - name: "Configure OS security hardening options"
+      ansible.builtin.include_role:
+        name: ans_role_config_security_hardening
     - name: "Configure system and package upgrades"
       ansible.builtin.include_role:
         name: ext/ans_role_config_upgrades
