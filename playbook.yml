@@ -641,7 +641,7 @@
         cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
         screenshot_png_save_dir: "{{ admin_user_home_dir }}/Desktop"
         cmd_start_panel_bar: "i3bar"
-        i3bar_font: "{{ droid_font_name_mono }} 18"
+        i3bar_font: "{{ droid_font_name_mono }} 24"
         i3bar_bg_color: "{{ wm_panel_bar_bg_color }}"
         i3bar_workspace_colors: "{{ wm_panel_bar_workspace_colors }}"
         i3bar_status_area_cmd: "{{ i3status_start_cmd }}"
