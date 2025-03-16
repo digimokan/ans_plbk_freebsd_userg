@@ -57,7 +57,6 @@
       ansible.builtin.include_role:
         name: ext/ans_role_config_loader
       vars:
-        menu_timeout_seconds: "2"
         load_cpu_microcode_updates: true
     - name: "Install and configure the OSS sound driver layer"
       ansible.builtin.include_role:
