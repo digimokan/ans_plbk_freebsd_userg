@@ -73,6 +73,7 @@
       vars:
         cfg_video_card_make: "AMD"
         cfg_video_card_series: "GCN_3_4_5_RDNA"
+        cfg_video_freebsd_build_drm_pkg_from_ports: true
     - name: "Configure webcam support"
       ansible.builtin.include_role:
         name: ans_role_config_webcam
