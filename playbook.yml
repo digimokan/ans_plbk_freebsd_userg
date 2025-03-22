@@ -718,4 +718,10 @@
     - name: "Configure an attached Kinesis Advantage360 keyboard with custom keymaps"
       ansible.builtin.include_role:
         name: ans_role_config_kinesis_adv360_smartset
+    - name: "Build and install packages using the FreeBSD ports tree"
+      ansible.builtin.include_role:
+        name: ans_role_config_freebsd_ports
+      vars:
+        freebsd_ports_package_list:
+          - "{{ cfg_video_freebsd_drm_pkg_port_name }}"
 
