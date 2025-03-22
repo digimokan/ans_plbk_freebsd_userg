@@ -28,6 +28,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_gnu_coreutils
   - src: https://github.com/digimokan/ans_role_config_gnu_image_mp
   - src: https://github.com/digimokan/ans_role_config_group
+  - src: https://github.com/digimokan/ans_role_config_hostname
   - src: https://github.com/digimokan/ans_role_config_i3status
   - src: https://github.com/digimokan/ans_role_config_i3wm_wm
   - src: https://github.com/digimokan/ans_role_config_jq
