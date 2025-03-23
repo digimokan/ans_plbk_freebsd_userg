@@ -723,5 +723,5 @@
         name: ans_role_config_freebsd_ports
       vars:
         freebsd_ports_package_list:
-          - "{{ cfg_video_freebsd_drm_pkg_port_name }}"
+          - { port_group_and_name: "{{ cfg_video_freebsd_drm_pkg_port_name }}", always_rebuild_reinstall: false }
 
