@@ -674,10 +674,10 @@
         xorg_external_video_card_bus: "{{ video_card_bus }}"
         xorg_xresources_lines:
           - "{{ adwaita_xresources_entries }}"
-          # xorg_monitors_layout_and_resolutions:
-          #   - { id: "{{ center_monitor_id }}", resolution: 'default', position: 'Primary' }
-          #   - { id: "{{ left_monitor_id }}", resolution: 'default', position: "LeftOf {{ center_monitor_id }}" }
-          #   - { id: "{{ right_monitor_id }}", resolution: 'default', position: "RightOf {{ center_monitor_id }}" }
+        xorg_monitors_layout_and_resolutions:
+          - { id: "{{ center_monitor_id }}", resolution: 'default', position: 'Primary' }
+          - { id: "{{ left_monitor_id }}", resolution: 'default', position: "LeftOf {{ center_monitor_id }}" }
+          - { id: "{{ right_monitor_id }}", resolution: 'default', position: "RightOf {{ center_monitor_id }}" }
     - name: "Install and configure the XDM display manager"
       ansible.builtin.include_role:
         name: ans_role_config_xdm_dm
