@@ -13,9 +13,9 @@
     video_card_series: "GCN_3_4_5_RDNA"
     video_card_number: "0"
     video_card_bus: "1:0:0"
-    left_monitor_id: "DP-3"
-    center_monitor_id: "DP-1"
-    right_monitor_id: "DP-2"
+    left_monitor_id: "DP-1"
+    center_monitor_id: "DP-2"
+    right_monitor_id: "DP-3"
     zfs_pool: "zroot"
     # Note: temporarily set these user_password vars on first playbook run
     admin_user_password_for_login: ''
