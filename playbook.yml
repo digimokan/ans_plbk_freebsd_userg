@@ -14,8 +14,11 @@
     video_card_number: "0"
     video_card_bus: "1:0:0"
     left_monitor_id: "DP-1"
-    center_monitor_id: "DP-2"
-    right_monitor_id: "DP-3"
+    left_monitor_resolution: "2560x2880"
+    center_monitor_id: "HDMI-1"
+    center_monitor_resolution: "2560x1440"
+    right_monitor_id: "DP-2"
+    right_monitor_resolution: "2560x2880"
     zfs_pool: "zroot"
     # Note: temporarily set these user_password vars on first playbook run
     admin_user_password_for_login: ''
@@ -675,9 +678,9 @@
         xorg_xresources_lines:
           - "{{ adwaita_xresources_entries }}"
         xorg_monitors_layout_and_resolutions:
-          - { id: "{{ center_monitor_id }}", resolution: 'default', position: 'Primary' }
-          - { id: "{{ left_monitor_id }}", resolution: 'default', position: "LeftOf {{ center_monitor_id }}" }
-          - { id: "{{ right_monitor_id }}", resolution: 'default', position: "RightOf {{ center_monitor_id }}" }
+          - { id: "{{ center_monitor_id }}", resolution: "{{ center_monitor_resolution }}", position: 'Primary' }
+          - { id: "{{ left_monitor_id }}", resolution: "{{ left_monitor_resolution }}", position: "LeftOf {{ center_monitor_id }}" }
+          - { id: "{{ right_monitor_id }}", resolution: "{{ right_monitor_resolution }}", position: "RightOf {{ center_monitor_id }}" }
     - name: "Install and configure the XDM display manager"
       ansible.builtin.include_role:
         name: ans_role_config_xdm_dm
