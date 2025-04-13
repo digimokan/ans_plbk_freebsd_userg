@@ -74,7 +74,7 @@
       vars:
         # Note: enable USB speakers as default PCM sound device
         oss_load_usb_audio_driver_at_boot: true
-        oss_force_set_sound_output_pcm_at_boot: '9'
+        oss_force_set_sound_output_pcm_at_boot: '8'
     - name: "Install and configure video card drivers"
       ansible.builtin.include_role:
         name: ext/ans_role_config_video_drivers
@@ -678,9 +678,15 @@
         xorg_xresources_lines:
           - "{{ adwaita_xresources_entries }}"
         xorg_monitors_layout_and_resolutions:
-          - { id: "{{ center_monitor_id }}", resolution: "{{ center_monitor_resolution }}", position: 'Primary' }
-          - { id: "{{ left_monitor_id }}", resolution: "{{ left_monitor_resolution }}", position: "LeftOf {{ center_monitor_id }}" }
-          - { id: "{{ right_monitor_id }}", resolution: "{{ right_monitor_resolution }}", position: "RightOf {{ center_monitor_id }}" }
+          - id: "{{ center_monitor_id }}"
+            resolution: "{{ center_monitor_resolution }}"
+            position: 'Primary'
+          - id: "{{ left_monitor_id }}"
+            resolution: "{{ left_monitor_resolution }}"
+            position: "LeftOf {{ center_monitor_id }}"
+          - id: "{{ right_monitor_id }}"
+            resolution: "{{ right_monitor_resolution }}"
+            position: "RightOf {{ center_monitor_id }}"
     - name: "Install and configure the XDM display manager"
       ansible.builtin.include_role:
         name: ans_role_config_xdm_dm
