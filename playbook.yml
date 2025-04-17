@@ -383,14 +383,6 @@
           - "{{ admin_user_home_dir }}/Documents/"
           - "{{ admin_user_home_dir }}/Templates/"
         restic_user_guide_dir: "{{ admin_user_home_dir }}/"
-    - name: "Install and configure the git version control system"
-      ansible.builtin.include_role:
-        name: ans_role_config_git
-        public: true
-      vars:
-        git_machine_user_name: "{{ admin_user_and_group_name }}"
-        git_vcs_user_name: "{{ github_user_name }}"
-        export_cmd_current_git_branch: true
     - name: "Install and configure the maim screenshot-capture utility"
       ansible.builtin.include_role:
         name: ans_role_config_maim
@@ -474,6 +466,15 @@
           - { filetype: "sh", cmd: "{{ shellcheck_main_cmd }}" }
           - { filetype: "yaml", cmd: "{{ yamllint_main_cmd }}" }
           - { filetype: "lua", cmd: "{{ luacheck_main_cmd }}" }
+    - name: "Install and configure the git version control system"
+      ansible.builtin.include_role:
+        name: ans_role_config_git
+        public: true
+      vars:
+        git_machine_user_name: "{{ admin_user_and_group_name }}"
+        git_vcs_user_name: "{{ github_user_name }}"
+        git_text_editor: "{{ neovim_main_cmd }}"
+        export_cmd_current_git_branch: true
     - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
         name: ans_role_config_fish
