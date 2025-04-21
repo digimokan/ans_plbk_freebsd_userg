@@ -572,7 +572,8 @@
         ranger_user_devel_dir: "{{ admin_user_devel_dir }}"
         start_term_emulator: "{{ alacritty_main_cmd }}"
         term_arg_set_dir: "{{ alacritty_arg_starting_dir }}"
-        term_arg_exec_cmd: "{{ alacritty_arg_exec }}"
+        term_arg_exec_cmd: "{{ alacritty_arg_exec_start }}"
+        term_arg_exec_end: "{{ alacritty_arg_exec_end }}"
         start_text_editor: "{{ neovim_main_cmd }}"
         open_image_files_with: [ "{{ feh_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
         open_office_files_with: [ "{{ libreoffice_main_cmd }}" ]
