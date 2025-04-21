@@ -624,7 +624,8 @@
         public: true
       vars:
         start_term_emulator: "{{ alacritty_main_cmd }}"
-        term_arg_exec_cmd: "{{ alacritty_arg_exec }}"
+        term_arg_exec_cmd: "{{ alacritty_arg_exec_start }}"
+        term_arg_exec_end: "{{ alacritty_arg_exec_end }}"
         dot_desktop_launchers:
           - { cli: "{{ ranger_in_last_dir_cmd }}", name: 'ranger' }
           - { cli: "{{ ncmpcpp_main_cmd }}", name: 'ncmpcpp' }
