@@ -147,8 +147,8 @@ for normal daily use, for one user:
 ## PC BIOS Configuration
 
 * `Advanced` -> `Onboard Devices Configuration`
-    * `Wifi Controller`: `Disabled`
-    * `Bluetooth Controller`: `Disabled`
+    * `Wifi Controller`: "Disabled"
+    * `Bluetooth Controller`: "Disabled"
 
 ## Quick Start
 
