@@ -146,16 +146,9 @@ for normal daily use, for one user:
 
 ## PC BIOS Configuration
 
-* Press F7 at BIOS screen to update BIOS firmware:
-    * Update to Version 0074 (29 OCT 2021), with
-      [file KY0074.bio](https://www.intel.com/content/www/us/en/download/18677/bios-update-kyskli70.html).
-* Press F2 at BIOS screen, and go to Devices Tab:
-    * Disable 'Thunderbolt Controller.'
-    * Disable 'WLAN.'
-    * Disable 'Bluetooth.'
-    * Disable 'Enhanced Consumer IR.'
-* In BIOS menu, go to Cooling Tab:
-    * Set 'Fan Control Mode' to 'Quiet.'
+* `Advanced` -> `Onboard Devices Configuration`
+    * `Wifi Controller`: `Disabled`
+    * `Bluetooth Controller`: `Disabled`
 
 ## Quick Start
 
