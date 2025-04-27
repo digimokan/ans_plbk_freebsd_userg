@@ -60,7 +60,7 @@ for normal daily use, for one user:
 
 ## Hardware Connections
 
-```text
+```
                  BACK OF PC
 ┌──────────────────────────────────────────────┐
 │                                              │
