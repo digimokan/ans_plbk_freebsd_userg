@@ -1,6 +1,6 @@
 # ans_plbk_freebsd_userg
 
-Ansible playbook to configure a NUC6I7KYK with FreeBSD and i3wm.
+Ansible playbook to configure a Thelio Prime Custom PC with FreeBSD and i3wm.
 
 [![Release](https://img.shields.io/github/release/digimokan/ans_plbk_freebsd_userg.svg?label=release)](https://github.com/digimokan/ans_plbk_freebsd_userg/releases/latest "Latest Release Notes")
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?label=license)](LICENSE.md "Project License")
@@ -9,7 +9,8 @@ Ansible playbook to configure a NUC6I7KYK with FreeBSD and i3wm.
 
 * [Purpose](#purpose)
 * [Hardware Parts List](#hardware-parts-list)
-* [NUC6I7KYK BIOS Configuration](#nuc6i7kyk-bios-configuration)
+* [Hardware Connections](#hardware-connections)
+* [PC BIOS Configuration](#pc-bios-configuration)
 * [Quick Start](#quick-start)
     * [Install Base System](#install-base-system)
     * [Configure Workstation](#configure-workstation)
@@ -21,7 +22,7 @@ Ansible playbook to configure a NUC6I7KYK with FreeBSD and i3wm.
 
 ## Purpose
 
-Set up a workstation/desktop-PC on a [NUC6I7KYK](https://www.intel.com/content/www/us/en/products/sku/89187/intel-nuc-kit-nuc6i7kyk/specifications.html)
+Set up a workstation/desktop-PC on a [System76 Thelio Prime Custom](https://system76.com/desktops/thelio-r4-n1/configure)
 for normal daily use, for one user:
 
 * Install FreeBSD on two mirrored hard drives.
@@ -31,28 +32,119 @@ for normal daily use, for one user:
 
 ## Hardware Parts List
 
-* [Intel NUC6I7KYK Bare Bones Kit](https://www.amazon.com/gp/product/B01DJ9XS52):
-  for main PC kit.
-* [Monoprice 1 ft 3-Prong AC Power Cord](https://www.amazon.com/Monoprice-18AWG-Grounded-Power-IEC-320-C5/dp/B08BXM5CGB):
-  since NUC6I7KYK Bare Bones Kit DC adapter is missing this part.
-* [Crucial 32GB DDR4 RAM](https://www.amazon.com/gp/product/B015YPB8ME):
-  for two 16GB RAM boards.
-* [Samsung 970 EVO Plus NVMe M.2 2TB SSD, x 2](https://www.amazon.com/gp/product/B07MFZXR1B):
-  for two mirrored hard drives.
-* [HP Pavilion 22CWA 21.5 in 1080p IPS LED Monitor](https://www.amazon.com/dp/B015WCV70W):
-  connected to rear HDMI port.
-* [Logitech Z207 Powered Speakers](https://www.amazon.com/dp/B074KJ6JQW):
-  for main desktop sound, connected to rear 3.5 mm input jack.
-* [Cable Matters Ultra Mini 4 Port USB 3.0 Hub, x 2](https://www.amazon.com/dp/B00PHPWLPA):
-  for two hubs, each connected to a rear USB 3.0 port.
-* [eMeet USB Speakerphone](https://www.amazon.com/dp/B07Q3D7F8S):
-  to provide mic + speaker for video-conferencing and recording, connected to
-  rear USB Hub.
-* [Logitech C920e Webcam (Mic-Disabled)](https://www.amazon.com/dp/B08CS18WVP):
-  for camera-input only (mic-disabled, to declutter sound panel selections),
-  connected to rear USB Hub.
+* [System76 Thelio Prime Custom Desktop PC (thelio-r4-n1)](https://system76.com/desktops/thelio-r4-n1/configure)
+    * Ryzen 9 9950X 5.7 GHz CPU (16 Cores, 32 Threads)
+    * 2x 32 GB DDR5 4800 MHz UDIMM RAM
+* [2x Samsung 870 EVO 4TB 2.5 Inch Sata III SSD](https://www.amazon.com/dp/B08QBL36GF)
+* [AMD Radeon RX 580 Graphics Card](https://www.amazon.com/dp/B06Y66K3XD)
+* [LG UltraGear 27" QHD 2560x1440 Gaming Monitor](https://www.amazon.com/dp/B0C63HDHPR)
+    * Center monitor
+* [2x LG 28MQ780-B 28 Inch SDQHD 2560x2880 DualUp Monitor](https://www.amazon.com/dp/B09XTD5C7H)
+    * Left monitor
+    * Right monitor
+* [Mount-It! Triple Monitor Mount With USB And Audio Ports](https://www.amazon.com/dp/B06X9D7JWP)
+* [USX Mount Universal Sound Bar Mount](https://www.amazon.com/dp/B081N42KV3)
+    * Attaches to center monitor
+* [Nagao Seisakusho NB-SPKR-VESA Speaker Stand](https://www.amazon.com/dp/B0D6VZGS3P)
+    * Attaches to USX Mount, hold speakers
+* [Audioengine A2-HD (HD3) Speakers](https://www.amazon.com/dp/B08SHSVFLY)
+* [BenQ ScreenBar e-Reading LED Task Lamp](https://www.amazon.com/dp/B076VNFZJG)
+    * Placed on left monitor
+* [EMEET C980 Pro Webcam With Built-In Speakers And Mic](https://www.amazon.com/dp/B088BY9PJG)
+    * Placed on center monitor
+* [ORICO 3-Port USB-A Hub 3.0](https://www.amazon.com/dp/B0CW1D1J4G)
+    * Attaches to lower left of center monitor
+* [Kinesis Advantage360 Keyboard (Smartset, USB, Kailh Quiet Pink Switches)](https://www.amazon.com/dp/B0CGJRK71M)
+* [Kinesis Advantage360 Palm Pads](https://www.amazon.com/dp/B0BCHFSRN2)
+* [Logitech MX Vertical Wireless Mouse](https://www.amazon.com/dp/B07FNJB8TT)
 
-## NUC6I7KYK BIOS Configuration
+## Hardware Connections
+
+```text
+                 BACK OF PC
+┌──────────────────────────────────────────────┐
+│                                              │
+│  ┌──┐   ┌──┐ ┌──┐                            │
+│  │H │   │U │ │U │                            │
+│  │D │   │S │ │S │                            │
+│  │M │   │B │ │B │                            │
+│  └I─┘   └──┘ └──┘                            │
+│  HDMI-3  A1   A2                             │
+│                                              │
+│                                              │
+│                                              │
+│                                              │
+│                                              │
+│  ┌──┐ ┌──┐ ┌──┐ ┌──┐                         │
+│  │U │ │U │ │U │ │U │                         │
+│  │S │ │S │ │S │ │S │                         │
+│  │B │ │B │ │B │ │B │                         │
+│  └──┘ └──┘ └──┘ └──┘                         │
+│   C1   A3   A4   A5                          │
+│  ┌──┐ ┌──┐ ┌────┐                            │
+│  │U │ │U │ │    │                            │
+│  │S │ │S │ │ETH │                            │
+│  │B │ │B │ │    │                            │
+│  └──┘ └──┘ └────┘                            │
+│   C2   A6                                    │
+│                                              │
+│  ┌┐ WIFI   ┌┐ WIFI                           │
+│  └┘ ANT    └┘ ANT                            │
+│            ┌┐                                │
+│            └┘ LINE IN                        │
+│            ┌┐                                │
+│  ┌─┐       └┘ LINE OUT                       │
+│  └─┘       ┌┐                                │
+│   OPTICAL  └┘ MIC IN                         │
+│                                              │
+│  ┌────────────────────────────────────────┐  │
+│  │             GRAPHICS CARD              │  │
+│  │ ┌──────┐  ┌──────┐  ┌──────┐  ┌──────┐ │  │
+│  │ │ HDMI │  │DSPORT│  │DSPORT│  │DSPORT│ │  │
+│  │ └──────┘  └──────┘  └──────┘  └──────┘ │  │
+│  │  HDMI-1     DP-3      DP-2      DP-1   │  │
+│  │ ┌──────┐                               │  │
+│  │ │ VGA  │                               │  │
+│  │ └──────┘                               │  │
+│  └────────────────────────────────────────┘  │
+│                                              │
+│                                              │
+│                                              │
+│                                              │
+│                                              │
+│                                              │
+│  ┌────┐ ┌────────┐                           │
+│  │PWR │ │  AC    │                           │
+│  │SW  │ │ADAPTER │                           │
+│  │    │ │        │                           │
+│  └────┘ └────────┘                           │
+│                                              │
+└──────────────────────────────────────────────┘
+```
+
+* Top Row
+    * `HDMI-3`: N/A
+    * `A1 (USB-A)`: USB speakers
+    * `A2 (USB-A)`: mouse dongle
+* Second Row
+    * `C1 (USB-C)`: ORICO USB-A Hub
+    * `A3 (USB-A)`: monitor mount USB-A port
+    * `A4 (USB-A)`: monitor mount USB-C port
+    * `A5 (USB-A)`: N/A
+* Third Row
+    * `C2 (USB-C)`: keyboard
+    * `A6 (USB-A)`: webcam
+* Fourth Row
+    * `LINE IN`: N/A
+    * `LINE OUT (3.5 mm)`: monitor mount line-out (jack on right)
+    * `MIC IN (3.5 mm)`: monitor mount mic-in (jack on left)
+* Graphics Card
+    * `HDMI-1`: center monitor
+    * `DP-3 (DisplayPort)`: N/A
+    * `DP-2 (DisplayPort)`: right monitor
+    * `DP-1 (DisplayPort)`: left monitor
+
+## PC BIOS Configuration
 
 * Press F7 at BIOS screen to update BIOS firmware:
     * Update to Version 0074 (29 OCT 2021), with
