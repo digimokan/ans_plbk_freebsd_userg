@@ -11,6 +11,7 @@ Ansible playbook to configure a Thelio Prime Custom PC with FreeBSD and i3wm.
 * [Hardware Parts List](#hardware-parts-list)
 * [Hardware Connections](#hardware-connections)
 * [PC BIOS Configuration](#pc-bios-configuration)
+* [Monitor Configuration](#monitor-configuration)
 * [Quick Start](#quick-start)
     * [Install Base System](#install-base-system)
     * [Configure Workstation](#configure-workstation)
@@ -37,7 +38,7 @@ for normal daily use, for one user:
     * 2x 32 GB DDR5 4800 MHz UDIMM RAM
 * [2x Samsung 870 EVO 4TB 2.5 Inch Sata III SSD](https://www.amazon.com/dp/B08QBL36GF)
 * [AMD Radeon RX 580 Graphics Card](https://www.amazon.com/dp/B06Y66K3XD)
-* [LG UltraGear 27" QHD 2560x1440 Gaming Monitor](https://www.amazon.com/dp/B0C63HDHPR)
+* [LG UltraGear 27 Inch QHD 2560x1440 Gaming Monitor](https://www.amazon.com/dp/B0C63HDHPR)
     * Center monitor
 * [2x LG 28MQ780-B 28 Inch SDQHD 2560x2880 DualUp Monitor](https://www.amazon.com/dp/B09XTD5C7H)
     * Left monitor
@@ -149,6 +150,17 @@ for normal daily use, for one user:
 * `Advanced` -> `Onboard Devices Configuration`
     * `Wifi Controller`: "Disabled"
     * `Bluetooth Controller`: "Disabled"
+
+## Monitor Configuration
+
+### LG UltraGear 27 Inch QHD 2560x1440 Gaming Monitor
+
+* `General` -> `Smart Energy Saving`: "Low"
+* `Game Mode`: "Vivid"
+
+### LG 28MQ780-B 28 Inch SDQHD 2560x2880 DualUp Monitors
+
+* `Picture` -> `Picture Mode`: "Vivid"
 
 ## Quick Start
 
