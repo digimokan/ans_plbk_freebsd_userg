@@ -419,6 +419,10 @@
       ansible.builtin.include_role:
         name: ans_role_config_w3m
         public: true
+    - name: "Install and configure the ffmpegthumbnailer video-to-image thumbnail utility"
+      ansible.builtin.include_role:
+        name: ans_role_config_ffmpegthumbnailer
+        public: true
     - name: "Install and configure the bat enhanced-cat utility"
       ansible.builtin.include_role:
         name: ans_role_config_bat
@@ -597,6 +601,7 @@
         preview_zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_xz_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_7zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
+        preview_video_file_cmd: "{{ ffmpegthumbnailer_main_cmd }}"
     - name: "Install and configure the ncmpcpp NCurses Music Player Client"
       ansible.builtin.include_role:
         name: ans_role_config_ncmpcpp
