@@ -411,9 +411,9 @@
       ansible.builtin.include_role:
         name: ans_role_config_odt2txt
         public: true
-    - name: "Install and configure the mutool PDF conversion utility"
+    - name: "Install and configure the poppler PDF rendering library"
       ansible.builtin.include_role:
-        name: ans_role_config_mutool
+        name: ans_role_config_poppler
         public: true
     - name: "Install and configure the w3m text-based web browser"
       ansible.builtin.include_role:
@@ -594,8 +594,7 @@
         preview_docx_file_cmd: "{{ pandoc_conv_to_markdown_cmd }}"
         preview_xls_file_cmd: "{{ xls2csv_conv_xls_to_text_cmd }}"
         preview_xlsx_file_cmd: "{{ xls2csv_conv_xlsx_to_text_cmd }}"
-        preview_pdf_file_cmd_prefix: "{{ mutool_conv_pdf_to_txt_cmd_prefix }}"
-        preview_pdf_file_cmd_suffix: "{{ mutool_conv_pdf_to_txt_cmd_suffix }}"
+        preview_pdf_file_cmd: "{{ poppler_pdftoppm_main_cmd }}"
         preview_tar_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_gzip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
