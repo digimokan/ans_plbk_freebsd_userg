@@ -257,6 +257,7 @@
         install_liberation_font: true
         install_dejavu_font: true
         install_droid_font: true
+        install_nerd_fonts: true
         install_ms_legacy_fonts: true
         install_ms_vista_fonts: true
     - name: "Install and configure the LibreOffice office application suite"
@@ -515,7 +516,7 @@
         public: true
       vars:
         alacritty_user_name: "{{ admin_user_and_group_name }}"
-        alacritty_font_family: "{{ dejavu_font_name_mono }}"
+        alacritty_font_family: "{{ nerd_font_name_hack }}"
         alacritty_font_size: 15
         alacritty_term_colors: "{{ terminal_colors }}"
         alacritty_shell_cmd: "{{ fish_main_cmd }}"
