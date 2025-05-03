@@ -156,11 +156,11 @@ for normal daily use, for one user:
 ### LG UltraGear 27 Inch QHD 2560x1440 Gaming Monitor
 
 * `General` -> `Smart Energy Saving`: "Low"
-* `Game Mode`: "sRGB"
+* `Game Mode`: "Gamer 1" (Should Be Default)
 
 ### LG 28MQ780-B 28 Inch SDQHD 2560x2880 DualUp Monitors
 
-* `Picture` -> `Picture Mode`: "sRGB"
+* `Picture` -> `Picture Mode`: "Custom" (Should Be Default)
 
 ## Quick Start
 
