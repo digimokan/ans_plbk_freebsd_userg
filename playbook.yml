@@ -82,7 +82,6 @@
       vars:
         cfg_video_card_make: "{{ video_card_make }}"
         cfg_video_card_series: "{{ video_card_series }}"
-        cfg_video_freebsd_build_drm_pkg_from_ports: true
     - name: "Configure webcam support"
       ansible.builtin.include_role:
         name: ans_role_config_webcam
@@ -735,10 +734,4 @@
     - name: "Configure an attached Kinesis Advantage360 keyboard with custom keymaps"
       ansible.builtin.include_role:
         name: ans_role_config_kinesis_adv360_smartset
-    - name: "Build and install packages using the FreeBSD ports tree"
-      ansible.builtin.include_role:
-        name: ans_role_config_freebsd_ports
-      vars:
-        freebsd_ports_package_list:
-          - { port_group_and_name: "{{ cfg_video_freebsd_drm_pkg_port_name }}", always_rebuild_reinstall: false }
 
