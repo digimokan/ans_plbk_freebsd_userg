@@ -321,12 +321,12 @@
         name: ans_role_config_firefox
         public: true
       vars:
-        user_name: "{{ admin_user_and_group_name }}"
-        install_google_widevine_drm_addon: true
-        install_vimium_ext: true
-        install_bitwarden_ext: true
-        install_user_agent_switcher_ext: true
-        allow_user_extension_install: true
+        firefox_user_name: "{{ admin_user_and_group_name }}"
+        firefox_install_google_widevine_drm_addon: true
+        firefox_install_vimium_ext: true
+        firefox_install_bitwarden_ext: true
+        firefox_install_user_agent_switcher_ext: true
+        firefox_allow_user_extension_install: true
         firefox_search_providers: "{{ browser_search_providers }}"
     - name: "Install and configure the Chromium browser"
       ansible.builtin.include_role:
