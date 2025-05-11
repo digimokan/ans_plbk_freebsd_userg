@@ -40,6 +40,9 @@
     admin_user_podcasts_dir: "/home/{{ admin_user_and_group_name }}/Podcasts"
     admin_user_temp_sync_dir: "/home/{{ admin_user_and_group_name }}/Sync"
     admin_user_qutebrowser_browse_history_db_path: "{{ admin_user_cache_dir }}/qutebrowser_browse_history.sqlite"
+    admin_user_firefox_bookmarks_and_browse_history_path: "{{ admin_user_cache_dir }}/firefox_bookmarks_and_browse_history.sqlite"
+    admin_user_firefox_bookmark_icons_path: "{{ admin_user_cache_dir }}/firefox_bookmark_icons.sqlite"
+    admin_user_firefox_search_and_forms_history_path: "{{ admin_user_cache_dir }}/firefox_search_and_forms_history.sqlite"
     admin_user_newsboat_rss_feed_tracking_db_path: "{{ admin_user_cache_dir }}/newsboat_rss_feed_tracking.sqlite"
     admin_user_musicpd_db_file_path: "{{ admin_user_music_dir }}/mpd_database"
     admin_user_musicpd_playlists_dir: "{{ admin_user_music_dir }}/MPD Playlists"
@@ -328,6 +331,9 @@
         firefox_install_user_agent_switcher_ext: true
         firefox_allow_user_extension_install: true
         firefox_search_providers: "{{ browser_search_providers }}"
+        firefox_try_link_to_saved_bookmarks_and_browse_history_path: "{{ admin_user_firefox_bookmarks_and_browse_history_path }}"
+        firefox_try_link_to_saved_bookmark_icons_history_path: "{{ admin_user_firefox_bookmark_icons_path }}"
+        firefox_try_link_to_saved_search_and_forms_history_path: "{{ admin_user_firefox_search_and_forms_history_path }}"
     - name: "Install and configure the Chromium browser"
       ansible.builtin.include_role:
         name: ans_role_config_chromium
