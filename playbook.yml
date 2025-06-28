@@ -43,6 +43,9 @@
     admin_user_firefox_bookmarks_and_browse_history_path: "{{ admin_user_cache_dir }}/firefox_bookmarks_and_browse_history.sqlite"
     admin_user_firefox_bookmark_icons_path: "{{ admin_user_cache_dir }}/firefox_bookmark_icons.sqlite"
     admin_user_firefox_search_and_forms_history_path: "{{ admin_user_cache_dir }}/firefox_search_and_forms_history.sqlite"
+    admin_user_chromium_browse_and_search_history_path: "{{ admin_user_cache_dir }}/chromium_browse_and_search_history.sqlite"
+    admin_user_chromium_forms_history_path: "{{ admin_user_cache_dir }}/chromium_forms_history.sqlite"
+    admin_user_chromium_bookmarks_path: "{{ admin_user_cache_dir }}/chromium_bookmarks.sqlite"
     admin_user_newsboat_rss_feed_tracking_db_path: "{{ admin_user_cache_dir }}/newsboat_rss_feed_tracking.sqlite"
     admin_user_musicpd_db_file_path: "{{ admin_user_music_dir }}/mpd_database"
     admin_user_musicpd_playlists_dir: "{{ admin_user_music_dir }}/MPD Playlists"
@@ -345,6 +348,9 @@
         chromium_install_user_agent_switcher_ext: true
         chromium_allow_user_ext_install: true
         chromium_search_providers: "{{ browser_search_providers }}"
+        chromium_try_link_to_saved_user_browse_and_search_history_path: "{{ admin_user_chromium_browse_and_search_history_path }}"
+        chromium_try_link_to_saved_user_form_history_path: "{{ admin_user_chromium_forms_history_path }}"
+        chromium_try_link_to_saved_user_bookmarks_path: "{{ admin_user_chromium_bookmarks_path }}"
     - name: "Install and configure Avahi"
       ansible.builtin.include_role:
         name: ans_role_config_avahi
