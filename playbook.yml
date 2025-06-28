@@ -339,10 +339,11 @@
         name: ans_role_config_chromium
         public: true
       vars:
-        install_vimium_ext: true
-        install_bitwarden_ext: true
-        install_user_agent_switcher_ext: true
-        allow_user_ext_install: true
+        chromium_user_name: "{{ admin_user_and_group_name }}"
+        chromium_install_vimium_ext: true
+        chromium_install_bitwarden_ext: true
+        chromium_install_user_agent_switcher_ext: true
+        chromium_allow_user_ext_install: true
         chromium_search_providers: "{{ browser_search_providers }}"
     - name: "Install and configure Avahi"
       ansible.builtin.include_role:
