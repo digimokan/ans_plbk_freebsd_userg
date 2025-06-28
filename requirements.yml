@@ -12,7 +12,6 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_bitwarden_cli
   - src: https://github.com/digimokan/ans_role_config_calibre
   - src: https://github.com/digimokan/ans_role_config_catdoc_xls2csv
-  - src: https://github.com/digimokan/ans_role_config_cheese
   - src: https://github.com/digimokan/ans_role_config_chromium
   - src: https://github.com/digimokan/ans_role_config_clang
   - src: https://github.com/digimokan/ans_role_config_cmake
