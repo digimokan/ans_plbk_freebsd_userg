@@ -16,7 +16,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_clang
   - src: https://github.com/digimokan/ans_role_config_cmake
   - src: https://github.com/digimokan/ans_role_config_dot_desktops
-  - src: https://github.com/digimokan/ans_role_config_exa
+  - src: https://github.com/digimokan/ans_role_config_eza
   - src: https://github.com/digimokan/ans_role_config_feh
   - src: https://github.com/digimokan/ans_role_config_ffmpegthumbnailer
   - src: https://github.com/digimokan/ans_role_config_firefox

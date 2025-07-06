@@ -397,9 +397,9 @@
       ansible.builtin.include_role:
         name: ans_role_config_maim
         public: true
-    - name: "Install and configure the exa ls-replacement utility"
+    - name: "Install and configure the eza ls-replacement utility"
       ansible.builtin.include_role:
-        name: ans_role_config_exa
+        name: ans_role_config_eza
         public: true
     - name: "Install and configure the ripgrep command-line grep replacement"
       ansible.builtin.include_role:
@@ -499,9 +499,9 @@
         fish_command_functions:
           - name: 'll'
             body: >-
-              {{ exa_long_listing_force_color_cmd }} $argv |
+              {{ eza_long_listing_force_color_cmd }} $argv |
               {{ less_auto_page_with_raw_input_cmd }}
-            descrip: 'print a long-listing with exa'
+            descrip: 'print a long-listing with eza'
           - name: 'v'
             body: "{{ neovim_main_cmd }} $argv"
             descrip: 'start the neovim text editor'
