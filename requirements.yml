@@ -57,7 +57,6 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_qutebrowser
   - src: https://github.com/digimokan/ans_role_config_restic
   - src: https://github.com/digimokan/ans_role_config_ranger
-  - src: https://github.com/digimokan/ans_role_config_rio_terminal
   - src: https://github.com/digimokan/ans_role_config_ripgrep
   - src: https://github.com/digimokan/ans_role_config_rofi
   - src: https://github.com/digimokan/ans_role_config_security_hardening
