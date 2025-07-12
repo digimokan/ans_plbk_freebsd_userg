@@ -519,6 +519,16 @@
       ansible.builtin.include_role:
         name: ext/ans_vars_wm_labels_colors
         public: true
+    - name: "Install and configure the Rio terminal emulator"
+      ansible.builtin.include_role:
+        name: ans_role_config_rio_terminal
+        public: true
+      vars:
+        rio_term_user_name: "{{ admin_user_and_group_name }}"
+        rio_term_font_family: "{{ nerd_font_name_hack }}"
+        rio_term_font_size: 15
+        rio_term_term_colors: "{{ terminal_colors }}"
+        rio_term_shell_cmd: "{{ fish_main_cmd }}"
     - name: "Install and configure the alacritty terminal emulator"
       ansible.builtin.include_role:
         name: ans_role_config_alacritty
