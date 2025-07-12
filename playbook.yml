@@ -526,7 +526,7 @@
       vars:
         rio_term_user_name: "{{ admin_user_and_group_name }}"
         rio_term_font_family: "{{ nerd_font_name_hack }}"
-        rio_term_font_size: 15
+        rio_term_font_size: 20
         rio_term_term_colors: "{{ terminal_colors }}"
         rio_term_shell_cmd: "{{ fish_main_cmd }}"
     - name: "Install and configure the alacritty terminal emulator"
