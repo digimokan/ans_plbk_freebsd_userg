@@ -22,6 +22,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_firefox
   - src: https://github.com/digimokan/ans_role_config_fish
   - src: https://github.com/digimokan/ans_role_config_freebsd_linux_compat
+  - src: https://github.com/digimokan/ans_role_config_freebsd_ports
   - src: https://github.com/digimokan/ans_role_config_fonts
   - src: https://github.com/digimokan/ans_role_config_fzf
   - src: https://github.com/digimokan/ans_role_config_git
