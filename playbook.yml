@@ -612,6 +612,12 @@
         preview_xz_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_7zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_video_file_cmd: "{{ ffmpegthumbnailer_main_cmd }}"
+    - name: "Install and configure the Yazi file manager"
+      ansible.builtin.include_role:
+        name: ans_role_config_yazi
+        public: true
+      vars:
+        yazi_user_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the ncmpcpp NCurses Music Player Client"
       ansible.builtin.include_role:
         name: ans_role_config_ncmpcpp
