@@ -525,7 +525,7 @@
         name: ans_role_config_wezterm
         public: true
       vars:
-        wezterm_user_name:  "{{ admin_user_and_group_name }}"
+        wezterm_user_name: "{{ admin_user_and_group_name }}"
         wezterm_font_family: "{{ dejavu_font_name_mono }}"
         wezterm_font_size: 15
         wezterm_term_colors: "{{ terminal_colors }}"
