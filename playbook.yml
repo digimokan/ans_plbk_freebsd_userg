@@ -528,6 +528,7 @@
         wezterm_user_name: "{{ admin_user_and_group_name }}"
         wezterm_font_family: "{{ nerd_font_name_hack }}"
         wezterm_normal_font_size: 16
+        wezterm_tab_bar_font_size: 17
         wezterm_char_select_font_size: 20
         wezterm_term_colors: "{{ terminal_colors }}"
         wezterm_shell_cmd: "{{ fish_main_cmd }}"
