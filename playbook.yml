@@ -277,6 +277,7 @@
     - name: "Install and configure the pdfarranger utility"
       ansible.builtin.include_role:
         name: ans_role_config_pdfarranger
+        public: true
     - name: "Install and configure the unzip archive extraction utility"
       ansible.builtin.include_role:
         name: ans_role_config_unzip
@@ -377,6 +378,7 @@
     - name: "Install and configure the avidemux video editing application"
       ansible.builtin.include_role:
         name: ans_role_config_avidemux
+        public: true
     - name: "Install the restic backup program, and configure backups to a remote repo"
       ansible.builtin.include_role:
         name: ans_role_config_restic
@@ -626,12 +628,6 @@
         preview_xz_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_7zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_video_file_cmd: "{{ ffmpegthumbnailer_main_cmd }}"
-    - name: "Install and configure the Yazi file manager"
-      ansible.builtin.include_role:
-        name: ans_role_config_yazi
-        public: true
-      vars:
-        yazi_user_name: "{{ admin_user_and_group_name }}"
     - name: "Install and configure the ncmpcpp NCurses Music Player Client"
       ansible.builtin.include_role:
         name: ans_role_config_ncmpcpp
@@ -653,6 +649,19 @@
     - name: "Install and configure the Audacity audio track editor"
       ansible.builtin.include_role:
         name: ans_role_config_audacity
+        public: true
+    - name: "Install and configure the Yazi file manager"
+      ansible.builtin.include_role:
+        name: ans_role_config_yazi
+        public: true
+      vars:
+        yazi_user_name: "{{ admin_user_and_group_name }}"
+        yazi_open_text_files_with: [ "{{ neovim_main_cmd }}", "{{ libreoffice_main_cmd }}" ]
+        yazi_open_image_files_with: [ "{{ feh_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
+        yazi_open_office_files_with: [ "{{ libreoffice_main_cmd }}" ]
+        yazi_open_pdf_files_with: [ "{{ atril_main_cmd }}", "{{ pdfarranger_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
+        yazi_open_audio_files_with: [ "{{ vlc_main_cmd }}", "{{ audacity_main_cmd }}", "{{ ncmpcpp_main_cmd }}" ]
+        yazi_open_video_files_with: [ "{{ vlc_main_cmd }}", "{{ avidemux_main_cmd }}" ]
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
