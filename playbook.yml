@@ -656,7 +656,11 @@
         public: true
       vars:
         yazi_user_name: "{{ admin_user_and_group_name }}"
-        yazi_open_text_files_with: [ "{{ neovim_main_cmd }}", "{{ libreoffice_main_cmd }}" ]
+        yazi_start_term_emulator: "{{ wezterm_main_cmd }}"
+        yazi_term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
+        yazi_term_arg_exec: "{{ wezterm_arg_exec }}"
+        yazi_open_text_files_with_console: [ "{{ neovim_main_cmd }}" ]
+        yazi_open_text_files_with_gui: [ "{{ libreoffice_main_cmd }}" ]
         yazi_open_image_files_with: [ "{{ feh_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
         yazi_open_office_files_with: [ "{{ libreoffice_main_cmd }}" ]
         yazi_open_pdf_files_with: [ "{{ atril_main_cmd }}", "{{ pdfarranger_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
