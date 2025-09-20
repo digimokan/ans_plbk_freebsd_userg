@@ -628,6 +628,24 @@
         preview_xz_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_7zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
         preview_video_file_cmd: "{{ ffmpegthumbnailer_main_cmd }}"
+    - name: "Install and configure the Yazi file manager"
+      ansible.builtin.include_role:
+        name: ans_role_config_yazi
+        public: true
+      vars:
+        yazi_user_name: "{{ admin_user_and_group_name }}"
+        yazi_start_term_emulator: "{{ wezterm_main_cmd }}"
+        yazi_term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
+        yazi_term_arg_exec: "{{ wezterm_arg_exec }}"
+        yazi_open_text_files_with_console: [ "{{ neovim_main_cmd }}" ]
+        yazi_open_text_files_with_gui: [ "{{ libreoffice_main_cmd }}" ]
+        yazi_open_image_files_with: [ "{{ feh_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
+        yazi_open_office_files_with: [ "{{ libreoffice_main_cmd }}" ]
+        yazi_open_pdf_files_with: [ "{{ atril_main_cmd }}", "{{ pdfarranger_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
+        yazi_open_audio_files_with: [ "{{ vlc_main_cmd }}", "{{ audacity_main_cmd }}", "{{ ncmpcpp_main_cmd }}" ]
+        yazi_open_video_files_with: [ "{{ vlc_main_cmd }}", "{{ avidemux_main_cmd }}" ]
+        yazi_extra_keymaps_jump_to_dir:
+          - { keys: '[ "g", "h"]', dir: "{{ admin_user_documents_dir }}/Hobbies", descrip: "Go to hobbies dir" }
     - name: "Install and configure the ncmpcpp NCurses Music Player Client"
       ansible.builtin.include_role:
         name: ans_role_config_ncmpcpp
@@ -650,22 +668,6 @@
       ansible.builtin.include_role:
         name: ans_role_config_audacity
         public: true
-    - name: "Install and configure the Yazi file manager"
-      ansible.builtin.include_role:
-        name: ans_role_config_yazi
-        public: true
-      vars:
-        yazi_user_name: "{{ admin_user_and_group_name }}"
-        yazi_start_term_emulator: "{{ wezterm_main_cmd }}"
-        yazi_term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
-        yazi_term_arg_exec: "{{ wezterm_arg_exec }}"
-        yazi_open_text_files_with_console: [ "{{ neovim_main_cmd }}" ]
-        yazi_open_text_files_with_gui: [ "{{ libreoffice_main_cmd }}" ]
-        yazi_open_image_files_with: [ "{{ feh_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
-        yazi_open_office_files_with: [ "{{ libreoffice_main_cmd }}" ]
-        yazi_open_pdf_files_with: [ "{{ atril_main_cmd }}", "{{ pdfarranger_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
-        yazi_open_audio_files_with: [ "{{ vlc_main_cmd }}", "{{ audacity_main_cmd }}", "{{ ncmpcpp_main_cmd }}" ]
-        yazi_open_video_files_with: [ "{{ vlc_main_cmd }}", "{{ avidemux_main_cmd }}" ]
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
