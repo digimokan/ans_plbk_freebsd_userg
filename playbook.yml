@@ -667,7 +667,7 @@
         yazi_open_audio_files_with: [ "{{ vlc_main_cmd }}", "{{ audacity_main_cmd }}", "{{ ncmpcpp_main_cmd }}" ]
         yazi_open_video_files_with: [ "{{ vlc_main_cmd }}", "{{ avidemux_main_cmd }}" ]
         yazi_extra_keymaps_jump_to_dir:
-          - { keys: '[ "g", "h"]', dir: "{{ admin_user_documents_dir }}/Hobbies", descrip: "Go to hobbies dir" }
+          - { key_presses: '[ "g", "h"]', dir: "{{ admin_user_documents_dir }}/Hobbies", descrip: "Go to hobbies dir" }
     - name: "Add custom xxxx.desktop launcher files for terminal programs"
       ansible.builtin.include_role:
         name: ans_role_config_dot_desktops
