@@ -659,6 +659,10 @@
         yazi_start_term_emulator: "{{ wezterm_main_cmd }}"
         yazi_term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
         yazi_term_arg_exec: "{{ wezterm_arg_exec }}"
+        yazi_fileserver_ip_addr: >-
+          {{ ans_vars_lan_host_list | selectattr('hostname', 'equalto',
+          'fileserver0.machine') | map(attribute='addr') | first }}
+        yazi_fileserver_dir: "{{ autofs_nfs_share_mount_dir }}/{{ yazi_fileserver_ip_addr }}"
         yazi_gnu_coreutils_mv_cmd: "{{ gnu_coreutils_mv_cmd }}"
         yazi_open_text_files_with_console: [ "{{ neovim_main_cmd }}" ]
         yazi_open_text_files_with_gui: [ "{{ libreoffice_main_cmd }}" ]
