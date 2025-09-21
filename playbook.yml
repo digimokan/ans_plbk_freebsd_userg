@@ -678,10 +678,9 @@
         name: ans_role_config_dot_desktops
         public: true
       vars:
-        start_term_emulator: "{{ alacritty_main_cmd }}"
-        term_arg_exec_cmd: "{{ alacritty_arg_exec_start }}"
-        term_arg_exec_end: "{{ alacritty_arg_exec_end }}"
-        dot_desktop_launchers:
+        dot_desktops_start_term_emulator: "{{ alacritty_main_cmd }}"
+        dot_desktops_term_arg_exec_cmd: "{{ alacritty_arg_exec_start }}"
+        dot_desktops_launchers:
           - { cli: "{{ ranger_in_last_dir_cmd }}", name: 'ranger' }
           - { cli: "{{ ncmpcpp_main_cmd }}", name: 'ncmpcpp' }
     - name: "Install and configure the i3wm window manager"
