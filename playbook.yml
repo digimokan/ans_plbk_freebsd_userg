@@ -595,7 +595,7 @@
         dot_desktops_start_term_emulator: "{{ wezterm_main_cmd }}"
         dot_desktops_term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
         dot_desktops_launchers:
-          - { cli: "{{ yazi_in_last_dir_cmd }}", name: 'Yazi in Last Dir' }
+          - { cli: "{{ yazi_in_last_dir_cmd }}", name: 'yazi' }
           - { cli: "{{ ncmpcpp_main_cmd }}", name: 'ncmpcpp' }
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
