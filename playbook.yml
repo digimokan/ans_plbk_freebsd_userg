@@ -408,34 +408,6 @@
       ansible.builtin.include_role:
         name: ans_role_config_ripgrep
         public: true
-    - name: "Install and configure libarchive utilities"
-      ansible.builtin.include_role:
-        name: ans_role_config_libarchive_utils
-        public: true
-    - name: "Install and configure the pandoc file conversion utility"
-      ansible.builtin.include_role:
-        name: ans_role_config_pandoc
-        public: true
-    - name: "Install and configure the bundled catdoc/xls2cxv file-conversion utilities"
-      ansible.builtin.include_role:
-        name: ans_role_config_catdoc_xls2csv
-        public: true
-    - name: "Install and configure the odt2txt file conversion utility"
-      ansible.builtin.include_role:
-        name: ans_role_config_odt2txt
-        public: true
-    - name: "Install and configure the poppler PDF rendering library"
-      ansible.builtin.include_role:
-        name: ans_role_config_poppler
-        public: true
-    - name: "Install and configure the w3m text-based web browser"
-      ansible.builtin.include_role:
-        name: ans_role_config_w3m
-        public: true
-    - name: "Install and configure the ffmpegthumbnailer video-to-image thumbnail utility"
-      ansible.builtin.include_role:
-        name: ans_role_config_ffmpegthumbnailer
-        public: true
     - name: "Install and configure the bat enhanced-cat utility"
       ansible.builtin.include_role:
         name: ans_role_config_bat
