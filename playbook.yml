@@ -536,16 +536,6 @@
         wezterm_shell_cmd: "{{ fish_main_cmd }}"
         wezterm_vcs_tree_icon: "{{ wm_panel_bar_status_item_labels.vcs_tree }}"
         wezterm_tab_bar_get_git_branch_cmd: "{{ git_cmd_current_git_branch }}"
-    - name: "Install and configure the alacritty terminal emulator"
-      ansible.builtin.include_role:
-        name: ans_role_config_alacritty
-        public: true
-      vars:
-        alacritty_user_name: "{{ admin_user_and_group_name }}"
-        alacritty_font_family: "{{ nerd_font_name_hack }}"
-        alacritty_font_size: 15
-        alacritty_term_colors: "{{ terminal_colors }}"
-        alacritty_shell_cmd: "{{ fish_main_cmd }}"
     - name: "Install and configure the i3status panel-bar status area utility"
       ansible.builtin.include_role:
         name: ans_role_config_i3status
@@ -580,54 +570,6 @@
         screensaver_timeout_minutes: 10
         screensaver_screen_lock_enable: false
         monitor_turn_power_off: true
-    - name: "Install and configure the ranger file manager"
-      ansible.builtin.include_role:
-        name: ans_role_config_ranger
-        public: true
-      vars:
-        ranger_user_name: "{{ admin_user_and_group_name }}"
-        ranger_image_preview_selection: "{{ w3m_ranger_image_preview_selection }}"
-        ranger_fzf_cmd: "{{ fzf_main_cmd }}"
-        ranger_gnu_coreutils_mv_cmd: "{{ gnu_coreutils_mv_cmd }}"
-        fileserver_ip_addr: >-
-          {{ ans_vars_lan_host_list | selectattr('hostname', 'equalto',
-          'fileserver0.machine') | map(attribute='addr') | first }}
-        ranger_fileserver_dir: "{{ autofs_nfs_share_mount_dir }}/{{ fileserver_ip_addr }}"
-        ranger_user_documents_dir: "{{ admin_user_documents_dir }}"
-        ranger_user_desktop_dir: "{{ admin_user_desktop_dir }}"
-        ranger_user_download_dir: "{{ admin_user_download_dir }}"
-        ranger_user_music_dir: "{{ admin_user_music_dir }}"
-        ranger_user_pictures_dir: "{{ admin_user_pictures_dir }}"
-        ranger_user_videos_dir: "{{ admin_user_videos_dir }}"
-        ranger_user_trash_dir: "{{ admin_user_trash_dir }}"
-        ranger_user_devel_dir: "{{ admin_user_devel_dir }}"
-        start_term_emulator: "{{ alacritty_main_cmd }}"
-        term_arg_set_dir: "{{ alacritty_arg_starting_dir }}"
-        term_arg_exec_cmd: "{{ alacritty_arg_exec_cmd }}"
-        term_arg_exec_end: "{{ alacritty_arg_exec_end }}"
-        start_text_editor: "{{ neovim_main_cmd }}"
-        open_image_files_with: [ "{{ feh_main_cmd }}", "{{ gnu_image_mp_main_cmd }}" ]
-        open_office_files_with: [ "{{ libreoffice_main_cmd }}" ]
-        open_pdf_files_with: [ "{{ atril_main_cmd }}" ]
-        open_audio_files_with: [ "{{ vlc_main_cmd }}" ]
-        open_video_files_with: [ "{{ vlc_main_cmd }}" ]
-        open_html_files_with: [ "{{ qutebrowser_main_cmd }}", "{{ firefox_main_cmd }}", "{{ chromium_main_cmd }}" ]
-        preview_text_file_cmd: "{{ bat_8bit_color_plain_cmd }}"
-        preview_rtf_file_cmd: "{{ catdoc_conv_rtf_to_text_cmd }}"
-        preview_odt_file_cmd: "{{ odt2txt_conv_odt_to_txt_cmd }}"
-        preview_ods_file_cmd: "{{ odt2txt_conv_ods_to_txt_cmd }}"
-        preview_odp_file_cmd: "{{ odt2txt_conv_odp_to_txt_cmd }}"
-        preview_doc_file_cmd: "{{ catdoc_conv_doc_to_text_cmd }}"
-        preview_docx_file_cmd: "{{ pandoc_conv_to_markdown_cmd }}"
-        preview_xls_file_cmd: "{{ xls2csv_conv_xls_to_text_cmd }}"
-        preview_xlsx_file_cmd: "{{ xls2csv_conv_xlsx_to_text_cmd }}"
-        preview_pdf_file_cmd: "{{ poppler_pdftoppm_main_cmd }}"
-        preview_tar_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
-        preview_gzip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
-        preview_zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
-        preview_xz_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
-        preview_7zip_file_cmd: "{{ bsdtar_list_archive_contents_cmd }}"
-        preview_video_file_cmd: "{{ ffmpegthumbnailer_main_cmd }}"
     - name: "Install and configure the ncmpcpp NCurses Music Player Client"
       ansible.builtin.include_role:
         name: ans_role_config_ncmpcpp
@@ -678,10 +620,10 @@
         name: ans_role_config_dot_desktops
         public: true
       vars:
-        dot_desktops_start_term_emulator: "{{ alacritty_main_cmd }}"
-        dot_desktops_term_arg_exec_cmd: "{{ alacritty_arg_exec_cmd }}"
+        dot_desktops_start_term_emulator: "{{ wezterm_main_cmd }}"
+        dot_desktops_term_arg_exec_cmd: "{{ wezterm_arg_exec }}"
         dot_desktops_launchers:
-          - { cli: "{{ ranger_in_last_dir_cmd }}", name: 'ranger' }
+          - { cli: "{{ yazi_in_last_dir_cmd }}", name: 'Yazi' }
           - { cli: "{{ ncmpcpp_main_cmd }}", name: 'ncmpcpp' }
     - name: "Install and configure the i3wm window manager"
       ansible.builtin.include_role:
@@ -701,8 +643,8 @@
         cmd_start_screensaver_utility: "{{ xscreensaver_start_cmd }}"
         cmd_screen_lock: "{{ xscreensaver_lock_cmd }}"
         cmd_launch_app_menu: "{{ rofi_start_app_launcher_cmd }}"
-        cmd_start_term_emulator: "{{ alacritty_main_cmd }}"
-        cmd_arg_term_emulator_class: "{{ alacritty_arg_class }}"
+        cmd_start_term_emulator: "{{ wezterm_main_cmd }}"
+        cmd_arg_term_emulator_class: "{{ wezterm_arg_class }}"
         cmd_inc_volume: "{{ oss_inc_volume_cmd }}"
         cmd_dec_volume: "{{ oss_dec_volume_cmd }}"
         cmd_capture_png_screenshot: "{{ maim_capture_screenshot_cmd }}"
