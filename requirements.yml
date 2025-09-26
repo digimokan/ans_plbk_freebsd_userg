@@ -76,6 +76,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_xsel
   - src: https://github.com/digimokan/ans_role_config_yamllint
   - src: https://github.com/digimokan/ans_role_config_yazi
+  - src: https://github.com/digimokan/ans_role_config_yubikey
   - src: https://github.com/digimokan/ans_role_config_zfs_datasets
   - src: https://github.com/digimokan/ans_role_config_zfs_hw
   - src: https://github.com/digimokan/ans_vars_browser_search_providers
