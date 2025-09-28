@@ -80,7 +80,7 @@
       vars:
         # Note: enable USB speakers as default PCM sound device
         oss_load_usb_audio_driver_at_boot: true
-        oss_set_sound_io_device_on_attach:
+        oss_set_usb_sound_io_device_on_attach:
           vendor_id: "0x0a12"
           prod_id: "0x4007"
           mfr_name: "Audioengine LLC"
