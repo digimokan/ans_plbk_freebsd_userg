@@ -80,7 +80,6 @@
       vars:
         # Note: enable USB speakers as default PCM sound device
         oss_load_usb_audio_driver_at_boot: true
-        oss_force_set_sound_output_pcm_at_boot: '8'
     - name: "Install and configure video card drivers"
       ansible.builtin.include_role:
         name: ext/ans_role_config_video_drivers
