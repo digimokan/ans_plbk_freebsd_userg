@@ -54,6 +54,10 @@ for normal daily use, for one user:
     * Placed on left monitor
 * [EMEET C980 Pro Webcam With Built-In Speakers And Mic](https://www.amazon.com/dp/B088BY9PJG)
     * Placed on center monitor
+* [90-Degree USB-A Adapter](https://www.amazon.com/dp/B0BZ7NWL2Z)
+    * Inserted into Thelio's top-facing USB-A receptacle
+* [90-Degree USB-C Adapter](https://www.amazon.com/dp/B0D33RWK75)
+    * Inserted into Thelio's top-facing USB-C receptacle
 * [Kinesis Advantage360 Keyboard (Smartset, USB, Kailh Quiet Pink Switches)](https://www.amazon.com/dp/B0CGJRK71M)
 * [Kinesis Advantage360 Palm Pads](https://www.amazon.com/dp/B0BCHFSRN2)
 * [Logitech MX Vertical Wireless Mouse](https://www.amazon.com/dp/B07FNJB8TT)
