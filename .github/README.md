@@ -153,6 +153,10 @@ for normal daily use, for one user:
 * `Advanced` -> `Onboard Devices Configuration`
     * `Wifi Controller`: "Disabled"
     * `Bluetooth Controller`: "Disabled"
+* `Q-Fan Control`
+    * `CPU_FAN`: "Auto-Detect", "Silent"
+    * `CHA_FAN`: "Auto-Detect", "Silent"
+    * `AIO_PUMP`: "Auto-Detect", "Silent"
 
 ## Monitor Configuration
 
