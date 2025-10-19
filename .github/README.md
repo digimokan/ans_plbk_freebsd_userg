@@ -36,6 +36,7 @@ for normal daily use, for one user:
 * [System76 Thelio Prime Custom Desktop PC (thelio-r4-n1)](https://system76.com/desktops/thelio-r4-n1/configure)
     * Ryzen 9 9950X 5.7 GHz CPU (16 Cores, 32 Threads)
     * 2x 32 GB DDR5 4800 MHz UDIMM RAM
+    * Silent Wings 4 120mm GPU Fan
 * [2x Samsung 870 EVO 4TB 2.5 Inch Sata III SSD](https://www.amazon.com/dp/B08QBL36GF)
 * [AMD Radeon RX 580 Graphics Card](https://www.amazon.com/dp/B06Y66K3XD)
 * [LG UltraGear 27 Inch QHD 2560x1440 Gaming Monitor](https://www.amazon.com/dp/B0C63HDHPR)
