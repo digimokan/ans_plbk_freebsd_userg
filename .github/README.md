@@ -54,8 +54,6 @@ for normal daily use, for one user:
     * Placed on left monitor
 * [EMEET C980 Pro Webcam With Built-In Speakers And Mic](https://www.amazon.com/dp/B088BY9PJG)
     * Placed on center monitor
-* [ORICO 3-Port USB-A Hub 3.0](https://www.amazon.com/dp/B0CW1D1J4G)
-    * Attaches to lower left of center monitor
 * [Kinesis Advantage360 Keyboard (Smartset, USB, Kailh Quiet Pink Switches)](https://www.amazon.com/dp/B0CGJRK71M)
 * [Kinesis Advantage360 Palm Pads](https://www.amazon.com/dp/B0BCHFSRN2)
 * [Logitech MX Vertical Wireless Mouse](https://www.amazon.com/dp/B07FNJB8TT)
@@ -129,7 +127,7 @@ for normal daily use, for one user:
     * `A1 (USB-A)`: USB speakers
     * `A2 (USB-A)`: mouse dongle
 * Second Row
-    * `C1 (USB-C)`: ORICO USB-A Hub
+    * `C1 (USB-C)`: N/A
     * `A3 (USB-A)`: monitor mount USB-A port
     * `A4 (USB-A)`: monitor mount USB-C port
     * `A5 (USB-A)`: N/A
