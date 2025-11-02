@@ -72,7 +72,7 @@
       ansible.builtin.include_role:
         name: ext/ans_role_config_loader
       vars:
-        load_cpu_microcode_updates: true
+        loader_monitor_console_resolution: "1280x720"
     - name: "Install and configure the OSS sound driver layer"
       ansible.builtin.include_role:
         name: ext/ans_role_config_oss
