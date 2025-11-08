@@ -307,7 +307,7 @@
         name: ans_role_config_vlc
         public: true
       vars:
-        enable_dvd_support: true
+        vlc_enable_dvd_support: true
     - name: "Install and configure the MPD Music Player Daemon"
       ansible.builtin.include_role:
         name: ans_role_config_musicpd
