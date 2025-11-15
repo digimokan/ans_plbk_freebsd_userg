@@ -184,15 +184,6 @@
         name: ext/ans_role_config_xdg_user_dirs
       vars:
         user_name: "{{ admin_user_and_group_name }}"
-    - name: "Configure sudo settings for auth group '{{ sudo_users_group_name }}'"
-      ansible.builtin.include_role:
-        name: ext/ans_role_config_sudo
-        public: true
-      vars:
-        ask_password_timeout: 'ask_once'
-        password_prompt_timeout_minutes: 0
-        use_root_umask: true
-        set_auth_for_group: "{{ sudo_users_group_name }}"
     - name: "Clone playbook used to set up the machine, and emplace vault password"
       ansible.builtin.include_role:
         name: ans_role_config_user_playbook
@@ -490,7 +481,7 @@
             body: "{{ neovim_main_cmd }} $argv"
             descrip: 'start the neovim text editor'
           - name: 'm'
-            body: "{{ sudo_main_cmd }} {{ udisks_utility_script_cmd }} $argv"
+            body: "{{ cfg_sudo_main_cmd }} {{ udisks_utility_script_cmd }} $argv"
             descrip: 'mount or unmount a device'
           - name: 's'
             body: "{{ oss_utility_script_cmd }} $argv"
@@ -695,6 +686,21 @@
           - { folder_id: 'st_sync', folder_path: "{{ admin_user_temp_sync_dir }}", sync_mode: 'sendreceive' }
         syncthing_list_of_available_sync_devices: "{{ ans_vars_list_of_available_syncthing_devices }}"
         syncthing_list_of_available_sync_folders: "{{ ans_vars_list_of_available_syncthing_folders }}"
+    - name: "Configure sudo settings and sudo permissions for users and groups"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_sudo
+      vars:
+        cfg_sudo_ask_password_timeout: 'ask_once'
+        cfg_sudo_password_prompt_timeout_minutes: 0
+        cfg_sudo_use_root_umask: true
+        cfg_sudo_sudoers_rules:
+          - label: "ansible_sudo_users_group_all_auths"
+            sudoer_name: "{{ sudo_users_group_name }}"
+            sudoer_type: "group"
+            allow_run_on_host: "ALL"
+            allow_run_as_user: "ALL"
+            allow_commands: "ALL"
+            req_passwd: true
     - name: "Set env vars, login actions, and logout actions for admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
         name: ans_role_config_shell
