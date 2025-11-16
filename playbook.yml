@@ -382,6 +382,7 @@
     - name: "Install the restic backup program, and configure backups to a remote repo"
       ansible.builtin.include_role:
         name: ans_role_config_restic
+        public: true
       vars:
         restic_user_name: "{{ admin_user_and_group_name }}"
         restic_s3_bucket_url: "{{ vault_clear_restic_s3_bucket_url }}"
@@ -701,6 +702,12 @@
             allow_run_as_user: "ALL"
             allow_commands: "ALL"
             req_passwd: true
+    - name: "Configure cron jobs for all users"
+      ansible.builtin.include_role:
+        name: ans_role_config_cron
+      vars:
+        cfg_cron_jobs:
+          - "{{ restic_automatic_daily_backup_cron_job }}"
     - name: "Set env vars, login actions, and logout actions for admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
         name: ans_role_config_shell
