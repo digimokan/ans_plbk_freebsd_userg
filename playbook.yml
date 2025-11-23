@@ -368,7 +368,7 @@
       ansible.builtin.include_role:
         name: ans_role_config_automatic_scanning
       vars:
-        notify_avahi_handler_on_auto_printing_change: "{{ avahi_handler_to_restart_avahi_services }}"
+        cfg_autoscan_notify_avahi_handler_on_change: "{{ avahi_handler_to_restart_avahi_services }}"
     - name: "Install and configure the simple-scan scanning application"
       ansible.builtin.include_role:
         name: ans_role_config_simple_scan
