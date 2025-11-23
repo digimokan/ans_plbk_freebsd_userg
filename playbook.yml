@@ -353,6 +353,15 @@
         chromium_try_link_to_saved_user_browse_and_search_history_path: "{{ admin_user_chromium_browse_and_search_history_path }}"
         chromium_try_link_to_saved_user_form_history_path: "{{ admin_user_chromium_forms_history_path }}"
         chromium_try_link_to_saved_user_bookmarks_path: "{{ admin_user_chromium_bookmarks_path }}"
+    - name: "Configure the Vimium browser extension"
+      ansible.builtin.include_role:
+        name: ans_role_config_vimium
+        vars:
+          vimium_config_file_entries:
+            - config_file_path: "{{ firefox_sys_vimium_config_file_path }}"
+              home_page: "{{ firefox_home_page }}"
+            - config_file_path: "{{ chromium_os_vimium_sys_config_file_path }}"
+              home_page: "{{ chromium_home_page }}"
     - name: "Install and configure Avahi"
       ansible.builtin.include_role:
         name: ans_role_config_avahi
