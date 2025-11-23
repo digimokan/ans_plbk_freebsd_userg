@@ -358,17 +358,17 @@
         name: ans_role_config_avahi
         public: true
       vars:
-        enable_host_discovery_service: true
+        avahi_enable_host_discovery_service: true
     - name: "Configure automatic printer discovery and driverless printing"
       ansible.builtin.include_role:
         name: ans_role_config_automatic_printing
       vars:
-        notify_avahi_handler_on_auto_printing_change: "{{ handler_to_restart_avahi_services }}"
+        notify_avahi_handler_on_auto_printing_change: "{{ avahi_handler_to_restart_avahi_services }}"
     - name: "Configure automatic scanner discovery and driverless scanning"
       ansible.builtin.include_role:
         name: ans_role_config_automatic_scanning
       vars:
-        notify_avahi_handler_on_auto_printing_change: "{{ handler_to_restart_avahi_services }}"
+        notify_avahi_handler_on_auto_printing_change: "{{ avahi_handler_to_restart_avahi_services }}"
     - name: "Install and configure the simple-scan scanning application"
       ansible.builtin.include_role:
         name: ans_role_config_simple_scan
