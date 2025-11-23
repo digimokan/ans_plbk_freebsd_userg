@@ -478,6 +478,7 @@
     - name: "Configure sudo settings and sudo permissions for users and groups"
       ansible.builtin.include_role:
         name: ext/ans_role_config_sudo
+        public: true
       vars:
         cfg_sudo_ask_password_timeout: 'ask_once'
         cfg_sudo_password_prompt_timeout_minutes: 0
