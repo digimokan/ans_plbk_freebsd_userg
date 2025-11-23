@@ -356,13 +356,13 @@
     - name: "Configure the Vimium browser extension"
       ansible.builtin.include_role:
         name: ans_role_config_vimium
-        vars:
-          vimium_search_providers: "{{ browser_search_providers }}"
-          vimium_config_file_entries:
-            - config_file_path: "{{ firefox_sys_vimium_config_file_path }}"
-              home_page: "{{ firefox_home_page }}"
-            - config_file_path: "{{ chromium_os_vimium_sys_config_file_path }}"
-              home_page: "{{ chromium_home_page }}"
+      vars:
+        vimium_search_providers: "{{ browser_search_providers }}"
+        vimium_config_file_entries:
+          - config_file_path: "{{ firefox_sys_vimium_config_file_path }}"
+            home_page: "{{ firefox_home_page }}"
+          - config_file_path: "{{ chromium_os_vimium_sys_config_file_path }}"
+            home_page: "{{ chromium_home_page }}"
     - name: "Install and configure Avahi"
       ansible.builtin.include_role:
         name: ans_role_config_avahi
