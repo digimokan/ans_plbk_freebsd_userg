@@ -475,6 +475,21 @@
         git_vcs_user_name: "{{ github_user_name }}"
         git_text_editor: "{{ neovim_main_cmd }}"
         export_cmd_current_git_branch: true
+    - name: "Configure sudo settings and sudo permissions for users and groups"
+      ansible.builtin.include_role:
+        name: ext/ans_role_config_sudo
+      vars:
+        cfg_sudo_ask_password_timeout: 'ask_once'
+        cfg_sudo_password_prompt_timeout_minutes: 0
+        cfg_sudo_use_root_umask: true
+        cfg_sudo_sudoers_rules:
+          - label: "ansible_sudo_users_group_all_auths"
+            sudoer_name: "{{ sudo_users_group_name }}"
+            sudoer_type: "group"
+            allow_run_on_host: "ALL"
+            allow_run_as_user: "ALL"
+            allow_commands: "ALL"
+            req_passwd: true
     - name: "Set up fish shell for admin user '{{ admin_user_and_group_name }}'"
       ansible.builtin.include_role:
         name: ans_role_config_fish
@@ -697,21 +712,6 @@
           - { folder_id: 'st_sync', folder_path: "{{ admin_user_temp_sync_dir }}", sync_mode: 'sendreceive' }
         syncthing_list_of_available_sync_devices: "{{ ans_vars_list_of_available_syncthing_devices }}"
         syncthing_list_of_available_sync_folders: "{{ ans_vars_list_of_available_syncthing_folders }}"
-    - name: "Configure sudo settings and sudo permissions for users and groups"
-      ansible.builtin.include_role:
-        name: ext/ans_role_config_sudo
-      vars:
-        cfg_sudo_ask_password_timeout: 'ask_once'
-        cfg_sudo_password_prompt_timeout_minutes: 0
-        cfg_sudo_use_root_umask: true
-        cfg_sudo_sudoers_rules:
-          - label: "ansible_sudo_users_group_all_auths"
-            sudoer_name: "{{ sudo_users_group_name }}"
-            sudoer_type: "group"
-            allow_run_on_host: "ALL"
-            allow_run_as_user: "ALL"
-            allow_commands: "ALL"
-            req_passwd: true
     - name: "Configure cron jobs for all users"
       ansible.builtin.include_role:
         name: ans_role_config_cron
