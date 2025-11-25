@@ -385,6 +385,9 @@
     - name: "Install and configure the OBS video-recording application"
       ansible.builtin.include_role:
         name: ans_role_config_obs
+      vars:
+        obs_studio_user_name: "{{ admin_user_and_group_name }}"
+        obs_studio_user_video_save_dir: "{{ admin_user_videos_dir }}"
     - name: "Install and configure the avidemux video editing application"
       ansible.builtin.include_role:
         name: ans_role_config_avidemux
