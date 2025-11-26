@@ -224,6 +224,14 @@ for normal daily use, for one user:
    ```
    _NOTE: -u option required for initial run, and after system/package updates._
 
+7. Re-label the two disks in the mirrored install pool:
+
+   ```shell
+   $ do_zfs_hw.sh --label-devices-in-install-mirror --zfs-vdev=mirror-0
+   ```
+
+8. Reboot the system into i3wm.
+
 ### Update Workstation
 
 To update the workstation PC at a later time, use the `admin` user account, which
