@@ -182,7 +182,7 @@
       ansible.builtin.include_role:
         name: ext/ans_role_config_xdg_user_dirs
       vars:
-        user_name: "{{ admin_user_and_group_name }}"
+        xdg_user_name: "{{ admin_user_and_group_name }}"
     - name: "Clone playbook used to set up the machine, and emplace vault password"
       ansible.builtin.include_role:
         name: ans_role_config_user_playbook
