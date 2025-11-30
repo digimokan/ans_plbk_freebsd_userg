@@ -79,12 +79,15 @@
         public: true
       vars:
         # Note: enable USB speakers as default PCM sound device
-        oss_load_usb_audio_driver_at_boot: true
-        oss_set_usb_sound_io_device_on_attach:
+        oss_set_usb_device_as_default_pcm_on_attach:
           vendor_id: "0x0a12"
           prod_id: "0x4007"
           mfr_name: "Audioengine LLC"
           prod_name: "Audioengine HD3"
+        oss_hdaudio_nid_disable_list:
+          - { card: '0', nid: '30', descrip: 'rear speaker/optical combo jack optical-out-channel' }
+          - { card: '0', nid: '33', descrip: 'front headphones jack out-channel' }
+          - { card: '1', nid: '3', descrip: 'rear HDMI jack audio-out-channel' }
     - name: "Install and configure video card drivers"
       ansible.builtin.include_role:
         name: ext/ans_role_config_video_drivers
