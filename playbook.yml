@@ -84,10 +84,6 @@
           prod_id: "0x4007"
           mfr_name: "Audioengine LLC"
           prod_name: "Audioengine HD3"
-        oss_hdaudio_nid_disable_list:
-          - { card: '0', nid: '30', descrip: 'rear speaker/optical combo jack optical-out-channel' }
-          - { card: '0', nid: '33', descrip: 'front headphones jack out-channel' }
-          - { card: '1', nid: '3', descrip: 'rear HDMI jack audio-out-channel' }
     - name: "Install and configure video card drivers"
       ansible.builtin.include_role:
         name: ext/ans_role_config_video_drivers
