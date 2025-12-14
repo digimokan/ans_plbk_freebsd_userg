@@ -128,8 +128,8 @@ for normal daily use, for one user:
 
 * Top Row
     * `HDMI-3`: N/A
-    * `A1 (USB-A)`: USB speakers
-    * `A2 (USB-A)`: mouse dongle
+    * `A1 (USB-A)`: N/A
+    * `A2 (USB-A)`: mouse
 * Second Row
     * `C1 (USB-C)`: N/A
     * `A3 (USB-A)`: monitor mount USB-A port
@@ -140,7 +140,7 @@ for normal daily use, for one user:
     * `A6 (USB-A)`: webcam
 * Fourth Row
     * `LINE IN`: N/A
-    * `LINE OUT (3.5 mm)`: monitor mount line-out (jack on right)
+    * `LINE OUT (3.5 mm)`: speakers
     * `MIC IN (3.5 mm)`: monitor mount mic-in (jack on left)
 * Graphics Card
     * `HDMI-1`: center monitor
