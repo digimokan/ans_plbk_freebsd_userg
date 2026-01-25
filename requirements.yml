@@ -59,6 +59,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_sndio
   - src: https://github.com/digimokan/ans_role_config_sudo
   - src: https://github.com/digimokan/ans_role_config_syncthing
+  - src: https://github.com/digimokan/ans_role_config_tailscale
   - src: https://github.com/digimokan/ans_role_config_time
   - src: https://github.com/digimokan/ans_role_config_udisks
   - src: https://github.com/digimokan/ans_role_config_unzip
@@ -82,6 +83,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_zfs_hw
   - src: https://github.com/digimokan/ans_vars_browser_search_providers
   - src: https://github.com/digimokan/ans_vars_lan_hosts
+  - src: https://github.com/digimokan/ans_vars_tailscale_auth
   - src: https://github.com/digimokan/ans_vars_terminal_colors
   - src: https://github.com/digimokan/ans_vars_wm_labels_colors
   - src: https://github.com/digimokan/ans_vars_syncthing_devices_folders

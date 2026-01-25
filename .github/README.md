@@ -273,19 +273,19 @@ was set up during initial configuration.
   [`vault_clear.yml`](../host_vars/vault_clear.yml), which point to encrypted vars in
   [`vault_enc.yml`](../host_vars/vault_enc.yml).
 
-* To start, encrypt a plaintext-edited vault_enc.yml file:
+* To start, encrypt a plaintext-edited `vault_enc.yml` file:
 
    ```shell
    $ ansible-vault encrypt host_vars/vault_enc.yml
    ```
 
-* Once vault_enc.yml has been encrypted, do edits/updates in place:
+* Once `vault_enc.yml` has been encrypted, do edits/updates in place:
 
    ```shell
    $ ansible-vault edit host_vars/vault_enc.yml
    ```
 
-* To view the vault_enc.yml vars in read-only mode:
+* To view the `vault_enc.yml` vars in read-only mode:
 
    ```shell
    $ ansible-vault view host_vars/vault_enc.yml
