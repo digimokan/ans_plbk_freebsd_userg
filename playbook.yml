@@ -189,10 +189,10 @@
     - name: "Configure machine as a user-facing device on a Tailnet"
       ansible.builtin.include_role:
         name: ans_role_config_tailscale
-        vars:
-          cfg_tailscale_login_authkey: "{{ tailscale_auth_vault_clear_user_facing_auth_key }}"
-          cfg_tailscale_override_statedir: "{{ admin_user_home_dir }}/.tailscale_statedir"
-          cfg_tailscale_shields_up: true
+      vars:
+        cfg_tailscale_login_authkey: "{{ tailscale_auth_vault_clear_user_facing_auth_key }}"
+        cfg_tailscale_override_statedir: "{{ admin_user_home_dir }}/.tailscale_statedir"
+        cfg_tailscale_shields_up: true
     - name: "Clone playbook used to set up the machine, and emplace vault password"
       ansible.builtin.include_role:
         name: ans_role_config_user_playbook
