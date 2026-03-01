@@ -56,6 +56,7 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_shell
   - src: https://github.com/digimokan/ans_role_config_shellcheck
   - src: https://github.com/digimokan/ans_role_config_simple_scan
+  - src: https://github.com/digimokan/ans_role_config_smartmontools
   - src: https://github.com/digimokan/ans_role_config_sndio
   - src: https://github.com/digimokan/ans_role_config_sudo
   - src: https://github.com/digimokan/ans_role_config_syncthing
