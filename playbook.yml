@@ -24,6 +24,7 @@
     admin_user_password_for_login: ''
     admin_user_password_for_zfs_homedir_dataset: ''
     admin_user_password_for_bitwarden: ''
+    nfs_share_mount_dir: "/net"
     system_home_dir: "/home"
     admin_user_home_dir: "{{ system_home_dir }}/{{ admin_user_and_group_name }}"
     admin_user_home_subdirs:
@@ -260,10 +261,23 @@
     - name: "Install and configure the sndio sound driver layer"
       ansible.builtin.include_role:
         name: ans_role_config_sndio
+    - name: "Define a list of LAN NFS Shares, provided by various LAN hosts"
+      ansible.builtin.include_role:
+        name: ans_vars_lan_nfs_shares
+        public: true
     - name: "Install and configure the Network File System (NFS) client"
       ansible.builtin.include_role:
         name: ans_role_config_nfs_client
         public: true
+      vars:
+        nfs_client_nfs_shares_main_mount_dir_path: "{{ nfs_share_mount_dir }}"
+        nfs_client_nfs_shares_main_mount_dir_owner: "root"
+        nfs_client_nfs_shares_main_mount_dir_group: "{{ root_user_group_name }}"
+        nfs_client_nfs_shares_main_mount_dir_permissions: 755
+        nfs_client_nfs_shares_to_mount: "{{ ans_vars_lan_nfs_shares_list }}"
+        nfs_client_nfs_shares_owner: "{{ admin_user_and_group_name }}"
+        nfs_client_nfs_shares_group: "{{ admin_user_and_group_name }}"
+        nfs_client_nfs_shares_permissions: 755
     - name: "Install and configure the autofs automatic device/NFS-mounting utility"
       ansible.builtin.include_role:
         name: ans_role_config_autofs
