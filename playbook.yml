@@ -168,7 +168,7 @@
         zfs_datasets_to_create: "{{ admin_home_dataset + admin_home_subdir_datasets }}"
         admin_home_dataset:
           - { parent: "{{ zfs_pool }}{{ system_home_dir }}", stem: "{{ admin_user_and_group_name }}",
-              mnt: "{{ system_home_dir }}/{{ admin_user_and_group_name }}", mnt_inh: true,
+              mnt: "{{ admin_user_home_dir }}", mnt_inh: true,
               owner: "{{ admin_user_and_group_name }}", group: "{{ admin_user_and_group_name }}", mode: "710",
               enc: "{{ admin_user_password_for_zfs_homedir_dataset }}", nfs: false }
         admin_home_subdir_datasets: >-
