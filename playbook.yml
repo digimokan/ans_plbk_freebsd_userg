@@ -67,10 +67,6 @@
     admin_user_musicpd_db_file_path: "{{ admin_user_music_dir }}/mpd_database"
     admin_user_musicpd_playlists_dir: "{{ admin_user_music_dir }}/MPD Playlists"
   tasks:
-    - name: "Define a list of LAN hosts (names, addresses, etc)"
-      ansible.builtin.include_role:
-        name: ans_vars_lan_hosts
-        public: true
     - name: "Configure the machine's hostname"
       ansible.builtin.include_role:
         name: ans_role_config_hostname
@@ -278,15 +274,6 @@
     #     nfs_client_nfs_shares_owner: "{{ admin_user_and_group_name }}"
     #     nfs_client_nfs_shares_group: "{{ admin_user_and_group_name }}"
     #     nfs_client_nfs_shares_permissions: 755
-    - name: "Install and configure the autofs automatic device/NFS-mounting utility"
-      ansible.builtin.include_role:
-        name: ans_role_config_autofs
-        public: true
-      vars:
-        autofs_mount_nfs_share_cmd: "{{ nfs_client_mount_nfs_share }}"
-        autofs_enable_auto_device_mounting: false
-        autofs_enable_auto_nfs_share_mounting: false
-        autofs_nfs_share_mount_dir: "/nfs"
     - name: "Install and configure the udisks device-mounting utility"
       ansible.builtin.include_role:
         name: ans_role_config_udisks
@@ -638,10 +625,7 @@
         yazi_start_term_emulator: "{{ wezterm_main_cmd }}"
         yazi_term_arg_set_dir: "{{ wezterm_arg_starting_dir }}"
         yazi_term_arg_exec: "{{ wezterm_arg_exec }}"
-        yazi_fileserver_ip_addr: >-
-          {{ ans_vars_lan_host_list | selectattr('hostname', 'equalto',
-          'fileserver0.machine') | map(attribute='addr') | first }}
-        yazi_fileserver_dir: "{{ autofs_nfs_share_mount_dir }}/{{ yazi_fileserver_ip_addr }}"
+        yazi_fileserver_dir: "{{ nfs_share_mount_dir }}"
         yazi_gnu_coreutils_mv_cmd: "{{ gnu_coreutils_mv_cmd }}"
         yazi_open_text_files_with_console: [ "{{ neovim_main_cmd }}" ]
         yazi_open_text_files_with_gui: [ "{{ libreoffice_main_cmd }}" ]

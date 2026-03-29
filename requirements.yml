@@ -2,7 +2,6 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_adwaita_icon_theme
   - src: https://github.com/digimokan/ans_role_config_atril
   - src: https://github.com/digimokan/ans_role_config_audacity
-  - src: https://github.com/digimokan/ans_role_config_autofs
   - src: https://github.com/digimokan/ans_role_config_automatic_printing
   - src: https://github.com/digimokan/ans_role_config_automatic_scanning
   - src: https://github.com/digimokan/ans_role_config_avahi
@@ -83,7 +82,6 @@ roles:
   - src: https://github.com/digimokan/ans_role_config_zfs_datasets
   - src: https://github.com/digimokan/ans_role_config_zfs_hw
   - src: https://github.com/digimokan/ans_vars_browser_search_providers
-  - src: https://github.com/digimokan/ans_vars_lan_hosts
   - src: https://github.com/digimokan/ans_vars_lan_nfs_shares
   - src: https://github.com/digimokan/ans_vars_tailscale_auth
   - src: https://github.com/digimokan/ans_vars_terminal_colors
