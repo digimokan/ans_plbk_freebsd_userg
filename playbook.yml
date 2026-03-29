@@ -285,7 +285,7 @@
       vars:
         autofs_mount_nfs_share_cmd: "{{ nfs_client_mount_nfs_share }}"
         autofs_enable_auto_device_mounting: false
-        autofs_enable_auto_nfs_share_mounting: true
+        autofs_enable_auto_nfs_share_mounting: false
         autofs_nfs_share_mount_dir: "/nfs"
     - name: "Install and configure the udisks device-mounting utility"
       ansible.builtin.include_role:
